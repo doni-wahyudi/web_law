@@ -1,0 +1,216 @@
+.bantuan-banner {
+  background: linear-gradient(135deg, rgba(0, 109, 78, 0.4) 0%, rgba(0, 77, 55, 0.6) 100%),
+              url('../assets/hero_subtle_law_bg.png') center/cover no-repeat;
+  padding: 140px 0 80px;
+  position: relative;
+  overflow: hidden;
+  color: var(--color-white);
+}
+
+.assistance-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.bantuan-banner__content {
+  max-width: 700px;
+}
+
+.bantuan-banner__content .narration {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--color-white);
+  text-transform: capitalize;
+}
+
+.bantuan-banner__content .explanation {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+
+.bantuan-banner__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+}
+
+.bantuan-banner__cta:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+}
+
+.bantuan-banner__image-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.bantuan-banner__img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+/* ===== Services Section ===== */
+.bantuan-services {
+  padding: 80px 0;
+  background: #f8fbf9;
+}
+
+.bantuan-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.bantuan-services__card {
+  background: var(--color-white);
+  padding: 28px 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.bantuan-services__card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0, 109, 78, 0.15);
+}
+
+.bantuan-services__card.card--centered {
+  grid-column: 2;
+}
+
+/* Icon container */
+.bantuan-services__left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(0, 109, 78, 0.1) 0%, rgba(0, 109, 78, 0.05) 100%);
+  border-radius: 50%;
+}
+
+.product-icon {
+  font-size: 1.6rem;
+  color: var(--color-primary);
+}
+
+.bantuan-services__card:hover .bantuan-services__left {
+  background: var(--color-primary);
+}
+
+.bantuan-services__card:hover .product-icon {
+  color: var(--color-white);
+}
+
+.bantuan-services__right {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.bantuan-services__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.bantuan-services__desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.bantuan-services__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: var(--color-white);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  transition: all var(--transition-normal);
+  width: fit-content;
+}
+
+.bantuan-services__btn:hover {
+  background: #128c7e;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .bantuan-services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bantuan-services__card.card--centered {
+    grid-column: 1 / -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 968px) {
+  .assistance-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .bantuan-banner__content {
+    margin: 0 auto;
+  }
+
+  .bantuan-banner__content .narration {
+    font-size: 2rem;
+  }
+
+  .bantuan-banner__img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bantuan-services__grid {
+    grid-template-columns: 1fr;
+  }
+  .bantuan-services__card {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .bantuan-services__card.card--centered {
+    grid-column: auto;
+    max-width: none;
+  }
+}
