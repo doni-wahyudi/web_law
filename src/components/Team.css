@@ -71,6 +71,10 @@
   font-weight: 600;
   color: var(--color-dark);
   margin-bottom: 6px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .team__role {
