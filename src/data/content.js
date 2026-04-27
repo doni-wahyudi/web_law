@@ -69,7 +69,7 @@ export const teamMembers = [
     about: 'Agung Pratama telah membantu ratusan klien dengan pendekatan yang solutif, tegas, dan mengedepankan kepentingan terbaik dari klien.'
   },
   {
-    name: 'Nico Thomas, S.H.',
+    name: 'Nico Thomas, S.H., M.H.',
     role: 'Advokat & Konsultan Hukum',
     image: team2,
     objectPosition: 'center 100%',
@@ -87,10 +87,10 @@ export const teamMembers = [
       'Perceraian & Pertanahan',
       'Pendirian Badan Hukum (PT/CV)'
     ],
-    about: 'Nico Thomas, S.H. menghadirkan analisis tajam secara transparan. Setiap langkah hukum dibimbing agar klien membuat keputusan tepat.'
+    about: 'Nico Thomas, S.H., M.H. menghadirkan analisis tajam secara transparan. Setiap langkah hukum dibimbing agar klien membuat keputusan tepat.'
   },
   {
-    name: 'Rizky Dwi Utami, S.H., M.H.',
+    name: 'Rizky Dwi Utami, S.H., M.H., C.Med.',
     role: 'Dosen & Konsultan Hukum',
     image: team3,
     objectPosition: 'center 0%',
@@ -108,7 +108,7 @@ export const teamMembers = [
       'Pembuatan Kontrak Kerja',
       'Peraturan Perusahaan'
     ],
-    about: 'Rizky Dwi Utami berfokus menyederhanakan masalah hukum yang kompleks menjadi solusi preventif demi perlindungan arah bisnis Anda.'
+    about: 'Rizky Dwi Utami, S.H., M.H., C.Med. berfokus menyederhanakan masalah hukum yang kompleks menjadi solusi preventif demi perlindungan arah bisnis Anda.'
   },
   {
     name: 'ISWAHYUDI RZ, S.Sy., M.H.',
