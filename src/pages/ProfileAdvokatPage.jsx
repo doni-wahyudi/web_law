@@ -1,4 +1,4 @@
-import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { teamMembers } from '../data/content';
 import './ProfileAdvokat.css';
 
@@ -65,6 +65,7 @@ function ProfileAdvokatPage() {
                     </div>
                   </div>
                   <div className="profiles__actions">
+                    <a href={profile.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="profiles__link profiles__link--whatsapp"><FaWhatsapp /> WhatsApp</a>
                     <a href="#" className="profiles__link"><FaEnvelope /> Email</a>
                     <a href="#" className="profiles__link"><FaLinkedin /> LinkedIn</a>
                   </div>

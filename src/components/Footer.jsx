@@ -45,7 +45,7 @@ function Footer() {
             </li>
             <li>
               <FaWhatsapp />
-              <a href={siteConfig.whatsappLink} target="_blank" rel="noopener noreferrer">
+              <a href={`https://wa.me/6281368936945?text=${encodeURIComponent('Halo TanyaAdvokat, saya memerlukan bantuan hukum.')}`} target="_blank" rel="noopener noreferrer">
                 {siteConfig.phone}
               </a>
             </li>

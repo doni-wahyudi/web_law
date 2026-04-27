@@ -11,6 +11,8 @@
 }
 
 .pricing__card {
+  display: flex;
+  flex-direction: column;
   background: var(--color-white);
   border-radius: var(--radius-lg);
   padding: 36px 28px;
@@ -54,6 +56,10 @@
   font-weight: 600;
   color: var(--color-dark);
   margin-bottom: 20px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pricing__price {
@@ -75,6 +81,7 @@
 .pricing__features {
   text-align: left;
   margin-bottom: 28px;
+  flex-grow: 1;
 }
 
 .pricing__features li {
@@ -100,6 +107,7 @@
 .pricing__cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 12px 28px;
   border-radius: 50px;
@@ -109,6 +117,8 @@
   background: transparent;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
+  margin-top: auto;
+  align-self: center;
 }
 
 .pricing__cta:hover {

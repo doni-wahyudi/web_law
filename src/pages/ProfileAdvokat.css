@@ -146,6 +146,17 @@
   color: var(--color-white);
 }
 
+.profiles__link--whatsapp {
+  background: #25d366;
+  color: var(--color-white);
+  border-color: #25d366;
+}
+
+.profiles__link--whatsapp:hover {
+  background: #128c7e;
+  border-color: #128c7e;
+}
+
 /* Responsive */
 @media (max-width: 968px) {
   .profiles__details {

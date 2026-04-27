@@ -1,4 +1,5 @@
 import { FaCalendarAlt, FaTag, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { blogPosts } from '../data/content';
 import './Blog.css';
 
@@ -38,9 +39,9 @@ function BlogPage() {
                   </div>
                   <h3 className="blog__title">{post.title}</h3>
                   <p className="blog__excerpt">{post.excerpt}</p>
-                  <a href="#" className="blog__read-more">
+                  <Link to={`/blog/${post.id}`} className="blog__read-more">
                     Baca Selengkapnya <FaArrowRight />
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}

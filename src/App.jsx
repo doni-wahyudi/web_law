@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import BiayaLayananPage from './pages/BiayaLayananPage';
 import ProfileAdvokatPage from './pages/ProfileAdvokatPage';
 import BlogPage from './pages/BlogPage';
+import BlogDetailPage from './pages/BlogDetailPage';
 import DokumentasiPage from './pages/DokumentasiPage';
 import UmkmGoPage from './pages/UmkmGoPage';
 import PeraturanPage from './pages/PeraturanPage';
@@ -29,6 +30,7 @@ function App() {
           <Route path="/biaya-layanan" element={<BiayaLayananPage />} />
           <Route path="/profile-advokat" element={<ProfileAdvokatPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:id" element={<BlogDetailPage />} />
           <Route path="/dokumentasi" element={<DokumentasiPage />} />
           <Route path="/umkm-go" element={<UmkmGoPage />} />
           <Route path="/peraturan-hukum" element={<PeraturanPage />} />

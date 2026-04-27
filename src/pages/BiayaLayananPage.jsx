@@ -39,7 +39,7 @@ function BiayaLayananPage() {
                   ))}
                 </ul>
                 <a
-                  href={siteConfig.whatsappLink}
+                  href={`https://wa.me/6281368936945?text=${encodeURIComponent(`Halo TanyaAdvokat, saya tertarik untuk memilih paket ${plan.title}`)}`}
                   className={`pricing__cta ${plan.popular ? 'pricing__cta--primary' : ''}`}
                   target="_blank"
                   rel="noopener noreferrer"

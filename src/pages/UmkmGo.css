@@ -89,7 +89,7 @@
   transition: all var(--transition-normal);
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 18px;
 }
 
@@ -113,6 +113,7 @@
   height: 60px;
   background: linear-gradient(135deg, rgba(0, 109, 78, 0.1) 0%, rgba(0, 109, 78, 0.05) 100%);
   border-radius: 50%;
+  align-self: flex-start;
 }
 
 .product-icon {
@@ -162,6 +163,7 @@
   font-size: 0.82rem;
   transition: all var(--transition-normal);
   width: fit-content;
+  margin-top: auto;
 }
 
 .bantuan-services__btn:hover {

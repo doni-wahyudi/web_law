@@ -55,7 +55,7 @@ export const teamMembers = [
     objectPosition: 'center top',
     socials: {
       linkedin: 'https://www.linkedin.com/in/agungpratama403/',
-      whatsapp: 'https://wa.me/6281368936945',
+      whatsapp: 'https://wa.me/6281368936945?text=Halo%20Agung%20Pratama%2C%20S.H.%2C%20saya%20ingin%20berkonsultasi%20mengenai%20masalah%20hukum.',
     },
     location: 'Jakarta',
     organization: 'Peradi',
@@ -76,7 +76,7 @@ export const teamMembers = [
     objectPosition: 'center 100%',
     socials: {
       linkedin: 'https://www.linkedin.com/in/nico-thomas-253095114/',
-      whatsapp: 'https://wa.me/6281368936945',
+      whatsapp: 'https://wa.me/6281368936945?text=Halo%20Nico%20Thomas%2C%20S.H.%2C%20M.H.%2C%20saya%20ingin%20berkonsultasi%20mengenai%20masalah%20hukum.',
     },
     location: 'Palembang & Lampung',
     organization: 'Peradi',
@@ -97,7 +97,7 @@ export const teamMembers = [
     objectPosition: 'center 0%',
     socials: {
       linkedin: 'https://www.linkedin.com/in/rizky-dwi-utami-s-h-m-h-728445117/',
-      whatsapp: 'https://wa.me/6281368936945',
+      whatsapp: 'https://wa.me/6281368936945?text=Halo%20Rizky%20Dwi%20Utami%2C%20S.H.%2C%20M.H.%2C%20C.Med.%2C%20saya%20ingin%20berkonsultasi%20mengenai%20masalah%20hukum.',
     },
     location: 'Bogor',
     organization: 'Peradi',
@@ -118,7 +118,7 @@ export const teamMembers = [
     objectPosition: 'center top',
     socials: {
       linkedin: '#',
-      whatsapp: 'https://wa.me/6281368936945',
+      whatsapp: 'https://wa.me/6281368936945?text=Halo%20ISWAHYUDI%20RZ%2C%20S.Sy.%2C%20M.H.%2C%20saya%20ingin%20berkonsultasi%20mengenai%20masalah%20hukum.',
     },
     location: 'Bekasi & Jakarta',
     organization: 'Peradi',
@@ -302,6 +302,11 @@ export const blogPosts = [
     date: '15 April 2026',
     category: 'Perceraian',
     image: article1,
+    content: `
+      <p>Perceraian adalah sebuah proses hukum yang kompleks dan seringkali menguras emosi. Namun, jika Anda dan pasangan telah sepakat untuk mengakhiri ikatan pernikahan, penting untuk memahami prosedur yang harus dilalui di Pengadilan Agama (bagi yang beragama Islam) atau Pengadilan Negeri (bagi non-Muslim).</p>
+      <p>Langkah pertama yang harus dilakukan adalah mempersiapkan dokumen-dokumen persyaratan. Ini meliputi buku nikah asli, fotokopi KTP, fotokopi Kartu Keluarga, dan surat keterangan domisili jika alamat Anda berbeda dengan KTP. Selain itu, Anda perlu menyusun surat gugatan yang memuat alasan-alasan mengapa perceraian tersebut diajukan.</p>
+      <p>Setelah dokumen siap, Anda dapat mendaftarkannya ke Pengadilan yang berwenang di wilayah tempat tinggal istri. Setelah pendaftaran diterima, pengadilan akan menjadwalkan sidang pertama yang biasanya merupakan sidang mediasi. Sangat disarankan untuk didampingi oleh seorang advokat atau konsultan hukum yang berpengalaman agar proses persidangan berjalan lancar dan hak-hak Anda, seperti hak asuh anak dan pembagian harta gana-gini, dapat diperjuangkan dengan maksimal.</p>
+    `
   },
   {
     id: 2,
@@ -310,6 +315,11 @@ export const blogPosts = [
     date: '10 April 2026',
     category: 'Waris',
     image: article2,
+    content: `
+      <p>Pembagian harta warisan seringkali menjadi pemicu perselisihan dalam keluarga jika tidak dilakukan sesuai dengan ketentuan hukum yang berlaku. Di Indonesia, terdapat beberapa sistem pewarisan, yaitu hukum waris perdata (Barat), hukum waris Islam, dan hukum waris adat. Pilihan sistem ini sangat bergantung pada agama dan kebiasaan pewaris semasa hidup.</p>
+      <p>Dalam Hukum Waris Islam (Kompilasi Hukum Islam), anak laki-laki dan anak perempuan memiliki porsi yang berbeda, di mana anak laki-laki menerima bagian dua kali lipat dari anak perempuan. Hal ini didasarkan pada prinsip tanggung jawab nafkah yang diemban oleh laki-laki. Namun, hal ini tidak mutlak, para ahli waris dapat bersepakat untuk membagi rata (islah) jika semua pihak rida.</p>
+      <p>Sementara itu, menurut Kitab Undang-Undang Hukum Perdata (KUHPerdata), semua anak sah, baik laki-laki maupun perempuan, memiliki hak dan porsi yang sama atas peninggalan orang tuanya. Penting bagi keluarga untuk segera mengurus Surat Keterangan Ahli Waris (SKW) setelah pewaris meninggal dunia guna menghindari sengketa dan mempermudah proses peralihan hak, seperti balik nama sertifikat tanah atau pencairan dana perbankan.</p>
+    `
   },
   {
     id: 3,
@@ -318,6 +328,11 @@ export const blogPosts = [
     date: '5 April 2026',
     category: 'Bisnis',
     image: article3,
+    content: `
+      <p>Dalam dunia bisnis, kesepakatan lisan saja tidak cukup. Sebuah kontrak bisnis tertulis adalah instrumen utama yang berfungsi sebagai pedoman sekaligus pelindung bagi pihak-pihak yang bertransaksi. Kontrak yang disusun dengan baik akan meminimalisir potensi sengketa dan kerugian di masa depan.</p>
+      <p>Ada beberapa elemen krusial yang wajib ada dalam sebuah kontrak bisnis. Pertama, identitas para pihak harus jelas dan lengkap, disertai kewenangan bertindak dari masing-masing pihak. Kedua, ruang lingkup pekerjaan atau objek perjanjian harus diuraikan secara spesifik, detail, dan tidak ambigu. Ketiga, nilai transaksi dan skema pembayaran harus dijabarkan dengan tenggat waktu yang mengikat.</p>
+      <p>Hal yang paling sering diabaikan namun sangat vital adalah klausul pengakhiran perjanjian dan penyelesaian sengketa. Jangan lupa mengatur kondisi *Force Majeure* (keadaan kahar) serta pilihan hukum (jurisdiksi) yang akan digunakan jika terjadi wanprestasi. Menggunakan jasa *Legal Drafting* dari konsultan hukum sangat disarankan agar setiap klausul dapat dipastikan sah dan melindungi hak bisnis Anda.</p>
+    `
   },
   {
     id: 4,
@@ -326,6 +341,11 @@ export const blogPosts = [
     date: '1 April 2026',
     category: 'Pertanahan',
     image: article4,
+    content: `
+      <p>Sertifikat tanah adalah bukti kepemilikan yang sah secara hukum dan memberikan kepastian hak atas tanah. Bagi Anda yang masih memiliki tanah dengan status girik, petuk, atau belum bersertifikat, sangat disarankan untuk segera mengurusnya ke Kantor Badan Pertanahan Nasional (BPN) setempat.</p>
+      <p>Prosedur pengurusan sertifikat tanah dimulai dengan menyiapkan dokumen pendukung seperti fotokopi KTP, KK, bukti bayar PBB tahun berjalan, dan dokumen asli riwayat tanah (seperti Akta Jual Beli, Akta Hibah, atau Surat Keterangan Waris). Setelah dokumen lengkap, Anda perlu mendatangi loket BPN dan mengisi formulir pendaftaran.</p>
+      <p>Tahap selanjutnya adalah proses pengukuran tanah oleh petugas BPN yang disaksikan oleh pemilik dan tetangga yang berbatasan langsung. Setelah pengukuran selesai, akan diterbitkan Surat Ukur dan proses pengesahan Panitia A. Pengumuman data fisik dan yuridis akan dipublikasikan selama beberapa waktu sebelum akhirnya sertifikat resmi diterbitkan. Pastikan Anda melalui jalur resmi BPN atau menggunakan jasa Notaris/PPAT yang terpercaya untuk menghindari praktik penipuan.</p>
+    `
   },
   {
     id: 5,
@@ -334,6 +354,11 @@ export const blogPosts = [
     date: '28 Maret 2026',
     category: 'Ketenagakerjaan',
     image: article5,
+    content: `
+      <p>Pemutusan Hubungan Kerja (PHK) adalah momen krisis yang tidak diharapkan oleh pekerja manapun. Namun, hukum ketenagakerjaan di Indonesia telah mengatur secara ketat prosedur dan hak-hak yang harus diberikan oleh pengusaha kepada pekerja yang terkena PHK guna memastikan pelindungan finansial dan keadilan.</p>
+      <p>Apabila terjadi PHK, hak utama yang wajib Anda terima adalah Uang Pesangon (UP), Uang Penghargaan Masa Kerja (UPMK), dan Uang Penggantian Hak (UPH). Besaran UP dan UPMK sangat bergantung pada lamanya Anda bekerja di perusahaan tersebut, sedangkan UPH mencakup hak cuti tahunan yang belum diambil dan biaya transportasi pulang (jika ada).</p>
+      <p>Perlu diingat bahwa perusahaan tidak boleh melakukan PHK secara sepihak tanpa alasan yang sah dan melalui mekanisme yang diatur dalam undang-undang, seperti musyawarah bipartit. Jika Anda merasa PHK dilakukan secara sewenang-wenang atau pesangon yang dibayarkan tidak sesuai dengan aturan, Anda berhak mengajukan perselisihan hubungan industrial melalui Dinas Tenaga Kerja setempat atau Pengadilan Hubungan Industrial.</p>
+    `
   },
   {
     id: 6,
@@ -342,6 +367,11 @@ export const blogPosts = [
     date: '20 Maret 2026',
     category: 'UMKM',
     image: article6,
+    content: `
+      <p>Mengubah status usaha mikro, kecil, dan menengah (UMKM) menjadi sebuah Perseroan Terbatas (PT) adalah langkah strategis untuk memperluas jangkauan bisnis, melindungi aset pribadi, dan mempermudah akses pembiayaan perbankan. Kini, dengan adanya kebijakan kemudahan berusaha, pendirian PT untuk UMKM (dikenal sebagai PT Perorangan) menjadi jauh lebih cepat dan murah.</p>
+      <p>PT Perorangan dapat didirikan hanya oleh 1 (satu) orang sebagai pemegang saham sekaligus direktur, tanpa memerlukan modal dasar minimum yang ditetapkan (modal ditentukan berdasarkan keputusan pendiri). Syarat utamanya adalah pendiri haruslah Warga Negara Indonesia (WNI), berusia minimal 17 tahun, dan cakap hukum. Berbeda dengan PT Biasa, PT Perorangan tidak memerlukan akta notaris, melainkan cukup mengisi Surat Pernyataan Pendirian secara elektronik melalui sistem AHU Online Kementerian Hukum dan HAM.</p>
+      <p>Meskipun prosesnya mudah, entitas PT Perorangan tetap memiliki perlindungan hukum yang kuat, yakni pemisahan harta kekayaan antara pemilik dan perusahaan. Hal ini berarti tanggung jawab pendiri terbatas pada modal yang disetor. Namun, kewajiban perpajakan dan pelaporan laporan keuangan harus tetap dijalankan secara tertib untuk menjaga legalitas dan keberlangsungan bisnis Anda ke depannya.</p>
+    `
   },
 ];
 

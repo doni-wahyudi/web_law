@@ -28,7 +28,7 @@ function Hero() {
           </div>
 
           <a
-            href={siteConfig.whatsappLink}
+            href={`https://wa.me/6281368936945?text=${encodeURIComponent('Halo TanyaAdvokat, saya ingin berkonsultasi mengenai masalah hukum saya.')}`}
             className="hero__cta"
             target="_blank"
             rel="noopener noreferrer"

@@ -58,7 +58,7 @@ function Header() {
           ))}
 
           <a
-            href="https://wa.me/6281368936945"
+            href={`https://wa.me/6281368936945?text=${encodeURIComponent('Halo TanyaAdvokat, saya ingin berkonsultasi mengenai masalah hukum.')}`}
             className="header__cta"
             target="_blank"
             rel="noopener noreferrer"
