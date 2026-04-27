@@ -1,7 +1,7 @@
 import logo from '../assets/tanyaadvokat.id_logo.png';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes, FaHome, FaMoneyBillWave, FaUserTie, FaLightbulb, FaFolder, FaGavel } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHome, FaMoneyBillWave, FaUserTie, FaLightbulb, FaFolder, FaGavel, FaBook } from 'react-icons/fa';
 import { navLinks } from '../data/content';
 import './Header.css';
 
@@ -13,6 +13,7 @@ const getIcon = (label) => {
     case 'tips advokat': return <FaLightbulb className="nav-icon" />;
     case 'dokumentasi': return <FaFolder className="nav-icon" />;
     case 'bantuan hukum': return <FaGavel className="nav-icon" />;
+    case 'peraturan hukum': return <FaBook className="nav-icon" />;
     default: return null;
   }
 };

@@ -1,0 +1,245 @@
+.peraturan-hukum {
+  padding: var(--section-padding);
+  background: var(--color-gray-bg);
+  min-height: 60vh;
+}
+
+.peraturan__controls {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.peraturan__search {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.peraturan__search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+}
+
+.peraturan__search input {
+  width: 100%;
+  padding: 16px 20px 16px 50px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.peraturan__search input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgba(0, 109, 78, 0.15);
+}
+
+.peraturan__filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.peraturan__filter-btn {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.peraturan__filter-btn:hover {
+  background: var(--color-gray-bg);
+}
+
+.peraturan__filter-btn.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.peraturan__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.peraturan__card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.peraturan__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-primary);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.peraturan__card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.peraturan__card:hover::before {
+  opacity: 1;
+}
+
+.peraturan__card-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 109, 78, 0.1);
+  color: var(--color-primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.peraturan__card-content {
+  flex-grow: 1;
+}
+
+.peraturan__badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: rgba(255, 140, 0, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.peraturan__year {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: rgba(0, 109, 78, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.peraturan__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.peraturan__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.peraturan__card-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.peraturan__download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  background: var(--color-white);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.peraturan__download-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.peraturan__empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.peraturan__empty-icon {
+  font-size: 4rem;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.peraturan__empty h3 {
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  margin-bottom: 10px;
+}
+
+.peraturan__empty p {
+  color: var(--color-text-light);
+  margin-bottom: 24px;
+}
+
+.peraturan__reset-btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.peraturan__reset-btn:hover {
+  background: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+  .peraturan__controls {
+    margin-bottom: 30px;
+  }
+  
+  .peraturan__grid {
+    grid-template-columns: 1fr;
+  }
+}

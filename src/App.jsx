@@ -8,6 +8,7 @@ import ProfileAdvokatPage from './pages/ProfileAdvokatPage';
 import BlogPage from './pages/BlogPage';
 import DokumentasiPage from './pages/DokumentasiPage';
 import UmkmGoPage from './pages/UmkmGoPage';
+import PeraturanPage from './pages/PeraturanPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/dokumentasi" element={<DokumentasiPage />} />
           <Route path="/umkm-go" element={<UmkmGoPage />} />
+          <Route path="/peraturan-hukum" element={<PeraturanPage />} />
         </Routes>
       </main>
       <Footer />

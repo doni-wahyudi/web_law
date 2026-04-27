@@ -5,7 +5,7 @@
 
 .profiles__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 30px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .profiles__photo {
-  width: 220px;
+  width: 280px;
   min-height: 320px;
   flex-shrink: 0;
 }
@@ -99,9 +99,9 @@
 
 .profiles__details {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
 }
 
 .profiles__detail {
@@ -148,8 +148,8 @@
 
 /* Responsive */
 @media (max-width: 968px) {
-  .profiles__grid {
-    grid-template-columns: 1fr;
+  .profiles__details {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -162,5 +162,9 @@
     width: 100%;
     min-height: 200px;
     height: 200px;
+  }
+  
+  .profiles__details {
+    grid-template-columns: 1fr;
   }
 }

@@ -24,6 +24,7 @@ export const navLinks = [
   { label: 'Tips Advokat', path: '/blog' },
   { label: 'Dokumentasi', path: '/dokumentasi' },
   { label: 'Bantuan Hukum', path: '/umkm-go' },
+  { label: 'Peraturan Hukum', path: '/peraturan-hukum' },
 ];
 
 
@@ -216,6 +217,16 @@ export const testimonials = [
     role: 'Petani',
     text: 'Masalah sengketa tanah saya akhirnya terselesaikan berkat bantuan tim TanyaAdvokat. Sangat direkomendasikan!',
   },
+  {
+    name: 'Budi Santoso',
+    role: 'PNS',
+    text: 'Sangat terbantu dalam pengurusan dokumen warisan yang rumit. Penjelasannya mudah dipahami bagi orang awam.',
+  },
+  {
+    name: 'Dewi Lestari',
+    role: 'Pemilik UMKM',
+    text: 'Layanan legalitas PT UMKM yang sangat transparan dan cepat. Kini bisnis saya memiliki payung hukum resmi.',
+  },
 ];
 
 export const partners = [
@@ -345,4 +356,39 @@ export const dokumentasiItems = [
   { title: 'Pelatihan Hukum Pertanahan', category: 'Workshop' },
   { title: 'Talkshow Hukum Indonesia', category: 'Seminar' },
   { title: 'Bantuan Hukum Masyarakat', category: 'Kegiatan Sosial' },
+];
+
+export const peraturanHukum = [
+  {
+    id: 'uud-1945',
+    title: 'Undang-Undang Dasar Negara Republik Indonesia Tahun 1945',
+    category: 'Konstitusi',
+    year: '1945',
+    description: 'Konstitusi dan sumber hukum tertinggi yang berlaku di Republik Indonesia.',
+    file: '/documents/UUD_1945.pdf'
+  },
+  {
+    id: 'kuhp-2023',
+    title: 'Kitab Undang-Undang Hukum Pidana (KUHP)',
+    category: 'Pidana',
+    year: '2023',
+    description: 'Undang-Undang Nomor 1 Tahun 2023 tentang Kitab Undang-Undang Hukum Pidana.',
+    file: '/documents/KUHP_UU_1_2023.pdf'
+  },
+  {
+    id: 'uu-ketenagakerjaan-2003',
+    title: 'Undang-Undang Ketenagakerjaan',
+    category: 'Ketenagakerjaan',
+    year: '2003',
+    description: 'Undang-Undang Nomor 13 Tahun 2003 tentang Ketenagakerjaan.',
+    file: '/documents/UU_Ketenagakerjaan_13_2003.pdf'
+  },
+  {
+    id: 'uu-ite-2008',
+    title: 'Undang-Undang ITE',
+    category: 'Teknologi & Informasi',
+    year: '2008',
+    description: 'Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik.',
+    file: '/documents/UU_ITE_11_2008.pdf'
+  }
 ];

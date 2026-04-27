@@ -3,10 +3,8 @@
   background: var(--color-gray-bg);
 }
 
-.testimonials__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+.testimonials__slider {
+  padding-bottom: 40px;
 }
 
 .testimonials__card {
@@ -17,6 +15,13 @@
   transition: all var(--transition-normal);
   animation: fadeInUp 0.5s ease both;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.testimonials__slider .swiper-slide {
+  height: auto;
 }
 
 .testimonials__card:hover {
@@ -37,6 +42,7 @@
   line-height: 1.8;
   margin-bottom: 24px;
   font-style: italic;
+  flex-grow: 1;
 }
 
 .testimonials__author {
@@ -69,9 +75,59 @@
   color: var(--color-text-light);
 }
 
-/* Responsive */
+.testimonials__slider-wrapper {
+  position: relative;
+  padding: 0 60px; /* Space for arrows on the sides */
+  margin-top: 40px;
+}
+
+.testimonials__nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 109, 78, 0.2);
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.testimonials__nav-prev {
+  left: 0;
+}
+
+.testimonials__nav-next {
+  right: 0;
+}
+
+.testimonials__nav-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(0, 109, 78, 0.2);
+}
+
+.testimonials__nav-btn:hover.testimonials__nav-prev {
+  transform: translateY(-50%) translateX(-2px);
+}
+
+.testimonials__nav-btn:hover.testimonials__nav-next {
+  transform: translateY(-50%) translateX(2px);
+}
+
 @media (max-width: 768px) {
-  .testimonials__grid {
-    grid-template-columns: 1fr;
+  .testimonials__slider-wrapper {
+    padding: 0; /* Remove padding on mobile */
+  }
+  .testimonials__nav-btn {
+    display: none; /* Hide arrows on mobile for better space */
   }
 }
