@@ -46,6 +46,16 @@ import article4 from '../assets/article_4_pertanahan.png';
 import article5 from '../assets/article_5_phk.png';
 import article6 from '../assets/article_6_umkm.png';
 
+import partner2 from '../assets/partner/2-1024x576.png';
+import partner3 from '../assets/partner/3-1024x576.png';
+import partner4 from '../assets/partner/4-1024x576.png';
+import partner5 from '../assets/partner/5-1024x576.png';
+import partner6 from '../assets/partner/6-1024x576.png';
+import partner7 from '../assets/partner/7-1024x576.png';
+import partner8 from '../assets/partner/8-1024x576.png';
+import partner9 from '../assets/partner/9-1024x576.png';
+import partner10 from '../assets/partner/10-1024x576.png';
+
 
 export const teamMembers = [
   {
@@ -261,12 +271,15 @@ export const testimonials = [
 ];
 
 export const partners = [
-  'Mitra Hukum Indonesia',
-  'Asosiasi Advokat Indonesia',
-  'Legal Aid Foundation',
-  'Perhimpunan Advokat',
-  'Ikatan Notaris Indonesia',
-  'Pusat Bantuan Hukum',
+  { name: 'Partner 2', logo: partner2 },
+  { name: 'Partner 3', logo: partner3 },
+  { name: 'Partner 4', logo: partner4 },
+  { name: 'Partner 5', logo: partner5 },
+  { name: 'Partner 6', logo: partner6 },
+  { name: 'Partner 7', logo: partner7 },
+  { name: 'Partner 8', logo: partner8 },
+  { name: 'Partner 9', logo: partner9 },
+  { name: 'Partner 10', logo: partner10 },
 ];
 
 export const pricingPlans = [

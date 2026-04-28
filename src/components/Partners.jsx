@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import { partners } from '../data/content';
 import 'swiper/css';
+import 'swiper/css/navigation';
 import './Partners.css';
 
 function Partners() {
@@ -15,9 +16,10 @@ function Partners() {
 
         <div className="partners__carousel">
           <Swiper
-            modules={[Autoplay]}
+            modules={[Autoplay, Navigation]}
             spaceBetween={30}
             slidesPerView={4}
+            navigation={true}
             loop={true}
             autoplay={{
               delay: 2500,
@@ -33,9 +35,7 @@ function Partners() {
             {partners.map((partner, index) => (
               <SwiperSlide key={index}>
                 <div className="partners__item">
-                  <div className="partners__logo-placeholder">
-                    <span className="partners__logo-text">{partner}</span>
-                  </div>
+                  <img src={partner.logo} alt={partner.name} className="partners__logo-img" />
                 </div>
               </SwiperSlide>
             ))}
