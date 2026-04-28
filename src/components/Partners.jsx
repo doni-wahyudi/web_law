@@ -17,7 +17,7 @@ function Partners() {
         <div className="partners__carousel">
           <Swiper
             modules={[Autoplay, Navigation]}
-            spaceBetween={30}
+            spaceBetween={5}
             slidesPerView={4}
             navigation={true}
             loop={true}
@@ -29,7 +29,7 @@ function Partners() {
               0: { slidesPerView: 2 },
               580: { slidesPerView: 3 },
               768: { slidesPerView: 4 },
-              1024: { slidesPerView: 5 },
+              1024: { slidesPerView: 4 },
             }}
           >
             {partners.map((partner, index) => (
