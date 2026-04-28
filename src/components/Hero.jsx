@@ -4,9 +4,9 @@ import heroImg3 from '../assets/hero_3.jpeg';
 import { FaWhatsapp } from 'react-icons/fa';
 import { heroStats, siteConfig } from '../data/content';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/effect-fade';
+import 'swiper/css/pagination';
 import './Hero.css';
 
 function Hero() {
@@ -46,10 +46,11 @@ function Hero() {
 
         <div className="hero__image-container">
           <Swiper
-            modules={[Autoplay]}
+            modules={[Autoplay, Pagination]}
             spaceBetween={0}
             slidesPerView={1}
             loop={true}
+            pagination={{ clickable: true }}
             autoplay={{
               delay: 3500,
               disableOnInteraction: false,
