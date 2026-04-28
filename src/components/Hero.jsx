@@ -1,6 +1,12 @@
 import heroImg from '../assets/hero.png';
+import heroImg2 from '../assets/hero_2.jpeg';
+import heroImg3 from '../assets/hero_3.jpeg';
 import { FaWhatsapp } from 'react-icons/fa';
 import { heroStats, siteConfig } from '../data/content';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
 import './Hero.css';
 
 function Hero() {
@@ -39,7 +45,27 @@ function Hero() {
         </div>
 
         <div className="hero__image-container">
-          <img src={heroImg} alt="Tim TanyaAdvokat" className="hero__main-img" />
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={0}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
+            className="hero__slider"
+          >
+            <SwiperSlide>
+              <img src={heroImg} alt="Tim TanyaAdvokat" className="hero__main-img" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={heroImg2} alt="Tim TanyaAdvokat" className="hero__main-img" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={heroImg3} alt="Tim TanyaAdvokat" className="hero__main-img" />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
 

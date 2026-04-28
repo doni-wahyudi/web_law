@@ -6,10 +6,10 @@ function Team() {
   return (
     <section className="team" id="team">
       <div className="container">
-        <h2 className="section-title">Tim Mitra TanyaAdvokat</h2>
+        <h2 className="section-title">Tim Mitra <span style={{ color: 'var(--color-accent)' }}>TanyaAdvokat</span></h2>
         <div className="team__intro-box">
           <p className="team__intro-text">
-            Tim Advokat kami didukung oleh tim profesional hukum berpengalaman dengan spesialisasi lintas bidang yang mampu menangani berbagai kompleksitas permasalahan hukum. Dengan pendekatan yang profesional, responsif, dan berbasis analisis mendalam, kami berdedikasi untuk menghadirkan pelayanan terbaik serta menumbuhkan kepercayaan yang kokoh dan berkelanjutan bersama setiap klien.
+            Tim <span style={{ color: 'var(--color-accent)' }}>Advokat</span> kami didukung oleh tim profesional hukum berpengalaman dengan spesialisasi lintas bidang yang mampu menangani berbagai kompleksitas permasalahan hukum. Dengan pendekatan yang profesional, responsif, dan berbasis analisis mendalam, kami berdedikasi untuk menghadirkan pelayanan terbaik serta menumbuhkan kepercayaan yang kokoh dan berkelanjutan bersama setiap klien.
           </p>
         </div>
 
