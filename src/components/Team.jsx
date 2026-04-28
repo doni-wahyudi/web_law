@@ -7,9 +7,11 @@ function Team() {
     <section className="team" id="team">
       <div className="container">
         <h2 className="section-title">Tim Mitra TanyaAdvokat</h2>
-        <p className="section-subtitle">
-          Tim advokat profesional dan berpengalaman yang siap membantu Anda
-        </p>
+        <div className="team__intro-box">
+          <p className="team__intro-text">
+            Tim Advokat kami didukung oleh tim profesional hukum berpengalaman dengan spesialisasi lintas bidang yang mampu menangani berbagai kompleksitas permasalahan hukum. Dengan pendekatan yang profesional, responsif, dan berbasis analisis mendalam, kami berdedikasi untuk menghadirkan pelayanan terbaik serta menumbuhkan kepercayaan yang kokoh dan berkelanjutan bersama setiap klien.
+          </p>
+        </div>
 
         <div className="team__grid">
           {teamMembers.map((member, index) => (

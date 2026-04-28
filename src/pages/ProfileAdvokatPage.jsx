@@ -1,14 +1,20 @@
-import { FaEnvelope, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaWhatsapp, FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { teamMembers } from '../data/content';
 import './ProfileAdvokat.css';
 
-const extendedProfiles = teamMembers.map((member, index) => ({
-  ...member,
-  education: index % 2 === 0 ? 'Universitas Indonesia' : 'Universitas Gadjah Mada',
-  experience: `${10 + index * 2} Tahun`,
-  license: `No. ${1000 + index * 123}`,
-  bio: `Advokat berpengalaman sebagai ${member.role} dengan dedikasi tinggi dalam memberikan solusi hukum terbaik untuk klien.`,
-}));
+const extendedProfiles = teamMembers.map((member) => {
+  let education = 'S1 Ilmu Hukum';
+  if (member.name.includes('M.H.')) {
+    education = member.name.includes('S.Sy.') ? 'S1 Syariah & S2 Hukum' : 'S1 & S2 Ilmu Hukum';
+  }
+  return {
+    ...member,
+    education,
+    license: 'Terverifikasi PERADI',
+    bio: member.about
+  };
+});
 
 
 function ProfileAdvokatPage() {
@@ -59,15 +65,13 @@ function ProfileAdvokatPage() {
                       <span className="profiles__detail-label">Pengalaman</span>
                       <span className="profiles__detail-value">{profile.experience}</span>
                     </div>
-                    <div className="profiles__detail">
-                      <span className="profiles__detail-label">No. Lisensi</span>
-                      <span className="profiles__detail-value">{profile.license}</span>
-                    </div>
                   </div>
                   <div className="profiles__actions">
+                    <Link to={`/advokat/${profile.id}`} className="profiles__link profiles__link--profile"><FaUser /> Lihat Profil</Link>
                     <a href={profile.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="profiles__link profiles__link--whatsapp"><FaWhatsapp /> WhatsApp</a>
-                    <a href="#" className="profiles__link"><FaEnvelope /> Email</a>
-                    <a href="#" className="profiles__link"><FaLinkedin /> LinkedIn</a>
+                    {profile.socials.linkedin && profile.socials.linkedin !== '#' && (
+                      <a href={profile.socials.linkedin} target="_blank" rel="noopener noreferrer" className="profiles__link profiles__link--linkedin"><FaLinkedin /> LinkedIn</a>
+                    )}
                   </div>
                 </div>
               </div>

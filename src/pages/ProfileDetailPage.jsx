@@ -1,0 +1,119 @@
+import { useParams, Link } from 'react-router-dom';
+import { FaWhatsapp, FaMapMarkerAlt, FaGraduationCap, FaBriefcase, FaIdCard, FaBalanceScale, FaArrowLeft } from 'react-icons/fa';
+import { teamMembers } from '../data/content';
+import './ProfileDetailPage.css';
+
+function ProfileDetailPage() {
+  const { id } = useParams();
+  
+  const member = teamMembers.find(m => m.id === parseInt(id));
+
+  if (!member) {
+    return (
+      <section className="profile-detail profile-detail--not-found">
+        <div className="container">
+          <h2>Profil Tidak Ditemukan</h2>
+          <p>Maaf, profil advokat yang Anda cari tidak tersedia.</p>
+          <Link to="/profil-advokat" className="profile-detail__back-btn">
+            <FaArrowLeft /> Kembali ke Daftar Advokat
+          </Link>
+        </div>
+      </section>
+    );
+  }
+
+  // Fallbacks similar to listing page
+  let education = 'S1 Ilmu Hukum';
+  if (member.name.includes('Agung')) {
+    education = 'S1 Ilmu Hukum, Universitas Gadjah Mada';
+  } else if (member.name.includes('Nico')) {
+    education = 'S1 Ilmu Hukum, Universitas Padjadjaran & S2 Hukum, Universitas Indonesia';
+  } else if (member.name.includes('Rizky')) {
+    education = 'S1 Ilmu Hukum, Universitas Islam Indonesia (UII)';
+  } else if (member.name.includes('ISWAHYUDI')) {
+    education = 'S1 Syariah & S2 Hukum';
+  }
+
+  return (
+    <>
+      <section className="profile-detail-header">
+        <div className="container">
+          <Link to="/profil-advokat" className="profile-detail__back-link">
+            <FaArrowLeft /> Kembali ke Daftar Advokat
+          </Link>
+        </div>
+      </section>
+
+      <section className="profile-detail-content">
+        <div className="container profile-detail__container">
+          <div className="profile-detail__left">
+            <div className="profile-detail__image-wrapper">
+              {member.image ? (
+                <img 
+                  src={member.image} 
+                  alt={member.name} 
+                  style={{ objectPosition: member.objectPosition || 'center top' }}
+                />
+              ) : (
+                <div className="profile-detail__placeholder">📸</div>
+              )}
+            </div>
+            
+            <div className="profile-detail__actions">
+              <a 
+                href={member.socials.whatsapp} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-whatsapp"
+              >
+                <FaWhatsapp /> Konsultasi Via WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div className="profile-detail__right">
+            <span className="profile-detail__badge">{member.role}</span>
+            <h1 className="profile-detail__name">{member.name}</h1>
+            
+            <div className="profile-detail__quick-info">
+              <div className="quick-info-item">
+                <FaMapMarkerAlt /> <span>{member.location}</span>
+              </div>
+              <div className="quick-info-item">
+                <FaBalanceScale /> <span>{member.organization || 'Peradi'}</span>
+              </div>
+              <div className="quick-info-item">
+                <FaBriefcase /> <span>{member.experience} Pengalaman</span>
+              </div>
+              <div className="quick-info-item">
+                <FaGraduationCap /> <span>{education}</span>
+              </div>
+            </div>
+
+            <div className="profile-detail__section">
+              <h3 className="section-title-small">Tentang Konsultasi Hukum</h3>
+              {member.detailedBio && member.detailedBio.length > 0 ? (
+                member.detailedBio.map((para, index) => (
+                  <p key={index} className="profile-detail__text">{para}</p>
+                ))
+              ) : (
+                <p className="profile-detail__text">{member.about}</p>
+              )}
+            </div>
+
+            <div className="profile-detail__section">
+              <h3 className="section-title-small">Bidang Keahlian & Spesialisasi</h3>
+              <div className="profile-detail__expertise-grid">
+                {member.expertise && member.expertise.map((exp, idx) => (
+                  <div key={idx} className="expertise-tag">{exp}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export default ProfileDetailPage;

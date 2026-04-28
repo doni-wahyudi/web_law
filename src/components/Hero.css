@@ -59,6 +59,7 @@
 .hero__stat {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .hero__stat-value {

@@ -10,6 +10,7 @@ import BlogDetailPage from './pages/BlogDetailPage';
 import DokumentasiPage from './pages/DokumentasiPage';
 import UmkmGoPage from './pages/UmkmGoPage';
 import PeraturanPage from './pages/PeraturanPage';
+import ProfileDetailPage from './pages/ProfileDetailPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,6 +35,7 @@ function App() {
           <Route path="/dokumentasi" element={<DokumentasiPage />} />
           <Route path="/umkm-go" element={<UmkmGoPage />} />
           <Route path="/peraturan-hukum" element={<PeraturanPage />} />
+          <Route path="/advokat/:id" element={<ProfileDetailPage />} />
         </Routes>
       </main>
       <Footer />

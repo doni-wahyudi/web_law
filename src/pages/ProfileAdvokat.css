@@ -99,7 +99,7 @@
 
 .profiles__details {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 24px;
 }
@@ -146,6 +146,16 @@
   color: var(--color-white);
 }
 
+.profiles__link--profile {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.profiles__link--profile:hover {
+  opacity: 0.9;
+}
+
 .profiles__link--whatsapp {
   background: #25d366;
   color: var(--color-white);
@@ -155,6 +165,17 @@
 .profiles__link--whatsapp:hover {
   background: #128c7e;
   border-color: #128c7e;
+}
+
+.profiles__link--linkedin {
+  background: #0077b5;
+  color: var(--color-white);
+  border-color: #0077b5;
+}
+
+.profiles__link--linkedin:hover {
+  background: #005582;
+  border-color: #005582;
 }
 
 /* Responsive */
