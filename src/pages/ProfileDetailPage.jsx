@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FaWhatsapp, FaMapMarkerAlt, FaGraduationCap, FaBriefcase, FaIdCard, FaBalanceScale, FaArrowLeft } from 'react-icons/fa';
 import { teamMembers } from '../data/content';
+import WhatsAppModal from '../components/WhatsAppModal';
 import './ProfileDetailPage.css';
 
 function ProfileDetailPage() {
@@ -22,17 +24,8 @@ function ProfileDetailPage() {
     );
   }
 
-  // Fallbacks similar to listing page
-  let education = 'S1 Ilmu Hukum';
-  if (member.name.includes('Agung')) {
-    education = 'S1 Ilmu Hukum, Universitas Gadjah Mada';
-  } else if (member.name.includes('Nico')) {
-    education = 'S1 Ilmu Hukum, Universitas Padjadjaran & S2 Hukum, Universitas Indonesia';
-  } else if (member.name.includes('Rizky')) {
-    education = 'S1 Ilmu Hukum, Universitas Islam Indonesia (UII)';
-  } else if (member.name.includes('ISWAHYUDI')) {
-    education = 'S1 Syariah & S2 Hukum';
-  }
+  const education = member.education || 'S1 Ilmu Hukum';
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -60,14 +53,13 @@ function ProfileDetailPage() {
             </div>
             
             <div className="profile-detail__actions">
-              <a 
-                href={member.socials.whatsapp} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <button 
+                onClick={() => setIsModalOpen(true)} 
                 className="btn btn-whatsapp"
+                style={{ border: 'none', width: '100%', cursor: 'pointer' }}
               >
                 <FaWhatsapp /> Konsultasi Via WhatsApp
-              </a>
+              </button>
             </div>
           </div>
 
@@ -112,6 +104,12 @@ function ProfileDetailPage() {
           </div>
         </div>
       </section>
+
+      <WhatsAppModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultKeperluan={`Konsultasi dengan ${member.name}`} 
+      />
     </>
   );
 }

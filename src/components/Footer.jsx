@@ -1,10 +1,13 @@
+import React, { useState } from 'react';
 import logo from '../assets/tanyaadvokat.id_logo.png';
 import { FaInstagram, FaTiktok, FaFacebookF, FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { siteConfig, navLinks } from '../data/content';
+import WhatsAppModal from './WhatsAppModal';
 import './Footer.css';
 
 function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <footer className="footer">
       <div className="container footer__grid">
@@ -45,9 +48,14 @@ function Footer() {
             </li>
             <li>
               <FaWhatsapp />
-              <a href={`https://wa.me/6281368936945?text=${encodeURIComponent('Halo TanyaAdvokat, saya memerlukan bantuan hukum.')}`} target="_blank" rel="noopener noreferrer">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                style={{ background: 'none', border: 'none', padding: 0, color: 'var(--color-text-light)', font: 'inherit', cursor: 'pointer', textAlign: 'left', transition: 'color 0.2s' }}
+                onMouseOver={(e) => e.target.style.color = 'var(--color-primary)'}
+                onMouseOut={(e) => e.target.style.color = 'var(--color-text-light)'}
+              >
                 {siteConfig.phone}
-              </a>
+              </button>
             </li>
             <li>
               <FaEnvelope />
@@ -75,6 +83,12 @@ function Footer() {
           <p>&copy; {new Date().getFullYear()} {siteConfig.company}. All Rights Reserved.</p>
         </div>
       </div>
+
+      <WhatsAppModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultKeperluan="Konsultasi Hukum" 
+      />
     </footer>
   );
 }

@@ -1,8 +1,18 @@
-import { FaLinkedinIn, FaWhatsapp, FaMapMarkerAlt, FaBalanceScale, FaBriefcase, FaBullseye, FaLightbulb, FaCheck } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaLinkedinIn, FaWhatsapp, FaMapMarkerAlt, FaBalanceScale, FaBriefcase, FaBullseye, FaCheck } from 'react-icons/fa';
 import { teamMembers } from '../data/content';
+import WhatsAppModal from './WhatsAppModal';
 import './Team.css';
 
 function Team() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedKeperluan, setSelectedKeperluan] = useState('');
+
+  const handleContactClick = (name) => {
+    setSelectedKeperluan(`Konsultasi dengan ${name}`);
+    setIsModalOpen(true);
+  };
+
   return (
     <section className="team" id="team">
       <div className="container">
@@ -45,7 +55,12 @@ function Team() {
                   <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="team__social-icon" aria-label="LinkedIn">
                     <FaLinkedinIn />
                   </a>
-                  <a href={member.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="team__social-icon" aria-label="WhatsApp">
+                  <a
+                    href="#"
+                    onClick={(e) => { e.preventDefault(); handleContactClick(member.name); }}
+                    className="team__social-icon"
+                    aria-label="WhatsApp"
+                  >
                     <FaWhatsapp />
                   </a>
                 </div>
@@ -72,7 +87,7 @@ function Team() {
                       <span>Bidang Keahlian:</span>
                     </div>
                     <ul className="team__expertise-list">
-                      {member.expertise.map((item, idx) => (
+                      {member.expertise.slice(0, 3).map((item, idx) => (
                         <li key={idx} className="team__expertise-item">
                           <FaCheck className="team__check-icon" />
                           <span>{item}</span>
@@ -81,19 +96,19 @@ function Team() {
                     </ul>
                   </div>
 
-                  <div className="team__about">
-                    <div className="team__section-title">
-                      <FaLightbulb className="team__section-icon" />
-                      <span>Tentang Konsultasi:</span>
-                    </div>
-                    <p className="team__about-text">{member.about}</p>
-                  </div>
+
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      <WhatsAppModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultKeperluan={selectedKeperluan} 
+      />
     </section>
   );
 }

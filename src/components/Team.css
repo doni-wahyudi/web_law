@@ -191,12 +191,12 @@
 }
 
 .team__expertise {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   background: rgba(0, 109, 78, 0.03);
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
   border-left: 3px solid var(--color-primary);
-  min-height: 220px;
+  min-height: 140px;
 }
 
 .team__section-title {

@@ -1,17 +1,54 @@
-import heroImg from '../assets/hero.png';
-import heroImg2 from '../assets/hero_2.jpeg';
-import heroImg3 from '../assets/hero_3.jpeg';
+// import heroImg1 from '../assets/hero/hero.png';
+import heroImg2 from '../assets/hero/hero_2.png';
+import heroImg3 from '../assets/hero/hero_3.png';
+import heroImg4 from '../assets/hero/hero_4.png';
+import heroImg5 from '../assets/hero/hero_5.png';
+import { useState } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { heroStats, siteConfig } from '../data/content';
+import { heroStats } from '../data/content';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay, EffectFade } from 'swiper/modules';
+import WhatsAppModal from './WhatsAppModal';
 import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 import './Hero.css';
 
 function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <section className="hero" id="hero">
+      {/* Background Slider */}
+      <div className="hero__background">
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          spaceBetween={0}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+          className="hero__bg-slider"
+        >
+          {/* <SwiperSlide>
+            <div className="hero__bg-img" style={{ backgroundImage: `url(${heroImg1})` }}></div>
+          </SwiperSlide> */}
+          <SwiperSlide>
+            <div className="hero__bg-img" style={{ backgroundImage: `url(${heroImg2})` }}></div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="hero__bg-img" style={{ backgroundImage: `url(${heroImg3})` }}></div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="hero__bg-img" style={{ backgroundImage: `url(${heroImg4})` }}></div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="hero__bg-img" style={{ backgroundImage: `url(${heroImg5})` }}></div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
       <div className="container hero__inner">
         <div className="hero__content">
           <h1 className="hero__title">
@@ -20,7 +57,7 @@ function Hero() {
           </h1>
           <h2 className="hero__subtitle">Cerita Aja Dulu</h2>
           <p className="hero__desc">
-            Konsultasikan permasalahan hukum Anda dengan tim advokat profesional kami. 
+            Konsultasikan permasalahan hukum Anda dengan tim advokat profesional kami.
             Kami siap membantu memberikan solusi terbaik untuk Anda.
           </p>
 
@@ -33,43 +70,22 @@ function Hero() {
             ))}
           </div>
 
-          <a
-            href={`https://wa.me/6281368936945?text=${encodeURIComponent('Halo TanyaAdvokat, saya ingin berkonsultasi mengenai masalah hukum saya.')}`}
+          <button
+            onClick={() => setIsModalOpen(true)}
             className="hero__cta"
-            target="_blank"
-            rel="noopener noreferrer"
+            style={{ border: 'none', cursor: 'pointer' }}
           >
             <FaWhatsapp />
             Konsultasi Via Chat
-          </a>
-        </div>
-
-        <div className="hero__image-container">
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={0}
-            slidesPerView={1}
-            loop={true}
-            pagination={{ clickable: true }}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-            }}
-            className="hero__slider"
-          >
-            <SwiperSlide>
-              <img src={heroImg} alt="Tim TanyaAdvokat" className="hero__main-img" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={heroImg2} alt="Tim TanyaAdvokat" className="hero__main-img" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={heroImg3} alt="Tim TanyaAdvokat" className="hero__main-img" />
-            </SwiperSlide>
-          </Swiper>
+          </button>
         </div>
       </div>
 
+      <WhatsAppModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultKeperluan="Konsultasi Hukum" 
+      />
 
       {/* Decorative elements */}
       <div className="hero__decoration hero__decoration--1"></div>

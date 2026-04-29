@@ -1,8 +1,18 @@
+import React, { useState } from 'react';
 import { FaWhatsapp, FaCheck } from 'react-icons/fa';
-import { pricingPlans, siteConfig } from '../data/content';
+import { pricingPlans } from '../data/content';
+import WhatsAppModal from '../components/WhatsAppModal';
 import './BiayaLayanan.css';
 
 function BiayaLayananPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedKeperluan, setSelectedKeperluan] = useState('');
+
+  const handleChoosePlan = (planTitle) => {
+    setSelectedKeperluan(`Paket ${planTitle}`);
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       {/* Banner */}
@@ -27,6 +37,9 @@ function BiayaLayananPage() {
                 )}
                 <h3 className="pricing__title">{plan.title}</h3>
                 <div className="pricing__price">
+                  {plan.originalPrice && (
+                    <span className="pricing__original-amount">{plan.originalPrice}</span>
+                  )}
                   <span className="pricing__amount">{plan.price}</span>
                   <span className="pricing__period">{plan.period}</span>
                 </div>
@@ -38,15 +51,14 @@ function BiayaLayananPage() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={`https://wa.me/6281368936945?text=${encodeURIComponent(`Halo TanyaAdvokat, saya tertarik untuk memilih paket ${plan.title}`)}`}
+                <button
+                  onClick={() => handleChoosePlan(plan.title)}
                   className={`pricing__cta ${plan.popular ? 'pricing__cta--primary' : ''}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  style={{ border: 'none', width: '100%', cursor: 'pointer' }}
                 >
                   <FaWhatsapp />
                   Pilih Paket
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -71,6 +83,12 @@ function BiayaLayananPage() {
           </div>
         </div>
       </section>
+
+      <WhatsAppModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultKeperluan={selectedKeperluan} 
+      />
     </>
   );
 }

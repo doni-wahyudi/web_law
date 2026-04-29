@@ -56,6 +56,14 @@ import partner8 from '../assets/partner/8-1024x576.png';
 import partner9 from '../assets/partner/9-1024x576.png';
 import partner10 from '../assets/partner/10-1024x576.png';
 
+import gallery14 from '../assets/gallery/14.jpg';
+import gallery15 from '../assets/gallery/15.jpg';
+import gallery16 from '../assets/gallery/16.jpg';
+import gallery17 from '../assets/gallery/17.jpg';
+import gallery18 from '../assets/gallery/18.jpg';
+import gallery19 from '../assets/gallery/19.jpg';
+import gallery20 from '../assets/gallery/20.jpg';
+import gallery21 from '../assets/gallery/21_1.jpg';
 
 export const teamMembers = [
   {
@@ -70,6 +78,7 @@ export const teamMembers = [
     },
     location: 'Jakarta',
     organization: 'Peradi',
+    education: 'S1 Ilmu Hukum, Universitas Sriwijaya',
     experience: '> 7 Tahun',
     expertise: [
       'Hutang Piutang',
@@ -82,7 +91,7 @@ export const teamMembers = [
       'Pembuatan Draft Perjanjian',
       'Perdata dan Pidana'
     ],
-    about: 'Agung Pratama telah membantu ratusan klien dengan pendekatan yang solutif, tegas, dan mengedepankan kepentingan terbaik dari klien.',
+    about: 'Sejak tahun 2020, Agung Pratama telah membantu ratusan klien melalui layanan konsultasi hukum yang terpercaya, baik secara langsung maupun melalui platform hukum terkemuka. Dengan pengalaman lebih dari 7 tahun sebagai Advokat, ia hadir dengan analisis tajam serta strategi hukum yang aplikatif.',
     detailedBio: [
       'Sejak tahun 2020, Agung Pratama telah membantu ratusan klien melalui layanan konsultasi hukum yang terpercaya, baik secara langsung maupun melalui platform hukum terkemuka seperti Perqara dan Hukumku. Dengan pengalaman lebih dari 7 tahun sebagai Advokat & Konsultan Hukum yang tergabung dalam Perhimpunan Advokat Indonesia (Peradi), Agung dikenal memiliki pendekatan yang solutif, tegas, dan tetap mengedepankan kepentingan terbaik dari klien.',
       'Konsultasi yang diberikan mencakup berbagai permasalahan hukum, mulai dari hutang-piutang, penipuan, penggelapan, kasus ketenagakerjaan, perceraian, perkara ITE, laporan polisi, sengketa pertanahan, hingga penyusunan draft perjanjian. Baik ranah perdata maupun pidana, Agung selalu hadir dengan analisis tajam serta strategi hukum yang aplikatif.'
@@ -100,10 +109,13 @@ export const teamMembers = [
     },
     location: 'Palembang & Lampung',
     organization: 'Peradi',
+    education: 'S1 & S2 Ilmu Hukum, Universitas Sriwijaya',
     experience: '> 8 Tahun',
     expertise: [
       'Litigasi maupun Non Litigasi',
       'Perdata maupun Pidana serta TUN',
+      'Hukum Perusahaan',
+      'Perbankan',
       'Ketenagakerjaan (PHI)',
       'Waris',
       'Perceraian',
@@ -111,10 +123,10 @@ export const teamMembers = [
       'Legal Drafting',
       'Pendirian Badan Hukum (PT/CV)'
     ],
-    about: 'Nico Thomas, S.H., M.H. menghadirkan analisis tajam secara transparan. Setiap langkah hukum dibimbing agar klien membuat keputusan tepat.',
+    about: 'Dengan pengalaman lebih dari 8 tahun sebagai Advokat, Nico Thomas dipercaya menyelesaikan berbagai persoalan hukum, baik litigasi maupun non-litigasi. Melalui konsultasi hukum, ia menawarkan analisis yang tajam, humanis, dan transparan.',
     detailedBio: [
       'Dengan pengalaman lebih dari 8 tahun sebagai Advokat & Konsultan Hukum, Nico Thomas, S.H. telah dipercaya banyak klien di wilayah Palembang dan Lampung untuk menyelesaikan berbagai persoalan hukum, baik litigasi maupun non-litigasi. Selain aktif dalam perkara individu, Nico juga berpengalaman menjalin kerja sama dengan berbagai perusahaan, corporate, dan perbankan, khususnya dalam urusan ketenagakerjaan (PHI), sengketa waris, perceraian, pertanahan, legal drafting, hingga pengurusan pendirian badan hukum (PT/CV).',
-      'Melalui konsultasi hukum, Nico tidak hanya menawarkan analisis yang tajam dan strategi yang tepat, tetapi juga menghadirkan pendekatan yang humanis dan transparan. Setiap klien akan dibimbing untuk memahami langkah hukum yang diambil, sehingga keputusan yang dibuat benar-benar berdasar dan terarah.'
+      'Melalui konsultasi hukum, Nico tidak hanya menawarkan analisis yang tajam and strategi yang tepat, tetapi juga menghadirkan pendekatan yang humanis dan transparan. Setiap klien akan dibimbing untuk memahami langkah hukum yang diambil, sehingga keputusan yang dibuat benar-benar berdasar dan terarah.'
     ]
   },
   {
@@ -129,6 +141,7 @@ export const teamMembers = [
     },
     location: 'Bogor',
     organization: 'Peradi',
+    education: 'S1 & S2 Ilmu Hukum, Universitas Sriwijaya',
     experience: '> 3 Tahun',
     expertise: [
       'Pembuatan Naskah Akademik',
@@ -136,9 +149,10 @@ export const teamMembers = [
       'Legal Drafting',
       'Jurnal Hukum',
       'Pembuatan Kontrak Kerja',
-      'Kontra Kerja dan Peraturan Perusahaan'
+      'Kontra Kerja',
+      'Peraturan Perusahaan'
     ],
-    about: 'Rizky Dwi Utami, S.H., M.H., C.Med. berfokus menyederhanakan masalah hukum yang kompleks menjadi solusi preventif demi perlindungan arah bisnis Anda.',
+    about: 'Dengan pengalaman lebih dari 3 tahun, Rizky Dwi Utami hadir sebagai konsultan hukum yang berfokus pada bidang perancangan dokumen hukum. Ia dikenal detail, teliti, dan mampu menyederhanakan masalah hukum yang kompleks demi perlindungan bisnis Anda.',
     detailedBio: [
       'Dengan pengalaman lebih dari 3 tahun, Rizky Dwi Utami hadir sebagai konsultan hukum yang berfokus pada bidang perancangan dokumen hukum dan pendampingan strategis. Sebagai konsultan muda yang progresif, Rizky dikenal detail, teliti, dan mampu menyederhanakan masalah hukum yang kompleks menjadi langkah-langkah yang jelas, terstruktur, dan mudah dipahami. Dengan demikian, setiap klien akan mendapatkan kepastian arah dan perlindungan hukum yang tepat sejak tahap perencanaan.'
     ]
@@ -155,6 +169,7 @@ export const teamMembers = [
     },
     location: 'Bekasi & Jakarta',
     organization: 'Peradi',
+    education: 'S1 Syariah & S2 Ilmu Hukum, UIN Raden Fatah',
     experience: '> 8 Tahun',
     expertise: [
       'Pertanahan (Agraria)',
@@ -167,7 +182,7 @@ export const teamMembers = [
       'Pidana',
       'Perdata'
     ],
-    about: 'Iswahyudi memiliki pemahaman luas untuk menyelesaikan perkara baik di pengadilan (litigasi) maupun sebagai penasihat ahli bagi korporasi.',
+    about: 'Iswahyudi memiliki keahlian luas dalam berbagai bidang hukum, mulai dari sengketa pertanahan, waris Islam, ekonomi syariah, hingga urusan hukum perusahaan. Beliau mampu memberikan solusi hukum yang menyeluruh dan strategis.',
     detailedBio: [
       'Iswahyudi memiliki keahlian luas dalam berbagai bidang hukum, mulai dari pertanahan (agraria), hukum waris Islam (faraid) maupun perdata, ekonomi syariah, hukum keluarga, perceraian, hingga perkara pidana dan perdata. Tidak hanya itu, beliau juga berpengalaman dalam menangani urusan hukum perusahaan (corporate), memberikan pendampingan yang menyeluruh baik untuk individu maupun badan usaha.',
       'Selain berfokus pada perkara litigasi di pengadilan, Iswahyudi juga aktif dalam non-litigasi sebagai konsultan ahli di berbagai bidang. Pengalamannya meliputi kerja sama dengan notaris/PPAT/NPAK, perusahaan (PT/PMA/CV), yayasan, lembaga zakat, koperasi, finance/perbankan, hingga firma hukum. Dengan rekam jejak tersebut, Iswahyudi mampu memberikan solusi hukum yang komprehensif dan sesuai kebutuhan setiap klien.'
@@ -285,7 +300,8 @@ export const partners = [
 export const pricingPlans = [
   {
     title: 'Konsultasi Chat',
-    price: 'Rp 150.000',
+    price: 'Rp 60.000',
+    originalPrice: 'Rp 150.000',
     period: 'per sesi',
     features: [
       'Konsultasi via WhatsApp',
@@ -297,7 +313,8 @@ export const pricingPlans = [
   },
   {
     title: 'Konsultasi Video Call',
-    price: 'Rp 350.000',
+    price: 'Rp 300.000',
+    originalPrice: 'Rp 500.000',
     period: 'per sesi',
     features: [
       'Video call dengan advokat',
@@ -309,9 +326,24 @@ export const pricingPlans = [
     popular: true,
   },
   {
+    title: 'Retainer Bulanan',
+    price: 'Rp 3.000.000',
+    originalPrice: 'Rp 5.000.000',
+    period: 'per bulan',
+    features: [
+      'Konsultasi unlimited',
+      'Review dokumen & kontrak',
+      'Legal opinion tertulis',
+      'Dedicated lawyer',
+      'Priority response',
+    ],
+    popular: false,
+  },
+  {
     title: 'Pendampingan Hukum',
-    price: 'Rp 2.500.000',
-    period: 'per kasus',
+    price: 'Hubungi Kami',
+    originalPrice: null,
+    period: 'Sesuai Kasus',
     features: [
       'Pendampingan penuh',
       'Konsultasi unlimited',
@@ -319,20 +351,6 @@ export const pricingPlans = [
       'Representasi di pengadilan',
       'Update berkala',
       'Priority support',
-    ],
-    popular: false,
-  },
-  {
-    title: 'Retainer Bulanan',
-    price: 'Rp 5.000.000',
-    period: 'per bulan',
-    features: [
-      'Konsultasi unlimited',
-      'Review dokumen & kontrak',
-      'Legal opinion tertulis',
-      'Pendampingan hukum',
-      'Dedicated lawyer',
-      'Priority response',
     ],
     popular: false,
   },
@@ -421,15 +439,15 @@ export const blogPosts = [
 
 
 export const dokumentasiItems = [
-  { title: 'Seminar Hukum Bisnis 2026', category: 'Seminar' },
-  { title: 'Workshop Kontrak Dagang', category: 'Workshop' },
-  { title: 'Konsultasi Hukum Gratis', category: 'Kegiatan Sosial' },
-  { title: 'Pendampingan UMKM Bogor', category: 'UMKM' },
-  { title: 'Webinar Hukum Keluarga', category: 'Webinar' },
-  { title: 'Legal Clinic 2026', category: 'Kegiatan Sosial' },
-  { title: 'Pelatihan Hukum Pertanahan', category: 'Workshop' },
-  { title: 'Talkshow Hukum Indonesia', category: 'Seminar' },
-  { title: 'Bantuan Hukum Masyarakat', category: 'Kegiatan Sosial' },
+  { title: 'Seminar Hukum Bisnis 2026', category: 'Seminar', image: gallery14 },
+  { title: 'Workshop Kontrak Dagang', category: 'Workshop', image: gallery15 },
+  { title: 'Konsultasi Hukum Gratis', category: 'Kegiatan Sosial', image: gallery16 },
+  { title: 'Pendampingan UMKM Bogor', category: 'UMKM', image: gallery17 },
+  { title: 'Webinar Hukum Keluarga', category: 'Webinar', image: gallery18 },
+  { title: 'Legal Clinic 2026', category: 'Kegiatan Sosial', image: gallery19 },
+  { title: 'Pelatihan Hukum Pertanahan', category: 'Workshop', image: gallery20 },
+  { title: 'Talkshow Hukum Indonesia', category: 'Seminar', image: gallery21 },
+  { title: 'Bantuan Hukum Masyarakat', category: 'Kegiatan Sosial', image: gallery14 },
 ];
 
 export const peraturanHukum = [

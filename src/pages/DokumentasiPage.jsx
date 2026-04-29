@@ -42,13 +42,7 @@ function DokumentasiPage() {
             {filtered.map((item, index) => (
               <div key={index} className="dokumentasi__card">
                 <div className="dokumentasi__image">
-                  <div className="dokumentasi__image-placeholder">
-                    <span className="dokumentasi__image-icon">📸</span>
-                  </div>
-                  <div className="dokumentasi__overlay">
-                    <span className="dokumentasi__category-badge">{item.category}</span>
-                    <h3 className="dokumentasi__title">{item.title}</h3>
-                  </div>
+                  <img src={item.image} alt={item.title} className="dokumentasi__img" />
                 </div>
               </div>
             ))}

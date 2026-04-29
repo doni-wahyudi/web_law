@@ -49,3 +49,15 @@
   opacity: 1;
   filter: grayscale(0%);
 }
+
+@media (max-width: 580px) {
+  .partners__carousel {
+    padding: 0 30px;
+  }
+  .partners__carousel .swiper-button-next {
+    right: 5px;
+  }
+  .partners__carousel .swiper-button-prev {
+    left: 5px;
+  }
+}

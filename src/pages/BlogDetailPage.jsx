@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FaCalendarAlt, FaTag, FaArrowLeft } from 'react-icons/fa';
 import { blogPosts } from '../data/content';
+import WhatsAppModal from '../components/WhatsAppModal';
 import './BlogDetailPage.css';
 
 function BlogDetailPage() {
@@ -8,6 +10,7 @@ function BlogDetailPage() {
   
   // Find the post. We use parseInt because the URL parameter is a string, but the ID in data might be a number.
   const post = blogPosts.find(p => p.id === parseInt(id));
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   if (!post) {
     return (
@@ -62,13 +65,23 @@ function BlogDetailPage() {
               <strong>Disclaimer:</strong> Artikel ini hanya ditujukan sebagai informasi umum dan bukan merupakan pendapat hukum (legal opinion) yang mengikat. Untuk permasalahan hukum spesifik, silakan berkonsultasi langsung dengan tim advokat kami.
             </p>
             <div className="blog-detail__cta">
-              <a href={`https://wa.me/6281368936945?text=${encodeURIComponent(`Halo TanyaAdvokat, saya baru membaca artikel tentang ${post.title} dan ingin berkonsultasi lebih lanjut.`)}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="btn btn-primary"
+                style={{ border: 'none', cursor: 'pointer' }}
+              >
                 Konsultasikan Masalah Anda
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </section>
+
+      <WhatsAppModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultKeperluan={`Konsultasi Artikel: ${post.title}`} 
+      />
     </>
   );
 }

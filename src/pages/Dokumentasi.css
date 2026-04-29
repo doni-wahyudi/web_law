@@ -61,23 +61,15 @@
   overflow: hidden;
 }
 
-.dokumentasi__image-placeholder {
+.dokumentasi__img {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 50%, #80cbc4 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
   transition: transform var(--transition-normal);
 }
 
-.dokumentasi__card:hover .dokumentasi__image-placeholder {
+.dokumentasi__card:hover .dokumentasi__img {
   transform: scale(1.05);
-}
-
-.dokumentasi__image-icon {
-  font-size: 3rem;
-  opacity: 0.25;
 }
 
 .dokumentasi__overlay {

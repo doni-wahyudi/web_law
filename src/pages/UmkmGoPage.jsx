@@ -1,4 +1,6 @@
+import React, { useState } from 'react';
 import { FaWhatsapp, FaFileContract, FaStore, FaIdCard, FaSearchPlus, FaGavel, FaHandsHelping, FaFolderPlus } from 'react-icons/fa';
+import WhatsAppModal from '../components/WhatsAppModal';
 import bannerImg from '../assets/bantuan_hukum_hero.png';
 import './UmkmGo.css';
 
@@ -49,8 +51,13 @@ const services = [
 ];
 
 function UmkmGoPage() {
-  const whatsappNumber = '6281368936945';
-  const defaultWaLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Halo TanyaAdvokat, saya ingin menanyakan perihal bantuan hukum.')}`;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedKeperluan, setSelectedKeperluan] = useState('');
+
+  const handleCtaClick = (keperluan) => {
+    setSelectedKeperluan(keperluan);
+    setIsModalOpen(true);
+  };
 
   return (
     <>
@@ -60,16 +67,15 @@ function UmkmGoPage() {
           <div className="bantuan-banner__content">
             <h1 className="narration">tanya advokat hadir untuk anda dalam meringankan permasalahan hukum</h1>
             <p className="explanation">
-              butuh bantuan hukum lebih detail terkait pembentukan pt umkm dan berkas bantuan hukum lainnya? konsultasikan segera secara cepat, mudah, dan terjangkau
+               butuh bantuan hukum lebih detail terkait pembentukan pt umkm dan berkas bantuan hukum lainnya? konsultasikan segera secara cepat, mudah, dan terjangkau
             </p>
-            <a
-              href={defaultWaLink}
+            <button
+              onClick={() => handleCtaClick('Bantuan Hukum')}
               className="bantuan-banner__cta"
-              target="_blank"
-              rel="noopener noreferrer"
+              style={{ border: 'none', cursor: 'pointer' }}
             >
               <FaWhatsapp /> Konsultasi Gratis
-            </a>
+            </button>
           </div>
           <div className="bantuan-banner__image-wrapper">
             <img src={bannerImg} alt="Bantuan Hukum" className="bantuan-banner__img" />
@@ -87,7 +93,6 @@ function UmkmGoPage() {
 
           <div className="bantuan-services__grid">
             {services.map((service, index) => {
-              const customWaLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.text)}`;
               return (
                 <div
                   key={index}
@@ -99,14 +104,13 @@ function UmkmGoPage() {
                   <div className="bantuan-services__right">
                     <h3 className="bantuan-services__title">{service.title}</h3>
                     <p className="bantuan-services__desc">{service.desc}</p>
-                    <a
-                      href={customWaLink}
+                    <button
+                      onClick={() => handleCtaClick(service.title)}
                       className="bantuan-services__btn"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      style={{ border: 'none', cursor: 'pointer' }}
                     >
                       <FaWhatsapp /> Ajukan Sekarang
-                    </a>
+                    </button>
                   </div>
                 </div>
               );
@@ -114,6 +118,12 @@ function UmkmGoPage() {
           </div>
         </div>
       </section>
+
+      <WhatsAppModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultKeperluan={selectedKeperluan} 
+      />
     </>
   );
 }

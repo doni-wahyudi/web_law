@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
 import { FaHeartBroken, FaScroll, FaBriefcase, FaShieldAlt, FaMapMarkedAlt, FaUsers, FaFileContract, FaStore } from 'react-icons/fa';
 import { services } from '../data/content';
+import WhatsAppModal from './WhatsAppModal';
 import './Services.css';
 
 const iconMap = {
@@ -14,6 +16,14 @@ const iconMap = {
 };
 
 function Services() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedKeperluan, setSelectedKeperluan] = useState('');
+
+  const handleCardClick = (title) => {
+    setSelectedKeperluan(`Konsultasi Layanan ${title}`);
+    setIsModalOpen(true);
+  };
+
   return (
     <section className="services" id="services">
       <div className="container">
@@ -29,18 +39,30 @@ function Services() {
               <div
                 key={index}
                 className="services__card"
+                onClick={() => handleCardClick(service.title)}
                 style={{ animationDelay: `${index * 0.08}s` }}
               >
-                <div className="services__icon">
-                  <IconComponent />
+                <div>
+                  <div className="services__icon">
+                    <IconComponent />
+                  </div>
+                  <h3 className="services__title">{service.title}</h3>
+                  <p className="services__desc">{service.description}</p>
                 </div>
-                <h3 className="services__title">{service.title}</h3>
-                <p className="services__desc">{service.description}</p>
+                <div className="services__cta-text" style={{ color: 'var(--color-primary)', fontWeight: '700', fontSize: '0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                  Konsultasi Sekarang <span style={{ fontSize: '1.2rem', color: 'var(--color-accent)' }}>→</span>
+                </div>
               </div>
             );
           })}
         </div>
       </div>
+
+      <WhatsAppModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultKeperluan={selectedKeperluan} 
+      />
     </section>
   );
 }

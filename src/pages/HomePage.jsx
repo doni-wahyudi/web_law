@@ -12,9 +12,9 @@ function HomePage() {
       <Hero />
       <Team />
       <Services />
+      <Articles />
       <WhyUs />
       <Testimonials />
-      <Articles />
       <Partners />
     </>
   );
