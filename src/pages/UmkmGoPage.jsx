@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaWhatsapp, FaFileContract, FaStore, FaIdCard, FaSearchPlus, FaGavel, FaHandsHelping, FaFolderPlus } from 'react-icons/fa';
+import { FaFileContract, FaStore, FaIdCard, FaSearchPlus, FaGavel, FaHandsHelping, FaFolderPlus } from 'react-icons/fa';
 import WhatsAppModal from '../components/WhatsAppModal';
 import bannerImg from '../assets/bantuan_hukum_hero.png';
 import './UmkmGo.css';
@@ -74,7 +74,7 @@ function UmkmGoPage() {
               className="bantuan-banner__cta"
               style={{ border: 'none', cursor: 'pointer' }}
             >
-              <FaWhatsapp /> Konsultasi Gratis
+              Konsultasi Gratis
             </button>
           </div>
           <div className="bantuan-banner__image-wrapper">
@@ -109,7 +109,7 @@ function UmkmGoPage() {
                       className="bantuan-services__btn"
                       style={{ border: 'none', cursor: 'pointer' }}
                     >
-                      <FaWhatsapp /> Ajukan Sekarang
+                      Ajukan Sekarang
                     </button>
                   </div>
                 </div>

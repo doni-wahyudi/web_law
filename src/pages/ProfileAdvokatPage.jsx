@@ -29,8 +29,8 @@ function ProfileAdvokatPage() {
       {/* Banner */}
       <section className="page-banner">
         <div className="container">
-          <h1>Profile Advokat</h1>
-          <p>Kenali lebih dekat tim advokat profesional kami</p>
+          <h1>Mitra Advokat</h1>
+          <p>Kenali lebih dekat tim mitra advokat profesional kami</p>
         </div>
       </section>
 

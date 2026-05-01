@@ -1,0 +1,68 @@
+.welcome {
+  padding: 60px 0;
+  background-color: var(--color-white);
+  position: relative;
+  z-index: 10;
+  margin-top: -40px; /* Slight overlap with hero decorations if any */
+}
+
+.welcome__card {
+  background: white;
+  padding: 50px;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 109, 78, 0.05);
+}
+
+.welcome__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.welcome__brand {
+  color: var(--color-accent);
+}
+
+.welcome__line {
+  width: 60px;
+  height: 4px;
+  background: var(--color-accent);
+  margin: 0 auto 25px;
+  border-radius: 2px;
+}
+
+.welcome__text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 15px;
+}
+
+.welcome__text:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .welcome {
+    margin-top: 0;
+    padding: 40px 0;
+  }
+  
+  .welcome__card {
+    padding: 30px 20px;
+  }
+  
+  .welcome__title {
+    font-size: 1.8rem;
+  }
+}
+
+.welcome__text strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}

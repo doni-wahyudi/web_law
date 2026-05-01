@@ -1,34 +1,88 @@
 .team {
   padding: var(--section-padding);
   background: var(--color-white);
+  overflow: hidden;
+}
+
+.team__container {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  padding-top: 0;
+  /* Align directly to the top of section padding */
+}
+
+.team__left {
+  flex: 0 0 450px;
+  position: sticky;
+  top: 20px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.team__right {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.team__title {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 2.8rem;
+  line-height: 1;
+  text-align: left;
+}
+
+.team .section-title {
+  text-align: left;
+  margin: 0 0 30px 0 !important;
+  padding: 0 !important;
+  font-size: 2.8rem;
+  line-height: 1;
+  /* Tighten line height for better alignment */
 }
 
 .team__intro-box {
-  max-width: 100%;
-  margin: 0 auto 50px;
-  background: linear-gradient(145deg, rgba(0, 109, 78, 0.03) 0%, rgba(255, 140, 0, 0.01) 100%);
-  border: 1px solid rgba(0, 109, 78, 0.08);
-  border-top: 3px solid var(--color-primary);
-  padding: 35px 45px;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  margin-bottom: 0;
+  border-left: 5px solid var(--color-accent);
+  padding: 0 0 0 30px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
 }
 
 .team__intro-text {
-  font-size: 1.05rem;
-  color: #4a5568;
-  line-height: 1.9;
-  font-weight: 500;
-  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 25px;
+  text-align: left;
 }
 
-.team__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  grid-auto-rows: 1fr;
-  gap: 30px;
+.team__slider {
+  padding: 0 0 50px !important;
+  /* Remove top padding to align with text */
 }
 
+.team__slider .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+  /* Ensure all slides have same height */
+}
+
+.team__slider .swiper-slide {
+  height: auto !important;
+  display: flex;
+  /* Make slide a flex container */
+  flex-direction: column;
+}
 
 .team__card {
   background: var(--color-white);
@@ -39,7 +93,10 @@
   animation: fadeInUp 0.6s ease both;
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 100%;
+  /* Fill the entire slide height */
+  margin: 0 0 10px 0;
 }
 
 .team__card:hover {
@@ -93,11 +150,12 @@
 }
 
 .team__name {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--color-dark);
   margin-bottom: 6px;
-  min-height: 48px;
+  min-height: 54px;
+  /* Ensure same height for names */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,10 +251,13 @@
 .team__expertise {
   margin-bottom: 12px;
   background: rgba(0, 109, 78, 0.03);
-  padding: 10px;
+  padding: 15px;
   border-radius: 8px;
   border-left: 3px solid var(--color-primary);
-  min-height: 140px;
+  flex: 1;
+  /* Grow to fill the card */
+  display: flex;
+  flex-direction: column;
 }
 
 .team__section-title {
@@ -247,17 +308,48 @@
 
 
 
+/* Swiper Pagination */
+.team__slider .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.team__slider .swiper-pagination-bullet-active {
+  background: var(--color-accent);
+}
+
 /* Responsive */
-@media (max-width: 968px) {
-  .team__grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1200px) {
+  .team__container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .team__left {
+    flex: none;
+    width: 100%;
+    position: static;
+  }
+
+  .team .section-title {
+    font-size: 2.2rem;
+  }
+
+  .team__intro-box {
+    padding-left: 20px;
   }
 }
 
-@media (max-width: 580px) {
-  .team__grid {
-    grid-template-columns: 1fr;
-    max-width: 380px;
-    margin: 0 auto;
+@media (max-width: 768px) {
+  .team .section-title {
+    font-size: 1.8rem;
   }
+
+  .team__intro-text {
+    font-size: 1.05rem;
+  }
+}
+
+.team__intro-text strong {
+  color: var(--color-accent);
+  font-weight: 700;
 }

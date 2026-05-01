@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaWhatsapp, FaCheck } from 'react-icons/fa';
+import { FaCheck } from 'react-icons/fa';
 import { pricingPlans } from '../data/content';
 import WhatsAppModal from '../components/WhatsAppModal';
 import './BiayaLayanan.css';
@@ -53,14 +53,25 @@ function BiayaLayananPage() {
                 </ul>
                 <button
                   onClick={() => handleChoosePlan(plan.title)}
-                  className={`pricing__cta ${plan.popular ? 'pricing__cta--primary' : ''}`}
-                  style={{ border: 'none', width: '100%', cursor: 'pointer' }}
+                  className={`pricing__cta ${plan.popular ? 'pricing__cta--primary' : 'pricing__cta--outline'}`}
+                  style={{ width: '100%', cursor: 'pointer' }}
                 >
-                  <FaWhatsapp />
                   Pilih Paket
                 </button>
               </div>
             ))}
+          </div>
+          <div className="pricing__free-cta">
+            <button
+              onClick={() => {
+                setSelectedKeperluan('Konsultasi Gratis (Jumat)');
+                setIsModalOpen(true);
+              }}
+              className="pricing__free-btn"
+            >
+              Konsultasi Gratis Sekarang
+            </button>
+            <p className="pricing__free-info">Tersedia setiap hari Jumat, pukul 10.00 - 18.00 WIB</p>
           </div>
 
           {/* Additional Info */}

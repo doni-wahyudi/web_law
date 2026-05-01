@@ -4,7 +4,7 @@ import heroImg3 from '../assets/hero/hero_3.png';
 import heroImg4 from '../assets/hero/hero_4.png';
 import heroImg5 from '../assets/hero/hero_5.png';
 import { useState } from 'react';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaPhoneAlt } from 'react-icons/fa';
 import { heroStats } from '../data/content';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
@@ -49,16 +49,15 @@ function Hero() {
         </Swiper>
       </div>
 
-      <div className="container hero__inner">
-        <div className="hero__content">
+      <div className="hero__content">
+        <div className="container hero__content-inner">
+          <span className="hero__tagline">Punya Masalah Hukum?</span>
           <h1 className="hero__title">
-            Punya Masalah<br />
-            <span className="hero__title-accent">Hukum?</span>
+            Cerita <span className="hero__title-italic">Aja</span> Dulu!
           </h1>
-          <h2 className="hero__subtitle">Cerita Aja Dulu</h2>
           <p className="hero__desc">
-            Konsultasikan permasalahan hukum Anda dengan tim advokat profesional kami.
-            Kami siap membantu memberikan solusi terbaik untuk Anda.
+            Konsultasikan <strong>permasalahan hukum Anda</strong> dengan tim mitra advokat profesional kami.
+            Kami siap membantu memberikan <strong>solusi terbaik dan terpercaya</strong> untuk Anda.
           </p>
 
           <div className="hero__stats">
@@ -70,13 +69,9 @@ function Hero() {
             ))}
           </div>
 
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="hero__cta"
-            style={{ border: 'none', cursor: 'pointer' }}
-          >
-            <FaWhatsapp />
-            Konsultasi Via Chat
+          <button onClick={() => setIsModalOpen(true)} className="hero__cta">
+            Konsultasi Sekarang
+            <span className="hero__cta-glow"></span>
           </button>
         </div>
       </div>

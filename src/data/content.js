@@ -3,7 +3,7 @@
 // ===========================
 
 export const siteConfig = {
-  name: 'TanyaAdvokat',
+  name: 'TanyaAdvokat.id',
   tagline: 'Konsultasi Hukum Online',
   company: 'PT Swara Naraya Indonesia',
   whatsappLink: 'https://wa.me/6281368936945',
@@ -19,12 +19,11 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: 'Beranda', path: '/' },
-  { label: 'Biaya Layanan', path: '/biaya-layanan' },
-  { label: 'Profile Advokat', path: '/profile-advokat' },
+  { label: 'Tentang Advokat', path: '/tentang-advokat' },
+  { label: 'Mitra Advokat', path: '/profile-advokat' },
   { label: 'Tips Advokat', path: '/blog' },
-  { label: 'Dokumentasi', path: '/dokumentasi' },
-  { label: 'Bantuan Hukum', path: '/umkm-go' },
-  { label: 'Peraturan Hukum', path: '/peraturan-hukum' },
+  { label: 'Layanan Advokat', path: '/layanan-advokat' },
+  { label: 'Biaya Layanan', path: '/biaya-layanan' },
 ];
 
 
@@ -193,44 +192,44 @@ export const teamMembers = [
 
 export const services = [
   {
-    icon: 'heart-crack',
-    title: 'Perceraian',
-    description: 'Pendampingan hukum untuk proses perceraian, hak asuh anak, dan pembagian harta gono-gini.',
-  },
-  {
-    icon: 'scroll',
-    title: 'Waris',
-    description: 'Penyelesaian sengketa waris, pembagian warisan, dan pembuatan surat wasiat.',
-  },
-  {
-    icon: 'briefcase',
-    title: 'Hukum Bisnis',
-    description: 'Konsultasi pendirian PT/CV, perizinan usaha, dan kontrak bisnis.',
+    icon: 'shield',
+    title: 'Pidana Umum',
+    description: 'Pendampingan hukum untuk kasus tindak pidana umum di seluruh tingkat pemeriksaan.',
   },
   {
     icon: 'shield',
-    title: 'Pidana',
-    description: 'Pendampingan hukum untuk kasus pidana umum dan khusus.',
+    title: 'Pidana Khusus',
+    description: 'Penanganan perkara pidana khusus seperti korupsi, narkotika, dan tindak pidana ekonomi.',
+  },
+  {
+    icon: 'building',
+    title: 'Bisnis & Perusahaan',
+    description: 'Solusi legalitas, pendirian badan usaha, kepatuhan perusahaan, dan kontrak bisnis.',
+  },
+  {
+    icon: 'file-text',
+    title: 'E-Commerce & Fintech',
+    description: 'Perlindungan hukum untuk ekosistem digital, transaksi elektronik, dan layanan keuangan digital.',
   },
   {
     icon: 'map',
     title: 'Pertanahan',
-    description: 'Sengketa tanah, sertifikat, dan perizinan pertanahan.',
+    description: 'Penyelesaian sengketa tanah, sertifikasi, serta urusan hukum agraria lainnya.',
+  },
+  {
+    icon: 'scroll',
+    title: 'Waris',
+    description: 'Pengurusan pembagian harta warisan, sengketa waris, dan penetapan ahli waris.',
   },
   {
     icon: 'users',
     title: 'Ketenagakerjaan',
-    description: 'Perselisihan hubungan industrial, PHK, dan hak pekerja.',
+    description: 'Penyelesaian perselisihan hubungan industrial, PHK, dan hak-hak ketenagakerjaan.',
   },
   {
-    icon: 'file-text',
-    title: 'Kontrak',
-    description: 'Pembuatan, review, dan penyelesaian sengketa kontrak.',
-  },
-  {
-    icon: 'building',
-    title: 'UMKM',
-    description: 'Bantuan hukum khusus untuk usaha mikro, kecil, dan menengah.',
+    icon: 'heart-crack',
+    title: 'Perceraian & Keluarga',
+    description: 'Proses perceraian, pembagian harta gono-gini, serta hak asuh anak secara humanis.',
   },
 ];
 
@@ -305,8 +304,7 @@ export const pricingPlans = [
     period: 'per sesi',
     features: [
       'Konsultasi via WhatsApp',
-      'Durasi 60 menit',
-      'Advice tertulis',
+      'Durasi 30 menit',
       'Follow-up 1x',
     ],
     popular: false,

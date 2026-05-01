@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FaWhatsapp, FaMapMarkerAlt, FaGraduationCap, FaBriefcase, FaIdCard, FaBalanceScale, FaArrowLeft } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaGraduationCap, FaBriefcase, FaIdCard, FaBalanceScale, FaArrowLeft } from 'react-icons/fa';
 import { teamMembers } from '../data/content';
 import WhatsAppModal from '../components/WhatsAppModal';
 import './ProfileDetailPage.css';
@@ -16,8 +16,8 @@ function ProfileDetailPage() {
         <div className="container">
           <h2>Profil Tidak Ditemukan</h2>
           <p>Maaf, profil advokat yang Anda cari tidak tersedia.</p>
-          <Link to="/profil-advokat" className="profile-detail__back-btn">
-            <FaArrowLeft /> Kembali ke Daftar Advokat
+          <Link to="/profile-advokat" className="profile-detail__back-btn">
+            <FaArrowLeft /> Kembali ke Daftar Mitra Advokat
           </Link>
         </div>
       </section>
@@ -55,10 +55,10 @@ function ProfileDetailPage() {
             <div className="profile-detail__actions">
               <button 
                 onClick={() => setIsModalOpen(true)} 
-                className="btn btn-whatsapp"
+                className="btn btn-primary-solid"
                 style={{ border: 'none', width: '100%', cursor: 'pointer' }}
               >
-                <FaWhatsapp /> Konsultasi Via WhatsApp
+                Konsultasi Sekarang
               </button>
             </div>
           </div>

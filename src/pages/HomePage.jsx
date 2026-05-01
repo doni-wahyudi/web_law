@@ -1,4 +1,5 @@
 import Hero from '../components/Hero';
+import Welcome from '../components/Welcome';
 import Team from '../components/Team';
 import Services from '../components/Services';
 import WhyUs from '../components/WhyUs';
@@ -10,6 +11,7 @@ function HomePage() {
   return (
     <>
       <Hero />
+      <Welcome />
       <Team />
       <Services />
       <Articles />

@@ -10,11 +10,13 @@ const getIcon = (label) => {
   switch (label.toLowerCase()) {
     case 'beranda': return <FaHome className="nav-icon" />;
     case 'biaya layanan': return <FaMoneyBillWave className="nav-icon" />;
-    case 'profile advokat': return <FaUserTie className="nav-icon" />;
+    case 'mitra advokat': return <FaUserTie className="nav-icon" />;
     case 'tips advokat': return <FaLightbulb className="nav-icon" />;
-    case 'dokumentasi': return <FaFolder className="nav-icon" />;
+    case 'dokumentasi kegiatan hukum': return <FaFolder className="nav-icon" />;
     case 'bantuan hukum': return <FaGavel className="nav-icon" />;
-    case 'peraturan hukum': return <FaBook className="nav-icon" />;
+    case 'peraturan perundang-undangan': return <FaBook className="nav-icon" />;
+    case 'tentang advokat': return <FaBook className="nav-icon" />;
+    case 'layanan advokat': return <FaGavel className="nav-icon" />;
     default: return null;
   }
 };
@@ -50,12 +52,72 @@ function Header() {
         <Link to="/" className="header__logo">
           <img src={logo} alt="TanyaAdvokat Logo" className="header__logo-img" />
           <span className="header__logo-text">
-            Tanya<span className="header__logo-accent">Advokat</span>
+            Tanya<span className="header__logo-accent">Advokat.id</span>
           </span>
         </Link>
 
         <nav className={`header__nav ${isOpen ? 'header__nav--open' : ''}`}>
           {navLinks.map((link) => {
+            if (link.label.toLowerCase() === 'tentang advokat') {
+              const isActive = ['/visi-misi', '/landasan-hukum', '/sop-pelayanan'].includes(location.pathname);
+              return (
+                <div key={link.path} className={`header__link-wrapper ${isActive ? 'header__link--active' : ''}`}>
+                  <div className="header__link">
+                    {getIcon(link.label)}
+                    <span>{link.label}</span>
+                  </div>
+                  <div className="header__submenu">
+                    <Link to="/visi-misi" className="header__submenu-link">Visi & Misi</Link>
+                    <Link to="/landasan-hukum" className="header__submenu-link">Landasan Hukum</Link>
+                    <Link to="/sop-pelayanan" className="header__submenu-link">SOP Pelayanan</Link>
+                  </div>
+                </div>
+              );
+            }
+
+            if (link.label.toLowerCase() === 'mitra advokat') {
+              return (
+                <div key={link.path} className={`header__link-wrapper ${location.pathname.startsWith('/advokat') || location.pathname === link.path ? 'header__link--active' : ''}`}>
+                  <Link
+                    to={link.path}
+                    className="header__link"
+                  >
+                    {getIcon(link.label)}
+                    <span>{link.label}</span>
+                  </Link>
+                  <div className="header__submenu">
+                    {teamMembers.map((member, i) => (
+                      <a
+                        key={i}
+                        href="#"
+                        onClick={(e) => handleSubmenuClick(e, `Konsultasi dengan ${member.name}`)}
+                        className="header__submenu-link"
+                      >
+                        {member.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
+            if (link.label.toLowerCase() === 'layanan advokat') {
+              const isActive = ['/umkm-go', '/peraturan-hukum', '/dokumentasi'].includes(location.pathname);
+              return (
+                <div key={link.path} className={`header__link-wrapper ${isActive ? 'header__link--active' : ''}`}>
+                  <div className="header__link">
+                    {getIcon(link.label)}
+                    <span>{link.label}</span>
+                  </div>
+                  <div className="header__submenu">
+                    <Link to="/umkm-go" className="header__submenu-link">Bantuan Hukum</Link>
+                    <Link to="/peraturan-hukum" className="header__submenu-link">Peraturan Perundang-undangan</Link>
+                    <Link to="/dokumentasi" className="header__submenu-link">Dokumentasi kegiatan hukum</Link>
+                  </div>
+                </div>
+              );
+            }
+
             if (link.label.toLowerCase() === 'biaya layanan') {
               return (
                 <div key={link.path} className={`header__link-wrapper ${location.pathname === link.path ? 'header__link--active' : ''}`}>
@@ -82,57 +144,6 @@ function Header() {
               );
             }
 
-            if (link.label.toLowerCase() === 'profile advokat') {
-              return (
-                <div key={link.path} className={`header__link-wrapper ${location.pathname.startsWith('/advokat') || location.pathname === link.path ? 'header__link--active' : ''}`}>
-                  <Link
-                    to={link.path}
-                    className="header__link"
-                  >
-                    {getIcon(link.label)}
-                    <span>{link.label}</span>
-                  </Link>
-                  <div className="header__submenu">
-                    {teamMembers.map((member, i) => (
-                      <a
-                        key={i}
-                        href="#"
-                        onClick={(e) => handleSubmenuClick(e, `Konsultasi dengan ${member.name}`)}
-                        className="header__submenu-link"
-                      >
-                        {member.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              );
-            }
-
-            if (link.label.toLowerCase() === 'bantuan hukum') {
-              return (
-                <div key={link.path} className={`header__link-wrapper ${location.pathname === link.path ? 'header__link--active' : ''}`}>
-                  <Link
-                    to={link.path}
-                    className="header__link"
-                  >
-                    {getIcon(link.label)}
-                    <span>{link.label}</span>
-                  </Link>
-                  <div className="header__submenu">
-                    {services.map((service, i) => (
-                      <a
-                        key={i}
-                        href="#"
-                        onClick={(e) => handleSubmenuClick(e, service.title)}
-                        className="header__submenu-link"
-                      >
-                        {service.title}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              );
-            }
             return (
               <Link
                 key={link.path}
@@ -144,7 +155,6 @@ function Header() {
               </Link>
             );
           })}
-
         </nav>
 
         <button

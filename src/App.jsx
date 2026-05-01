@@ -11,6 +11,10 @@ import DokumentasiPage from './pages/DokumentasiPage';
 import UmkmGoPage from './pages/UmkmGoPage';
 import PeraturanPage from './pages/PeraturanPage';
 import ProfileDetailPage from './pages/ProfileDetailPage';
+import VisiMisiPage from './pages/VisiMisiPage';
+import LandasanHukumPage from './pages/LandasanHukumPage';
+import SopPelayananPage from './pages/SopPelayananPage';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,9 +40,13 @@ function App() {
           <Route path="/umkm-go" element={<UmkmGoPage />} />
           <Route path="/peraturan-hukum" element={<PeraturanPage />} />
           <Route path="/advokat/:id" element={<ProfileDetailPage />} />
+          <Route path="/visi-misi" element={<VisiMisiPage />} />
+          <Route path="/landasan-hukum" element={<LandasanHukumPage />} />
+          <Route path="/sop-pelayanan" element={<SopPelayananPage />} />
         </Routes>
       </main>
       <Footer />
+      <ScrollToTopButton />
     </>
   );
 }

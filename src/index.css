@@ -18,7 +18,7 @@
   --color-footer-bar: #004D37;
 
   /* Typography */
-  --font-family: 'Montserrat', sans-serif;
+  --font-family: 'Outfit', sans-serif;
 
   /* Spacing */
   --section-padding: 80px 0;
@@ -226,4 +226,9 @@ button {
   .page-banner h1 {
     font-size: 1.8rem;
   }
+}
+
+.section-subtitle strong {
+  color: var(--color-accent);
+  font-weight: 700;
 }

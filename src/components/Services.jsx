@@ -29,7 +29,7 @@ function Services() {
       <div className="container">
         <h2 className="section-title">Layanan Kami</h2>
         <p className="section-subtitle">
-          Berbagai layanan hukum profesional untuk memenuhi kebutuhan Anda
+          TanyaAdvokat.id berkomitmen memperjuangkan <strong>keadilan (justice)</strong> dan <strong>kesetaraan (equality)</strong> melalui tim advokat senior yang berintegritas. Dengan pendekatan <strong>berbasis analisis mendalam</strong>, kami menghadirkan solusi hukum yang <strong>setara, transparan, dan tanpa diskriminasi</strong> guna memberikan kepastian serta ketenangan pikiran bagi Anda dan bisnis Anda.
         </p>
 
         <div className="services__grid">

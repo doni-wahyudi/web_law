@@ -12,9 +12,9 @@ function WhyUs() {
   return (
     <section className="whyus" id="whyus">
       <div className="container">
-        <h2 className="section-title">Mengapa Memilih TanyaAdvokat?</h2>
+        <h2 className="section-title">Mengapa Memilih TanyaAdvokat.id?</h2>
         <p className="section-subtitle">
-          Komitmen kami untuk memberikan layanan hukum terbaik
+          Komitmen kami untuk memberikan <strong>layanan hukum terbaik dan terpercaya</strong>
         </p>
 
         <div className="whyus__grid">

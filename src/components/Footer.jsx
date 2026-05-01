@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../assets/tanyaadvokat.id_logo.png';
-import { FaInstagram, FaTiktok, FaFacebookF, FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaInstagram, FaTiktok, FaFacebookF, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { siteConfig, navLinks } from '../data/content';
 import WhatsAppModal from './WhatsAppModal';
@@ -16,7 +16,7 @@ function Footer() {
           <div className="footer__logo">
             <img src={logo} alt="TanyaAdvokat Logo" className="footer__logo-img" />
             <span className="footer__logo-text">
-              Tanya<span className="footer__logo-accent">Advokat</span>
+              Tanya<span className="footer__logo-accent">Advokat.id</span>
             </span>
           </div>
 
@@ -45,17 +45,6 @@ function Footer() {
             <li>
               <FaMapMarkerAlt />
               <span>{siteConfig.address}</span>
-            </li>
-            <li>
-              <FaWhatsapp />
-              <button
-                onClick={() => setIsModalOpen(true)}
-                style={{ background: 'none', border: 'none', padding: 0, color: 'var(--color-text-light)', font: 'inherit', cursor: 'pointer', textAlign: 'left', transition: 'color 0.2s' }}
-                onMouseOver={(e) => e.target.style.color = 'var(--color-primary)'}
-                onMouseOut={(e) => e.target.style.color = 'var(--color-text-light)'}
-              >
-                {siteConfig.phone}
-              </button>
             </li>
             <li>
               <FaEnvelope />
