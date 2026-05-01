@@ -37,7 +37,8 @@ function Team() {
           <Swiper
             modules={[Autoplay, Pagination, Navigation]}
             spaceBetween={30}
-            slidesPerView={1}
+            slidesPerView={1.2}
+            centeredSlides={true}
             loop={true}
             autoplay={{
               delay: 3000,
@@ -45,9 +46,18 @@ function Team() {
             }}
             pagination={{ clickable: true }}
             breakpoints={{
-              640: { slidesPerView: 1 },
-              1024: { slidesPerView: 2 },
-              1280: { slidesPerView: 3 },
+              640: { 
+                slidesPerView: 1.5,
+                centeredSlides: false
+              },
+              1024: { 
+                slidesPerView: 2.2,
+                centeredSlides: false
+              },
+              1280: { 
+                slidesPerView: 3,
+                centeredSlides: false
+              },
             }}
             className="team__slider"
           >

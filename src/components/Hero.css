@@ -253,23 +253,28 @@
   }
 
   .hero__content {
-    width: 100%;
+    width: 100% !important;
     height: auto;
     min-width: 0;
     padding: 60px 0;
     text-align: center;
     align-items: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
+    border-radius: 0;
+    background: linear-gradient(to bottom, rgba(0, 109, 78, 0.95), rgba(0, 80, 57, 0.98));
   }
 
   .hero__content-inner {
     margin: 0 auto;
     padding: 40px 20px;
+    width: 100%;
+    max-width: 600px;
   }
 
   .hero__stats {
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
+    margin-top: 30px;
   }
 
   .hero__stat {
@@ -277,37 +282,51 @@
   }
 
   .hero__stat-value {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .hero__title {
-    font-size: 3.5rem;
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+  }
+
+  .hero__question {
+    font-size: 1.2rem;
   }
 
   .hero__desc {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 30px auto;
     font-size: 1.1rem;
+    max-width: 500px;
   }
 }
 
 @media (max-width: 480px) {
   .hero__title {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
   }
 
   .hero__stats {
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    border-radius: 16px;
+    margin-top: 40px;
   }
 
   .hero__stat-value {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+  }
+
+  .hero__stat-label {
+    font-size: 0.9rem;
   }
 
   .hero__cta {
-    padding: 16px 30px;
-    font-size: 1.1rem;
+    padding: 18px 30px;
+    font-size: 1.2rem;
     width: 100%;
+    margin-top: 20px;
   }
 }

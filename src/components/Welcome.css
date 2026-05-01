@@ -62,6 +62,22 @@
   }
 }
 
+@media (max-width: 480px) {
+  .welcome__card {
+    padding: 25px 15px;
+    border-radius: var(--radius-lg);
+  }
+
+  .welcome__title {
+    font-size: 1.5rem;
+  }
+
+  .welcome__text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
 .welcome__text strong {
   color: var(--color-accent);
   font-weight: 700;

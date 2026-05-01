@@ -77,10 +77,13 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .services__grid {
     grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
+    gap: 16px;
+  }
+  
+  .services__card {
+    padding: 24px;
   }
 }
