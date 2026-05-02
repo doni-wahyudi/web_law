@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { FaCalendarAlt, FaTag, FaArrowLeft } from 'react-icons/fa';
 import { blogPosts as staticPosts } from '../data/content';
 import { supabase } from '../lib/supabase';
+import { Helmet } from 'react-helmet-async';
 import WhatsAppModal from '../components/WhatsAppModal';
 import './BlogDetailPage.css';
 
@@ -58,6 +59,14 @@ function BlogDetailPage() {
 
   return (
     <>
+      <Helmet>
+        <title>{`${post.title} | TanyaAdvokat.id`}</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        {post.image_url && <meta property="og:image" content={post.image_url} />}
+        <meta property="og:type" content="article" />
+      </Helmet>
       <section className="blog-detail-header">
         <div className="container">
           <Link to="/blog" className="blog-detail__back-link">

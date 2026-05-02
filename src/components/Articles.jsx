@@ -83,7 +83,7 @@ function Articles() {
                 <article className="articles__card" style={{ height: '100%' }}>
                   <div className="articles__thumbnail">
                     {post.image_url || post.image ? (
-                      <img src={post.image_url || post.image} alt={post.title} className="articles__img" />
+                      <img src={post.image_url || post.image} alt={post.title} className="articles__img" loading="lazy" />
                     ) : (
                       <div className="articles__thumbnail-placeholder">
                         <span className="articles__thumbnail-icon">📄</span>

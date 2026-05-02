@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { pricingPlans as staticPlans } from '../data/content';
+import { Helmet } from 'react-helmet-async';
 import { supabase } from '../lib/supabase';
 import WhatsAppModal from '../components/WhatsAppModal';
+import Skeleton from '../components/Skeleton/Skeleton';
 import './BiayaLayanan.css';
 
 function BiayaLayananPage() {
@@ -43,6 +45,10 @@ function BiayaLayananPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Biaya Layanan Hukum & Konsultasi | TanyaAdvokat.id</title>
+        <meta name="description" content="Pilih paket layanan hukum yang sesuai dengan kebutuhan Anda. Tersedia konsultasi gratis setiap hari Jumat untuk berbagai permasalahan hukum." />
+      </Helmet>
       {/* Banner */}
       <section className="page-banner">
         <div className="container">
@@ -55,39 +61,54 @@ function BiayaLayananPage() {
       <section className="pricing">
         <div className="container">
           <div className="pricing__grid">
-            {plans.map((plan, index) => (
-              <div
-                key={plan.id || index}
-                className={`pricing__card ${plan.is_popular || plan.popular ? 'pricing__card--popular' : ''}`}
-              >
-                {(plan.is_popular || plan.popular) && (
-                  <div className="pricing__badge">Paling Populer</div>
-                )}
-                <h3 className="pricing__title">{plan.title}</h3>
-                <div className="pricing__price">
-                  {(plan.original_price || plan.originalPrice) && (
-                    <span className="pricing__original-amount">{plan.original_price || plan.originalPrice}</span>
-                  )}
-                  <span className="pricing__amount">{plan.price}</span>
-                  <span className="pricing__period">{plan.period}</span>
+            {loading ? (
+              Array(3).fill(0).map((_, i) => (
+                <div key={i} className="pricing__card" style={{ padding: '30px' }}>
+                  <Skeleton type="title" width="80%" style={{ margin: '0 auto 20px' }} />
+                  <Skeleton type="text" height="40px" width="60%" style={{ margin: '0 auto 30px' }} />
+                  <div style={{ marginBottom: '20px' }}>
+                    <Skeleton type="text" width="90%" />
+                    <Skeleton type="text" width="85%" />
+                    <Skeleton type="text" width="95%" />
+                  </div>
+                  <Skeleton type="text" height="50px" style={{ borderRadius: '50px' }} />
                 </div>
-                <ul className="pricing__features">
-                  {plan.features?.map((feature, i) => (
-                    <li key={i}>
-                      <FaCheck className="pricing__check" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  onClick={() => handleChoosePlan(plan.title)}
-                  className={`pricing__cta ${plan.is_popular || plan.popular ? 'pricing__cta--primary' : 'pricing__cta--outline'}`}
-                  style={{ width: '100%', cursor: 'pointer' }}
+              ))
+            ) : (
+              plans.map((plan, index) => (
+                <div
+                  key={plan.id || index}
+                  className={`pricing__card ${plan.is_popular || plan.popular ? 'pricing__card--popular' : ''}`}
                 >
-                  Pilih Paket
-                </button>
-              </div>
-            ))}
+                  {(plan.is_popular || plan.popular) && (
+                    <div className="pricing__badge">Paling Populer</div>
+                  )}
+                  <h3 className="pricing__title">{plan.title}</h3>
+                  <div className="pricing__price">
+                    {(plan.original_price || plan.originalPrice) && (
+                      <span className="pricing__original-amount">{plan.original_price || plan.originalPrice}</span>
+                    )}
+                    <span className="pricing__amount">{plan.price}</span>
+                    <span className="pricing__period">{plan.period}</span>
+                  </div>
+                  <ul className="pricing__features">
+                    {plan.features?.map((feature, i) => (
+                      <li key={i}>
+                        <FaCheck className="pricing__check" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={() => handleChoosePlan(plan.title)}
+                    className={`pricing__cta ${plan.is_popular || plan.popular ? 'pricing__cta--primary' : 'pricing__cta--outline'}`}
+                    style={{ width: '100%', cursor: 'pointer' }}
+                  >
+                    Pilih Paket
+                  </button>
+                </div>
+              ))
+            )}
           </div>
           <div className="pricing__free-cta">
             <button

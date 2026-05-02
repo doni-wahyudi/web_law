@@ -19,11 +19,35 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: 'Beranda', path: '/' },
-  { label: 'Tentang Advokat', path: '/tentang-advokat' },
-  { label: 'Mitra Advokat', path: '/profile-advokat' },
+  { 
+    label: 'Tentang Advokat', 
+    path: '#',
+    subLinks: [
+      { label: 'Visi & Misi', path: '/visi-misi' },
+      { label: 'Landasan Hukum', path: '/landasan-hukum' },
+      { label: 'SOP Pelayanan', path: '/sop-pelayanan' },
+    ]
+  },
+  { 
+    label: 'Mitra Advokat', 
+    path: '/profile-advokat',
+    dynamicSub: 'teamMembers'
+  },
   { label: 'Tips Advokat', path: '/blog' },
-  { label: 'Layanan Advokat', path: '/layanan-advokat' },
-  { label: 'Biaya Layanan', path: '/biaya-layanan' },
+  { 
+    label: 'Layanan Advokat', 
+    path: '#',
+    subLinks: [
+      { label: 'Bantuan Hukum', path: '/umkm-go' },
+      { label: 'Peraturan Perundang-undangan', path: '/peraturan-hukum' },
+      { label: 'Dokumentasi kegiatan hukum', path: '/dokumentasi' },
+    ]
+  },
+  { 
+    label: 'Biaya Layanan', 
+    path: '/biaya-layanan',
+    dynamicSub: 'pricingPlans'
+  },
 ];
 
 

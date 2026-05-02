@@ -9,6 +9,49 @@ const FileUploader = ({ bucket, onUploadSuccess, currentValue, accept = "image/*
 
   const isImage = accept.includes('image');
 
+  const compressImage = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (event) => {
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+          const MAX_WIDTH = 1600; // Optimal for large displays but still lightweight
+          const MAX_HEIGHT = 1600;
+
+          if (width > height) {
+            if (width > MAX_WIDTH) {
+              height *= MAX_WIDTH / width;
+              width = MAX_WIDTH;
+            }
+          } else {
+            if (height > MAX_HEIGHT) {
+              width *= MAX_HEIGHT / height;
+              height = MAX_HEIGHT;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          // Convert to Blob with 0.8 quality (80%)
+          canvas.toBlob((blob) => {
+            if (blob) resolve(blob);
+            else reject(new Error('Gagal mengompresi gambar.'));
+          }, 'image/jpeg', 0.8);
+        };
+        img.onerror = (err) => reject(err);
+      };
+      reader.onerror = (err) => reject(err);
+    });
+  };
+
   const handleUpload = async (event) => {
     try {
       setUploading(true);
@@ -18,9 +61,24 @@ const FileUploader = ({ bucket, onUploadSuccess, currentValue, accept = "image/*
         throw new Error('Pilih file untuk diunggah.');
       }
 
-      const file = event.target.files[0];
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${Math.random()}.${fileExt}`;
+      let file = event.target.files[0];
+      const originalExt = file.name.split('.').pop();
+      let finalExt = originalExt;
+
+      // Apply optimization if it's an image
+      if (isImage) {
+        try {
+          const compressedBlob = await compressImage(file);
+          // Create a new File object from the blob
+          file = new File([compressedBlob], `opt_${file.name}`, { type: 'image/jpeg' });
+          finalExt = 'jpg'; // We standardized to JPEG for best compression ratio
+        } catch (compressErr) {
+          console.warn('Compression failed, uploading original:', compressErr);
+          // Fallback to original file if compression fails
+        }
+      }
+
+      const fileName = `${Math.random().toString(36).substring(2)}.${finalExt}`;
       const filePath = `${fileName}`;
 
       // Upload to Supabase Storage

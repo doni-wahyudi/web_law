@@ -1,8 +1,8 @@
 import logo from '../assets/tanyaadvokat.id_logo.png';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaBars, FaTimes, FaHome, FaMoneyBillWave, FaUserTie, FaLightbulb, FaFolder, FaGavel, FaBook } from 'react-icons/fa';
-import { navLinks, pricingPlans, teamMembers, services } from '../data/content';
+import { navLinks, pricingPlans, teamMembers } from '../data/content';
 import WhatsAppModal from './WhatsAppModal';
 import './Header.css';
 
@@ -30,7 +30,7 @@ function Header() {
 
   const handleSubmenuClick = (e, planTitle) => {
     e.preventDefault();
-    setSelectedKeperluan(`Paket ${planTitle}`);
+    setSelectedKeperluan(planTitle.startsWith('Konsultasi') ? planTitle : `Paket ${planTitle}`);
     setIsModalOpen(true);
   };
 
@@ -58,82 +58,44 @@ function Header() {
 
         <nav className={`header__nav ${isOpen ? 'header__nav--open' : ''}`}>
           {navLinks.map((link) => {
-            if (link.label.toLowerCase() === 'tentang advokat') {
-              const isActive = ['/visi-misi', '/landasan-hukum', '/sop-pelayanan'].includes(location.pathname);
-              return (
-                <div key={link.path} className={`header__link-wrapper ${isActive ? 'header__link--active' : ''}`}>
-                  <div className="header__link">
-                    {getIcon(link.label)}
-                    <span>{link.label}</span>
-                  </div>
-                  <div className="header__submenu">
-                    <Link to="/visi-misi" className="header__submenu-link">Visi & Misi</Link>
-                    <Link to="/landasan-hukum" className="header__submenu-link">Landasan Hukum</Link>
-                    <Link to="/sop-pelayanan" className="header__submenu-link">SOP Pelayanan</Link>
-                  </div>
-                </div>
-              );
-            }
+            const hasSubmenu = !!(link.subLinks || link.dynamicSub);
+            const isActive = location.pathname === link.path || 
+              (link.subLinks && link.subLinks.some(sub => location.pathname === sub.path)) ||
+              (link.dynamicSub === 'teamMembers' && location.pathname.startsWith('/advokat')) ||
+              (link.label === 'Layanan Advokat' && ['/umkm-go', '/peraturan-hukum', '/dokumentasi'].includes(location.pathname));
 
-            if (link.label.toLowerCase() === 'mitra advokat') {
+            if (hasSubmenu) {
               return (
-                <div key={link.path} className={`header__link-wrapper ${location.pathname.startsWith('/advokat') || location.pathname === link.path ? 'header__link--active' : ''}`}>
-                  <Link
-                    to={link.path}
-                    className="header__link"
-                  >
-                    {getIcon(link.label)}
-                    <span>{link.label}</span>
-                  </Link>
+                <div key={link.label} className={`header__link-wrapper ${isActive ? 'header__link--active' : ''}`}>
+                  {link.path === '#' ? (
+                    <div className="header__link">
+                      {getIcon(link.label)}
+                      <span>{link.label}</span>
+                    </div>
+                  ) : (
+                    <Link to={link.path} className="header__link">
+                      {getIcon(link.label)}
+                      <span>{link.label}</span>
+                    </Link>
+                  )}
                   <div className="header__submenu">
-                    {teamMembers.map((member, i) => (
-                      <a
-                        key={i}
-                        href="#"
-                        onClick={(e) => handleSubmenuClick(e, `Konsultasi dengan ${member.name}`)}
+                    {link.subLinks && link.subLinks.map((sub) => (
+                      <Link key={sub.path} to={sub.path} className="header__submenu-link">{sub.label}</Link>
+                    ))}
+                    {link.dynamicSub === 'teamMembers' && teamMembers.map((member, i) => (
+                      <Link 
+                        key={i} 
+                        to={`/advokat/${member.id}`} 
                         className="header__submenu-link"
                       >
                         {member.name}
-                      </a>
+                      </Link>
                     ))}
-                  </div>
-                </div>
-              );
-            }
-
-            if (link.label.toLowerCase() === 'layanan advokat') {
-              const isActive = ['/umkm-go', '/peraturan-hukum', '/dokumentasi'].includes(location.pathname);
-              return (
-                <div key={link.path} className={`header__link-wrapper ${isActive ? 'header__link--active' : ''}`}>
-                  <div className="header__link">
-                    {getIcon(link.label)}
-                    <span>{link.label}</span>
-                  </div>
-                  <div className="header__submenu">
-                    <Link to="/umkm-go" className="header__submenu-link">Bantuan Hukum</Link>
-                    <Link to="/peraturan-hukum" className="header__submenu-link">Peraturan Perundang-undangan</Link>
-                    <Link to="/dokumentasi" className="header__submenu-link">Dokumentasi kegiatan hukum</Link>
-                  </div>
-                </div>
-              );
-            }
-
-            if (link.label.toLowerCase() === 'biaya layanan') {
-              return (
-                <div key={link.path} className={`header__link-wrapper ${location.pathname === link.path ? 'header__link--active' : ''}`}>
-                  <Link
-                    to={link.path}
-                    className="header__link"
-                  >
-                    {getIcon(link.label)}
-                    <span>{link.label}</span>
-                  </Link>
-                  <div className="header__submenu">
-                    {pricingPlans.map((plan, i) => (
-                      <a
-                        key={i}
-                        href="#"
-                        onClick={(e) => handleSubmenuClick(e, plan.title)}
+                    {link.dynamicSub === 'pricingPlans' && pricingPlans.map((plan, i) => (
+                      <a 
+                        key={i} 
+                        href="#" 
+                        onClick={(e) => handleSubmenuClick(e, plan.title)} 
                         className="header__submenu-link"
                       >
                         {plan.title}
@@ -145,9 +107,9 @@ function Header() {
             }
 
             return (
-              <Link
-                key={link.path}
-                to={link.path}
+              <Link 
+                key={link.path} 
+                to={link.path} 
                 className={`header__link ${location.pathname === link.path ? 'header__link--active' : ''}`}
               >
                 {getIcon(link.label)}
@@ -172,6 +134,6 @@ function Header() {
       />
     </header>
   );
-}
+};
 
 export default Header;

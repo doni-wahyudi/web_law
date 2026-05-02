@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
-import { FaFileContract, FaStore, FaIdCard, FaSearchPlus, FaGavel, FaHandsHelping, FaFolderPlus } from 'react-icons/fa';
+import { services as staticServices } from '../data/content';
+import { Helmet } from 'react-helmet-async';
 import { supabase } from '../lib/supabase';
 import WhatsAppModal from '../components/WhatsAppModal';
+import Skeleton from '../components/Skeleton/Skeleton';
 import bannerImg from '../assets/bantuan_hukum_hero.png';
 import './UmkmGo.css';
 
 const iconMap = {
-  'FaFileContract': <FaFileContract className="product-icon" />,
-  'FaStore': <FaStore className="product-icon" />,
-  'FaIdCard': <FaIdCard className="product-icon" />,
-  'FaSearchPlus': <FaSearchPlus className="product-icon" />,
-  'FaGavel': <FaGavel className="product-icon" />,
-  'FaHandsHelping': <FaHandsHelping className="product-icon" />,
-  'FaFolderPlus': <FaFolderPlus className="product-icon" />
+  'shield': <FaIcons.FaShieldAlt className="product-icon" />,
+  'building': <FaIcons.FaBuilding className="product-icon" />,
+  'file-text': <FaIcons.FaFileAlt className="product-icon" />,
+  'map': <FaIcons.FaMapMarkedAlt className="product-icon" />,
+  'scroll': <FaIcons.FaScroll className="product-icon" />,
+  'users': <FaIcons.FaUsers className="product-icon" />,
+  'heart-crack': <FaIcons.FaHeartBroken className="product-icon" />,
+  'FaFileContract': <FaIcons.FaFileContract className="product-icon" />,
+  'FaStore': <FaIcons.FaStore className="product-icon" />,
+  'FaIdCard': <FaIcons.FaIdCard className="product-icon" />,
+  'FaSearchPlus': <FaIcons.FaSearchPlus className="product-icon" />,
+  'FaGavel': <FaIcons.FaGavel className="product-icon" />,
+  'FaHandsHelping': <FaIcons.FaHandsHelping className="product-icon" />,
+  'FaFolderPlus': <FaIcons.FaFolderPlus className="product-icon" />
 };
 
 function UmkmGoPage() {
@@ -23,11 +32,14 @@ function UmkmGoPage() {
   const [loading, setLoading] = useState(true);
 
   const DEFAULT_SERVICES = [
-    { title: 'Pendirian PT UMKM', desc: 'Layanan pengurusan pendirian badan hukum PT khusus untuk pelaku UMKM.', icon: 'FaStore' },
-    { title: 'Pembuatan Akta', desc: 'Pengurusan akta notaris untuk berbagai kebutuhan legalitas bisnis.', icon: 'FaFileContract' },
-    { title: 'Legalitas Yayasan', desc: 'Pengurusan izin dan akta pendirian yayasan atau organisasi sosial.', icon: 'FaHandsHelping' },
-    { title: 'Pendaftaran Hak Cipta', desc: 'Perlindungan karya intelektual melalui pendaftaran resmi HAKI.', icon: 'FaSearchPlus' },
-    { title: 'Penyusunan Kontrak', desc: 'Pembuatan draf kontrak bisnis profesional dan berkekuatan hukum.', icon: 'FaFolderPlus' }
+    ...staticServices,
+    { title: 'Pembuatan Surat Perjanjian', description: 'Penyusunan draf surat perjanjian profesional untuk berbagai kebutuhan hukum Anda.', icon: 'file-text' },
+    { title: 'Pembentukan PT UMKM', description: 'Layanan pengurusan pendirian badan hukum PT khusus untuk pelaku UMKM.', icon: 'building' },
+    { title: 'Pembuatan Surat Kuasa', description: 'Penyusunan surat kuasa khusus untuk berbagai keperluan pendampingan hukum.', icon: 'file-text' },
+    { title: 'Analisis Kasus Hukum', description: 'Analisis mendalam terhadap permasalahan hukum Anda untuk menentukan strategi terbaik.', icon: 'shield' },
+    { title: 'Pembuatan Legal Opinion', description: 'Pemberian pendapat hukum tertulis secara komprehensif berdasarkan peraturan yang berlaku.', icon: 'scroll' },
+    { title: 'Bantuan Hukum Probono', description: 'Layanan bantuan hukum cuma-cuma bagi masyarakat yang kurang mampu.', icon: 'users' },
+    { title: 'Bantuan Hukum lainnya', description: 'Layanan bantuan hukum lainnya sesuai dengan kebutuhan spesifik Anda.', icon: 'FaFolderPlus' }
   ];
 
   useEffect(() => {
@@ -62,6 +74,10 @@ function UmkmGoPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Bantuan Hukum & Legalitas UMKM | TanyaAdvokat.id</title>
+        <meta name="description" content="Layanan bantuan hukum profesional untuk UMKM, pendirian PT, yayasan, pendaftaran HAKI, dan penyusunan kontrak bisnis di Indonesia." />
+      </Helmet>
       {/* Banner */}
       <section className="bantuan-banner">
         <div className="container assistance-inner">
@@ -79,7 +95,7 @@ function UmkmGoPage() {
             </button>
           </div>
           <div className="bantuan-banner__image-wrapper">
-            <img src={bannerImg} alt="Bantuan Hukum" className="bantuan-banner__img" />
+            <img src={bannerImg} alt="Bantuan Hukum" className="bantuan-banner__img" loading="lazy" />
           </div>
         </div>
       </section>
@@ -93,32 +109,45 @@ function UmkmGoPage() {
           </p>
 
           <div className="bantuan-services__grid">
-            {serviceList.map((service, index) => {
-              const iconKey = service.icon_name || service.icon;
-              const IconComponent = iconMap[iconKey] || (FaIcons[iconKey] ? React.createElement(FaIcons[iconKey], { className: "product-icon" }) : <FaFolderPlus className="product-icon" />);
-
-              return (
-                <div
-                  key={service.id || index}
-                  className={`bantuan-services__card ${service.is_centered ? 'card--centered' : ''}`}
-                >
-                  <div className="bantuan-services__left">
-                    {IconComponent}
-                  </div>
-                  <div className="bantuan-services__right">
-                    <h3 className="bantuan-services__title">{service.title}</h3>
-                    <p className="bantuan-services__desc">{service.description || service.desc}</p>
-                    <button
-                      onClick={() => handleCtaClick(service.title)}
-                      className="bantuan-services__btn"
-                      style={{ border: 'none', cursor: 'pointer' }}
-                    >
-                      Ajukan Sekarang
-                    </button>
+            {loading ? (
+              Array(6).fill(0).map((_, i) => (
+                <div key={i} className="bantuan-services__card" style={{ display: 'flex', gap: '20px' }}>
+                  <Skeleton type="circle" width="50px" height="50px" style={{ flexShrink: 0 }} />
+                  <div style={{ flexGrow: 1 }}>
+                    <Skeleton type="title" width="60%" />
+                    <Skeleton type="text" />
+                    <Skeleton type="text" width="40%" />
                   </div>
                 </div>
-              );
-            })}
+              ))
+            ) : (
+              serviceList.map((service, index) => {
+                const iconKey = service.icon_name || service.icon;
+                const IconComponent = iconMap[iconKey] || (FaIcons[iconKey] ? React.createElement(FaIcons[iconKey], { className: "product-icon" }) : <FaFolderPlus className="product-icon" />);
+
+                return (
+                  <div
+                    key={service.id || index}
+                    className={`bantuan-services__card ${service.is_centered ? 'card--centered' : ''}`}
+                  >
+                    <div className="bantuan-services__left">
+                      {IconComponent}
+                    </div>
+                    <div className="bantuan-services__right">
+                      <h3 className="bantuan-services__title">{service.title}</h3>
+                      <p className="bantuan-services__desc">{service.description || service.desc}</p>
+                      <button
+                        onClick={() => handleCtaClick(service.title)}
+                        className="bantuan-services__btn"
+                        style={{ border: 'none', cursor: 'pointer' }}
+                      >
+                        Ajukan Sekarang
+                      </button>
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
       </section>

@@ -108,6 +108,7 @@ function Team() {
                         src={member.image_url || member.image}
                         alt={member.name}
                         className="team__img"
+                        loading="lazy"
                         style={{ objectPosition: member.objectPosition || 'center center' }}
                       />
                     ) : (

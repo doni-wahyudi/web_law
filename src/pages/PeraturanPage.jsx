@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaDownload, FaSearch, FaFilePdf, FaBook } from 'react-icons/fa';
 import { peraturanHukum as staticRegs } from '../data/content';
+import { Helmet } from 'react-helmet-async';
 import { supabase } from '../lib/supabase';
 import './PeraturanPage.css';
 
@@ -48,6 +49,10 @@ function PeraturanPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Pusat Peraturan Perundang-undangan Indonesia | TanyaAdvokat.id</title>
+        <meta name="description" content="Unduh dan pelajari kumpulan peraturan perundang-undangan terbaru di Indonesia untuk mendukung pemahaman hukum Anda." />
+      </Helmet>
       <section className="page-banner">
         <div className="container">
           <h1>Kumpulan Peraturan Hukum</h1>
