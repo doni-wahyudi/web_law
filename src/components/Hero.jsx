@@ -1,7 +1,7 @@
-import heroImg2 from '../assets/hero/hero_2.png';
-import heroImg3 from '../assets/hero/hero_3.png';
-import heroImg4 from '../assets/hero/hero_4.png';
-import heroImg5 from '../assets/hero/hero_5.png';
+import heroImg2 from '../assets/hero/hero_2.webp';
+import heroImg3 from '../assets/hero/hero_3.webp';
+import heroImg4 from '../assets/hero/hero_4.webp';
+import heroImg5 from '../assets/hero/hero_5.webp';
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';

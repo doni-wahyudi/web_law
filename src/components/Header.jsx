@@ -1,4 +1,4 @@
-import logo from '../assets/tanyaadvokat.id_logo.png';
+import logo from '../assets/tanyaadvokat.id_logo.webp';
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaBars, FaTimes, FaHome, FaMoneyBillWave, FaUserTie, FaLightbulb, FaFolder, FaGavel, FaBook } from 'react-icons/fa';

@@ -58,36 +58,36 @@ export const heroStats = [
   { value: '5 Menit', label: 'Rata-rata Respon' },
 ];
 
-import team1 from '../assets/team_1_agung.jpg';
-import team2 from '../assets/team_2_nico_thomas.jpg';
-import team3 from '../assets/team_3_rizky_dwi_utami.png';
-import team4 from '../assets/iswahyudi.png';
+import team1 from '../assets/team_1_agung.webp';
+import team2 from '../assets/team_2_nico_thomas.webp';
+import team3 from '../assets/team_3_rizky_dwi_utami.webp';
+import team4 from '../assets/iswahyudi.webp';
 
-import article1 from '../assets/article_1_perceraian.png';
-import article2 from '../assets/article_2_waris.png';
-import article3 from '../assets/article_3_bisnis.png';
-import article4 from '../assets/article_4_pertanahan.png';
-import article5 from '../assets/article_5_phk.png';
-import article6 from '../assets/article_6_umkm.png';
+import article1 from '../assets/article_1_perceraian.webp';
+import article2 from '../assets/article_2_waris.webp';
+import article3 from '../assets/article_3_bisnis.webp';
+import article4 from '../assets/article_4_pertanahan.webp';
+import article5 from '../assets/article_5_phk.webp';
+import article6 from '../assets/article_6_umkm.webp';
 
-import partner2 from '../assets/partner/2-1024x576.png';
-import partner3 from '../assets/partner/3-1024x576.png';
-import partner4 from '../assets/partner/4-1024x576.png';
-import partner5 from '../assets/partner/5-1024x576.png';
-import partner6 from '../assets/partner/6-1024x576.png';
-import partner7 from '../assets/partner/7-1024x576.png';
-import partner8 from '../assets/partner/8-1024x576.png';
-import partner9 from '../assets/partner/9-1024x576.png';
-import partner10 from '../assets/partner/10-1024x576.png';
+import partner2 from '../assets/partner/2-1024x576.webp';
+import partner3 from '../assets/partner/3-1024x576.webp';
+import partner4 from '../assets/partner/4-1024x576.webp';
+import partner5 from '../assets/partner/5-1024x576.webp';
+import partner6 from '../assets/partner/6-1024x576.webp';
+import partner7 from '../assets/partner/7-1024x576.webp';
+import partner8 from '../assets/partner/8-1024x576.webp';
+import partner9 from '../assets/partner/9-1024x576.webp';
+import partner10 from '../assets/partner/10-1024x576.webp';
 
-import gallery14 from '../assets/gallery/14.jpg';
-import gallery15 from '../assets/gallery/15.jpg';
-import gallery16 from '../assets/gallery/16.jpg';
-import gallery17 from '../assets/gallery/17.jpg';
-import gallery18 from '../assets/gallery/18.jpg';
-import gallery19 from '../assets/gallery/19.jpg';
-import gallery20 from '../assets/gallery/20.jpg';
-import gallery21 from '../assets/gallery/21_1.jpg';
+import gallery14 from '../assets/gallery/14.webp';
+import gallery15 from '../assets/gallery/15.webp';
+import gallery16 from '../assets/gallery/16.webp';
+import gallery17 from '../assets/gallery/17.webp';
+import gallery18 from '../assets/gallery/18.webp';
+import gallery19 from '../assets/gallery/19.webp';
+import gallery20 from '../assets/gallery/20.webp';
+import gallery21 from '../assets/gallery/21_1.webp';
 
 export const teamMembers = [
   {

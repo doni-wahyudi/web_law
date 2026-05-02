@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../assets/tanyaadvokat.id_logo.png';
+import logo from '../assets/tanyaadvokat.id_logo.webp';
 import { FaInstagram, FaTiktok, FaFacebookF, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { siteConfig, navLinks } from '../data/content.js';

@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { supabase } from '../lib/supabase';
 import WhatsAppModal from '../components/WhatsAppModal';
 import Skeleton from '../components/Skeleton/Skeleton';
-import bannerImg from '../assets/layanan_kami_hero.png';
+import bannerImg from '../assets/layanan_kami_hero.webp';
 import './LayananKami.css';
 
 const iconMap = {

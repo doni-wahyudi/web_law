@@ -1,7 +1,7 @@
 import React from 'react';
 import './StaticPages.css';
 
-import certificateImg from '../assets/surat pencatatan tanyaadvokat.jpeg';
+import certificateImg from '../assets/surat pencatatan tanyaadvokat.webp';
 
 function LandasanHukumPage() {
   return (

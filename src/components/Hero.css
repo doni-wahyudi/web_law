@@ -246,7 +246,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(135deg, rgba(0, 109, 78, 0.5) 0%, rgba(0, 77, 55, 0.7) 100%), url('../assets/hero_subtle_law_bg.png') center/cover no-repeat;
+  background: linear-gradient(135deg, rgba(0, 109, 78, 0.5) 0%, rgba(0, 77, 55, 0.7) 100%), url('../assets/hero_subtle_law_bg.webp') center/cover no-repeat;
   padding: 30px 0;
   z-index: 20;
 }
