@@ -70,7 +70,9 @@ function Services() {
         </p>
 
         <div className="services__grid">
-          {serviceList.map((service, index) => {
+          {serviceList
+            .filter(service => service.title !== 'Bantuan Hukum lainnya')
+            .map((service, index) => {
             const IconComponent = iconMap[service.icon_name] || iconMap[service.icon] || FaIcons[service.icon_name] || FaBriefcase;
             return (
               <div
