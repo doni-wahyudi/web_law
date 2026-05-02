@@ -1,9 +1,9 @@
 .welcome {
-  padding: 60px 0;
+  padding: 120px 0;
   background-color: var(--color-white);
   position: relative;
   z-index: 10;
-  margin-top: -40px; /* Slight overlap with hero decorations if any */
+  margin-top: 30px;
 }
 
 .welcome__card {
@@ -49,14 +49,14 @@
 
 @media (max-width: 768px) {
   .welcome {
-    margin-top: 0;
-    padding: 80px 0 40px;
+    margin-top: 15px;
+    padding: 100px 0 60px;
   }
-  
+
   .welcome__card {
     padding: 30px 20px;
   }
-  
+
   .welcome__title {
     font-size: 1.8rem;
   }

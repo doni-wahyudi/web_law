@@ -1,6 +1,11 @@
 .testimonials {
   padding: var(--section-padding);
-  background: var(--color-gray-bg);
+  background: linear-gradient(135deg, rgba(0, 109, 78, 0.5) 0%, rgba(0, 77, 55, 0.7) 100%), url('../assets/hero_subtle_law_bg.png') center/cover no-repeat;
+}
+
+.testimonials .section-title,
+.testimonials .section-subtitle {
+  color: var(--color-white);
 }
 
 .testimonials__slider {

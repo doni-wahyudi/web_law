@@ -1,6 +1,11 @@
 .articles {
   padding: 100px 0;
-  background: #f8fbf9;
+  background: linear-gradient(135deg, rgba(0, 109, 78, 0.5) 0%, rgba(0, 77, 55, 0.7) 100%), url('../assets/hero_subtle_law_bg.png') center/cover no-repeat;
+}
+
+.articles .section-title,
+.articles .section-subtitle {
+  color: var(--color-white);
 }
 
 .articles__carousel {
