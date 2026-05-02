@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { FaHeartBroken, FaScroll, FaBriefcase, FaShieldAlt, FaMapMarkedAlt, FaUsers, FaFileContract, FaStore } from 'react-icons/fa';
-import { services as staticServices } from '../data/content';
+import { layananKamiServices as staticServices } from '../data/content';
 import { supabase } from '../lib/supabase';
 import WhatsAppModal from './WhatsAppModal';
 import './Services.css';

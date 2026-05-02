@@ -17,6 +17,7 @@ const getIcon = (label) => {
     case 'peraturan perundang-undangan': return <FaBook className="nav-icon" />;
     case 'tentang advokat': return <FaBook className="nav-icon" />;
     case 'layanan advokat': return <FaGavel className="nav-icon" />;
+    case 'layanan kami': return <FaShieldAlt className="nav-icon" />;
     default: return null;
   }
 };
@@ -62,7 +63,7 @@ function Header() {
             const isActive = location.pathname === link.path || 
               (link.subLinks && link.subLinks.some(sub => location.pathname === sub.path)) ||
               (link.dynamicSub === 'teamMembers' && location.pathname.startsWith('/advokat')) ||
-              (link.label === 'Layanan Advokat' && ['/umkm-go', '/peraturan-hukum', '/dokumentasi'].includes(location.pathname));
+              (link.label === 'Layanan Advokat' && ['/layanan-kami', '/umkm-go', '/peraturan-hukum', '/dokumentasi'].includes(location.pathname));
 
             if (hasSubmenu) {
               return (
