@@ -40,11 +40,11 @@ const FileUploader = ({ bucket, onUploadSuccess, currentValue, accept = "image/*
           const ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0, width, height);
 
-          // Convert to Blob with 0.8 quality (80%)
+          // Convert to Blob with 0.8 quality (80%) using WebP format
           canvas.toBlob((blob) => {
             if (blob) resolve(blob);
             else reject(new Error('Gagal mengompresi gambar.'));
-          }, 'image/jpeg', 0.8);
+          }, 'image/webp', 0.8);
         };
         img.onerror = (err) => reject(err);
       };
@@ -69,9 +69,9 @@ const FileUploader = ({ bucket, onUploadSuccess, currentValue, accept = "image/*
       if (isImage) {
         try {
           const compressedBlob = await compressImage(file);
-          // Create a new File object from the blob
-          file = new File([compressedBlob], `opt_${file.name}`, { type: 'image/jpeg' });
-          finalExt = 'jpg'; // We standardized to JPEG for best compression ratio
+          // Create a new File object from the blob in WebP format
+          file = new File([compressedBlob], `opt_${file.name.split('.')[0]}.webp`, { type: 'image/webp' });
+          finalExt = 'webp'; // We standardized to WebP for best compression and quality
         } catch (compressErr) {
           console.warn('Compression failed, uploading original:', compressErr);
           // Fallback to original file if compression fails
