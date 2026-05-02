@@ -229,6 +229,6 @@ button {
 }
 
 .section-subtitle strong {
-  color: var(--color-accent);
-  font-weight: 700;
+  color: #1a1a1a;
+  font-weight: 800;
 }

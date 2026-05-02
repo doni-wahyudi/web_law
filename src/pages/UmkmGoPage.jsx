@@ -1,58 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import * as FaIcons from 'react-icons/fa';
 import { FaFileContract, FaStore, FaIdCard, FaSearchPlus, FaGavel, FaHandsHelping, FaFolderPlus } from 'react-icons/fa';
+import { supabase } from '../lib/supabase';
 import WhatsAppModal from '../components/WhatsAppModal';
 import bannerImg from '../assets/bantuan_hukum_hero.png';
 import './UmkmGo.css';
 
-const services = [
-  {
-    title: 'Pembentukan Surat Perjanjian',
-    desc: 'Pembuatan naskah perjanjian hukum yang mengikat dan sah.',
-    icon: <FaFileContract className="product-icon" />,
-    text: 'Halo TanyaAdvokat, saya ingin berkonsultasi mengenai Pembuatan Surat Perjanjian.'
-  },
-  {
-    title: 'Pembentukan PT UMKM',
-    desc: 'Pendirian PT Perorangan atau Umum khusus pelaku UMKM.',
-    icon: <FaStore className="product-icon" />,
-    text: 'Halo TanyaAdvokat, saya ingin menanyakan syarat dan proses Pembentukan PT UMKM.'
-  },
-  {
-    title: 'Pembuatan Surat Kuasa',
-    desc: 'Pemberian kuasa hukum formal untuk keperluan legalitas.',
-    icon: <FaIdCard className="product-icon" />,
-    text: 'Halo TanyaAdvokat, saya memerlukan bantuan untuk Pembuatan Surat Kuasa.'
-  },
-  {
-    title: 'Analisis Konsultasi Hukum',
-    desc: 'Bedah kasus mendalam dan solusi mitigasi sengketa.',
-    icon: <FaSearchPlus className="product-icon" />,
-    text: 'Halo TanyaAdvokat, saya butuh Analisis dan Konsultasi Hukum untuk kasus saya.'
-  },
-  {
-    title: 'Pembuatan Legal Opinion',
-    desc: 'Pendapat hukum komprehensif tertulis dari advokat.',
-    icon: <FaGavel className="product-icon" />,
-    text: 'Halo TanyaAdvokat, saya ingin mengajukan Pembuatan Legal Opinion resmi.'
-  },
-  {
-    title: 'Bantuan Hukum Probono',
-    desc: 'Layanan advokasi tanpa biaya bagi masyarakat rentan.',
-    icon: <FaHandsHelping className="product-icon" />,
-    text: 'Halo TanyaAdvokat, saya ingin mengajukan permohonan Bantuan Hukum Probono (Gratis).'
-  },
-  {
-    title: 'Bantuan Hukum Lainnya',
-    desc: 'Pendampingan urusan legalitas administratif lainnya.',
-    icon: <FaFolderPlus className="product-icon" />,
-    text: 'Halo TanyaAdvokat, saya butuh Bantuan Hukum terkait permasalahan lainnya.',
-    isCentered: true
-  }
-];
+const iconMap = {
+  'FaFileContract': <FaFileContract className="product-icon" />,
+  'FaStore': <FaStore className="product-icon" />,
+  'FaIdCard': <FaIdCard className="product-icon" />,
+  'FaSearchPlus': <FaSearchPlus className="product-icon" />,
+  'FaGavel': <FaGavel className="product-icon" />,
+  'FaHandsHelping': <FaHandsHelping className="product-icon" />,
+  'FaFolderPlus': <FaFolderPlus className="product-icon" />
+};
 
 function UmkmGoPage() {
+  const [serviceList, setServiceList] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedKeperluan, setSelectedKeperluan] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('law_services')
+          .select('*')
+          .order('order_index', { ascending: true });
+        
+        if (error) throw error;
+        if (data && data.length > 0) {
+          setServiceList(data);
+        } else {
+          // Fallback static data if DB empty
+          setServiceList([]); 
+        }
+      } catch (err) {
+        console.error('Error fetching services:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
 
   const handleCtaClick = (keperluan) => {
     setSelectedKeperluan(keperluan);
@@ -92,18 +85,21 @@ function UmkmGoPage() {
           </p>
 
           <div className="bantuan-services__grid">
-            {services.map((service, index) => {
+            {serviceList.map((service, index) => {
+              const iconKey = service.icon_name || service.icon;
+              const IconComponent = iconMap[iconKey] || (FaIcons[iconKey] ? React.createElement(FaIcons[iconKey], { className: "product-icon" }) : <FaFolderPlus className="product-icon" />);
+
               return (
                 <div
-                  key={index}
-                  className={`bantuan-services__card ${service.isCentered ? 'card--centered' : ''}`}
+                  key={service.id || index}
+                  className={`bantuan-services__card ${service.is_centered ? 'card--centered' : ''}`}
                 >
                   <div className="bantuan-services__left">
-                    {service.icon}
+                    {IconComponent}
                   </div>
                   <div className="bantuan-services__right">
                     <h3 className="bantuan-services__title">{service.title}</h3>
-                    <p className="bantuan-services__desc">{service.desc}</p>
+                    <p className="bantuan-services__desc">{service.description || service.desc}</p>
                     <button
                       onClick={() => handleCtaClick(service.title)}
                       className="bantuan-services__btn"

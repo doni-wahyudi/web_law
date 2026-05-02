@@ -1,19 +1,47 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaDownload, FaSearch, FaFilePdf, FaBook } from 'react-icons/fa';
-import { peraturanHukum } from '../data/content';
+import { peraturanHukum as staticRegs } from '../data/content';
+import { supabase } from '../lib/supabase';
 import './PeraturanPage.css';
 
 function PeraturanPage() {
+  const [peraturanList, setPeraturanList] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Semua');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRegs = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('regulations')
+          .select('*')
+          .order('year', { ascending: false });
+        
+        if (error) throw error;
+        if (data && data.length > 0) {
+          setPeraturanList(data);
+        } else {
+          setPeraturanList(staticRegs);
+        }
+      } catch (err) {
+        console.error('Error fetching regulations:', err);
+        setPeraturanList(staticRegs);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRegs();
+  }, []);
 
   // Get unique categories
-  const categories = ['Semua', ...new Set(peraturanHukum.map(item => item.category))];
+  const categories = ['Semua', ...new Set(peraturanList.map(item => item.category))];
 
   // Filter items
-  const filteredItems = peraturanHukum.filter(item => {
+  const filteredItems = peraturanList.filter(item => {
     const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          item.description.toLowerCase().includes(searchTerm.toLowerCase());
+                          (item.description || '').toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'Semua' || item.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -55,8 +83,8 @@ function PeraturanPage() {
 
           {filteredItems.length > 0 ? (
             <div className="peraturan__grid">
-              {filteredItems.map((item) => (
-                <div key={item.id} className="peraturan__card">
+              {filteredItems.map((item, index) => (
+                <div key={item.id || index} className="peraturan__card">
                   <div className="peraturan__card-icon">
                     <FaBook />
                   </div>
@@ -67,7 +95,7 @@ function PeraturanPage() {
                     <p className="peraturan__desc">{item.description}</p>
                   </div>
                   <div className="peraturan__card-footer">
-                    <a href={item.file} download className="peraturan__download-btn">
+                    <a href={item.file_url || item.file} target="_blank" rel="noopener noreferrer" className="peraturan__download-btn">
                       <FaDownload /> Unduh PDF
                     </a>
                   </div>

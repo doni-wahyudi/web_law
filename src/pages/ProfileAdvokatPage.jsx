@@ -1,23 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaEnvelope, FaLinkedin, FaWhatsapp, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { teamMembers } from '../data/content';
+import { teamMembers as staticMembers } from '../data/content';
+import { supabase } from '../lib/supabase';
 import WhatsAppModal from '../components/WhatsAppModal';
 import './ProfileAdvokat.css';
 
-const extendedProfiles = teamMembers.map((member) => {
-  return {
-    ...member,
-    education: member.education || 'S1 Ilmu Hukum',
-    license: 'Terverifikasi PERADI',
-    bio: member.about
-  };
-});
-
-
 function ProfileAdvokatPage() {
+  const [profiles, setProfiles] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedKeperluan, setSelectedKeperluan] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('team_members')
+          .select('*')
+          .order('order_index', { ascending: true });
+        
+        if (error) throw error;
+        if (data && data.length > 0) {
+          setProfiles(data);
+        } else {
+          setProfiles(staticMembers);
+        }
+      } catch (err) {
+        console.error('Error fetching profiles:', err);
+        setProfiles(staticMembers);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfiles();
+  }, []);
 
   const handleContactClick = (name) => {
     setSelectedKeperluan(`Konsultasi dengan ${name}`);
@@ -38,11 +56,11 @@ function ProfileAdvokatPage() {
       <section className="profiles">
         <div className="container">
           <div className="profiles__grid">
-            {extendedProfiles.map((profile, index) => (
-              <div key={index} className="profiles__card">
+            {profiles.map((profile, index) => (
+              <div key={profile.id || index} className="profiles__card">
                 <div className="profiles__photo">
-                  {profile.image ? (
-                    <img src={profile.image} alt={profile.name} className="profiles__img" />
+                  {profile.image_url || profile.image ? (
+                    <img src={profile.image_url || profile.image} alt={profile.name} className="profiles__img" />
                   ) : (
                     <div className="profiles__photo-placeholder">
                       <div className="profiles__silhouette">
@@ -56,16 +74,16 @@ function ProfileAdvokatPage() {
                 <div className="profiles__content">
                   <h3 className="profiles__name">{profile.name}</h3>
                   <span className="profiles__role-badge">{profile.role}</span>
-                  <p className="profiles__bio">{profile.bio}</p>
+                  <p className="profiles__bio">{profile.about || profile.bio}</p>
                   <div className="profiles__details">
                     <div className="profiles__detail">
                       <span className="profiles__detail-label">Spesialisasi</span>
-                      <span className="profiles__detail-value">{profile.specialty || profile.role}</span>
+                      <span className="profiles__detail-value">{profile.expertise?.join(', ') || profile.role}</span>
 
                     </div>
                     <div className="profiles__detail">
                       <span className="profiles__detail-label">Pendidikan</span>
-                      <span className="profiles__detail-value">{profile.education}</span>
+                      <span className="profiles__detail-value">{profile.education || 'S1 Ilmu Hukum'}</span>
                     </div>
                     <div className="profiles__detail">
                       <span className="profiles__detail-label">Pengalaman</span>
@@ -81,7 +99,7 @@ function ProfileAdvokatPage() {
                     >
                       <FaWhatsapp /> WhatsApp
                     </a>
-                    {profile.socials.linkedin && profile.socials.linkedin !== '#' && (
+                    {profile.socials?.linkedin && profile.socials.linkedin !== '#' && (
                       <a href={profile.socials.linkedin} target="_blank" rel="noopener noreferrer" className="profiles__link profiles__link--linkedin"><FaLinkedin /> LinkedIn</a>
                     )}
                   </div>

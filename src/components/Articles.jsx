@@ -1,14 +1,44 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaCalendarAlt, FaTag, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { blogPosts } from '../data/content';
+import { blogPosts as staticPosts } from '../data/content';
+import { supabase } from '../lib/supabase';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './Articles.css';
 
 function Articles() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('articles')
+          .select('*')
+          .order('published_at', { ascending: false })
+          .limit(6);
+        
+        if (error) throw error;
+        if (data && data.length > 0) {
+          setPosts(data);
+        } else {
+          setPosts(staticPosts);
+        }
+      } catch (err) {
+        console.error('Error fetching articles:', err);
+        setPosts(staticPosts);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
   return (
     <section className="articles">
       <div className="container">
@@ -48,12 +78,12 @@ function Articles() {
             }}
             style={{ paddingBottom: '40px' }}
           >
-            {blogPosts.map((post) => (
-              <SwiperSlide key={post.id}>
+            {posts.map((post, index) => (
+              <SwiperSlide key={post.id || index}>
                 <article className="articles__card" style={{ height: '100%' }}>
                   <div className="articles__thumbnail">
-                    {post.image ? (
-                      <img src={post.image} alt={post.title} className="articles__img" />
+                    {post.image_url || post.image ? (
+                      <img src={post.image_url || post.image} alt={post.title} className="articles__img" />
                     ) : (
                       <div className="articles__thumbnail-placeholder">
                         <span className="articles__thumbnail-icon">📄</span>
@@ -66,7 +96,7 @@ function Articles() {
                   </div>
                   <div className="articles__content" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                     <div className="articles__date">
-                      <FaCalendarAlt /> {post.date}
+                      <FaCalendarAlt /> {post.published_at ? new Date(post.published_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : post.date}
                     </div>
                     <h3 className="articles__title">{post.title}</h3>
                     <p className="articles__excerpt" style={{ flexGrow: 1 }}>{post.excerpt}</p>

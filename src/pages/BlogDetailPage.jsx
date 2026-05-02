@@ -1,16 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FaCalendarAlt, FaTag, FaArrowLeft } from 'react-icons/fa';
-import { blogPosts } from '../data/content';
+import { blogPosts as staticPosts } from '../data/content';
+import { supabase } from '../lib/supabase';
 import WhatsAppModal from '../components/WhatsAppModal';
 import './BlogDetailPage.css';
 
 function BlogDetailPage() {
   const { id } = useParams();
-  
-  // Find the post. We use parseInt because the URL parameter is a string, but the ID in data might be a number.
-  const post = blogPosts.find(p => p.id === parseInt(id));
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        // Try UUID or ID
+        let { data, error } = await supabase
+          .from('articles')
+          .select('*')
+          .eq('id', id)
+          .single();
+        
+        if (error || !data) {
+          const staticMatch = staticPosts.find(p => p.id.toString() === id);
+          setPost(staticMatch);
+        } else {
+          setPost(data);
+        }
+      } catch (err) {
+        console.error('Error fetching article:', err);
+        const staticMatch = staticPosts.find(p => p.id.toString() === id);
+        setPost(staticMatch);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPost();
+  }, [id]);
+
+  if (loading) return <div style={{ padding: '100px 0', textAlign: 'center' }}>Loading...</div>;
 
   if (!post) {
     return (
@@ -39,7 +69,7 @@ function BlogDetailPage() {
               <FaTag /> {post.category}
             </span>
             <span className="blog-detail__date">
-              <FaCalendarAlt /> {post.date}
+              <FaCalendarAlt /> {post.published_at ? new Date(post.published_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : post.date}
             </span>
           </div>
           
@@ -49,9 +79,9 @@ function BlogDetailPage() {
 
       <section className="blog-detail-content">
         <div className="container blog-detail__container">
-          {post.image && (
+          {(post.image_url || post.image) && (
             <div className="blog-detail__hero-image">
-              <img src={post.image} alt={post.title} />
+              <img src={post.image_url || post.image} alt={post.title} />
             </div>
           )}
           

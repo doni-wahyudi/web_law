@@ -249,6 +249,11 @@ export const whyUsItems = [
     title: 'Terpercaya',
     description: 'Dipercaya oleh lebih dari 1000+ klien dengan tingkat kepuasan yang tinggi.',
   },
+  {
+    icon: 'search',
+    title: 'Berbasis Analisis Mendalam',
+    description: 'Setiap solusi hukum didasarkan pada riset dan analisis mendalam untuk hasil yang akurat.',
+  },
 ];
 
 export const testimonials = [

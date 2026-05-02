@@ -1,4 +1,4 @@
-import { FaAward, FaBolt, FaCheckCircle } from 'react-icons/fa';
+import { FaAward, FaBolt, FaCheckCircle, FaSearch } from 'react-icons/fa';
 import { whyUsItems } from '../data/content';
 import './WhyUs.css';
 
@@ -6,7 +6,9 @@ const iconMap = {
   'award': FaAward,
   'zap': FaBolt,
   'check-circle': FaCheckCircle,
+  'search': FaSearch,
 };
+
 
 function WhyUs() {
   return (

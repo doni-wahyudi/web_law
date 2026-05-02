@@ -16,6 +16,9 @@ import LandasanHukumPage from './pages/LandasanHukumPage';
 import SopPelayananPage from './pages/SopPelayananPage';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
+import LoginPage from './pages/Admin/LoginPage';
+import Dashboard from './pages/Admin/Dashboard';
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -25,10 +28,13 @@ function ScrollToTop() {
 }
 
 function App() {
+  const location = useLocation();
+  const isAdminPage = location.pathname.startsWith('/admin');
+
   return (
     <>
       <ScrollToTop />
-      <Header />
+      {!isAdminPage && <Header />}
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -36,16 +42,22 @@ function App() {
           <Route path="/profile-advokat" element={<ProfileAdvokatPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogDetailPage />} />
+          <Route path="/tips-advokat" element={<BlogPage />} />
           <Route path="/dokumentasi" element={<DokumentasiPage />} />
           <Route path="/umkm-go" element={<UmkmGoPage />} />
+          <Route path="/layanan-advokat" element={<UmkmGoPage />} />
           <Route path="/peraturan-hukum" element={<PeraturanPage />} />
           <Route path="/advokat/:id" element={<ProfileDetailPage />} />
           <Route path="/visi-misi" element={<VisiMisiPage />} />
           <Route path="/landasan-hukum" element={<LandasanHukumPage />} />
           <Route path="/sop-pelayanan" element={<SopPelayananPage />} />
+          
+          {/* Admin Routes */}
+          <Route path="/admin" element={<LoginPage />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
         </Routes>
       </main>
-      <Footer />
+      {!isAdminPage && <Footer />}
       <ScrollToTopButton />
     </>
   );

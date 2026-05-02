@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import * as FaIcons from 'react-icons/fa';
 import { FaHeartBroken, FaScroll, FaBriefcase, FaShieldAlt, FaMapMarkedAlt, FaUsers, FaFileContract, FaStore } from 'react-icons/fa';
-import { services } from '../data/content';
+import { services as staticServices } from '../data/content';
+import { supabase } from '../lib/supabase';
 import WhatsAppModal from './WhatsAppModal';
 import './Services.css';
 
@@ -13,11 +15,46 @@ const iconMap = {
   'users': FaUsers,
   'file-text': FaFileContract,
   'building': FaStore,
+  'FaHeartBroken': FaHeartBroken,
+  'FaScroll': FaScroll,
+  'FaBriefcase': FaBriefcase,
+  'FaShieldAlt': FaShieldAlt,
+  'FaMapMarkedAlt': FaMapMarkedAlt,
+  'FaUsers': FaUsers,
+  'FaFileContract': FaFileContract,
+  'FaStore': FaStore
 };
 
 function Services() {
+  const [serviceList, setServiceList] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedKeperluan, setSelectedKeperluan] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('law_services')
+          .select('*')
+          .order('order_index', { ascending: true });
+        
+        if (error) throw error;
+        if (data && data.length > 0) {
+          setServiceList(data);
+        } else {
+          setServiceList(staticServices);
+        }
+      } catch (err) {
+        console.error('Error fetching services:', err);
+        setServiceList(staticServices);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
 
   const handleCardClick = (title) => {
     setSelectedKeperluan(`Konsultasi Layanan ${title}`);
@@ -33,11 +70,11 @@ function Services() {
         </p>
 
         <div className="services__grid">
-          {services.map((service, index) => {
-            const IconComponent = iconMap[service.icon] || FaBriefcase;
+          {serviceList.map((service, index) => {
+            const IconComponent = iconMap[service.icon_name] || iconMap[service.icon] || FaIcons[service.icon_name] || FaBriefcase;
             return (
               <div
-                key={index}
+                key={service.id || index}
                 className="services__card"
                 onClick={() => handleCardClick(service.title)}
                 style={{ animationDelay: `${index * 0.08}s` }}

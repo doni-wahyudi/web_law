@@ -29,9 +29,9 @@
 }
 
 .welcome__line {
-  width: 60px;
+  width: 90%;
   height: 4px;
-  background: var(--color-accent);
+  background: #006d4e;
   margin: 0 auto 25px;
   border-radius: 2px;
 }
@@ -79,6 +79,6 @@
 }
 
 .welcome__text strong {
-  color: var(--color-accent);
-  font-weight: 700;
+  color: #1a1a1a;
+  font-weight: 800;
 }
