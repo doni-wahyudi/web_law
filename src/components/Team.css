@@ -279,13 +279,22 @@
 @media (max-width: 1024px) {
   .team__container {
     flex-direction: column;
+    gap: 40px;
+    min-height: auto;
   }
 
   .team__left {
     flex: none;
     width: 100%;
     position: static;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    top: 0;
+  }
+
+  .team__right {
+    width: 100%;
+    flex: none;
+    min-height: 500px; /* Ensure space for cards */
   }
 
   .team__title {

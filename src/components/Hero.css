@@ -304,18 +304,23 @@
 @media (max-width: 768px) {
   .hero {
     height: auto;
-    min-height: 100vh;
-    padding-top: 100px;
-    padding-bottom: 150px;
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 0;
+    flex-direction: column;
   }
 
   .hero__content {
-    padding: 40px 20px;
+    padding: 40px 25px;
     border-radius: 0;
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.95);
+  }
+
+  .hero__title {
+    font-size: 2.4rem;
   }
 
   .hero__team-list {
@@ -323,7 +328,8 @@
   }
 
   .hero__stats-bar {
-    padding: 20px 0;
+    position: relative;
+    padding: 40px 0;
   }
 
   .hero__stats-inner {
@@ -332,8 +338,12 @@
   }
 
   .hero__stat-divider {
-    width: 50%;
+    width: 60px;
     height: 1px;
+  }
+
+  .hero__stat-number {
+    font-size: 2rem;
   }
 }
 

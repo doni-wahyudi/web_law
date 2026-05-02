@@ -22,6 +22,14 @@ function UmkmGoPage() {
   const [selectedKeperluan, setSelectedKeperluan] = useState('');
   const [loading, setLoading] = useState(true);
 
+  const DEFAULT_SERVICES = [
+    { title: 'Pendirian PT UMKM', desc: 'Layanan pengurusan pendirian badan hukum PT khusus untuk pelaku UMKM.', icon: 'FaStore' },
+    { title: 'Pembuatan Akta', desc: 'Pengurusan akta notaris untuk berbagai kebutuhan legalitas bisnis.', icon: 'FaFileContract' },
+    { title: 'Legalitas Yayasan', desc: 'Pengurusan izin dan akta pendirian yayasan atau organisasi sosial.', icon: 'FaHandsHelping' },
+    { title: 'Pendaftaran Hak Cipta', desc: 'Perlindungan karya intelektual melalui pendaftaran resmi HAKI.', icon: 'FaSearchPlus' },
+    { title: 'Penyusunan Kontrak', desc: 'Pembuatan draf kontrak bisnis profesional dan berkekuatan hukum.', icon: 'FaFolderPlus' }
+  ];
+
   useEffect(() => {
     const fetchServices = async () => {
       try {
@@ -34,11 +42,11 @@ function UmkmGoPage() {
         if (data && data.length > 0) {
           setServiceList(data);
         } else {
-          // Fallback static data if DB empty
-          setServiceList([]); 
+          setServiceList(DEFAULT_SERVICES); 
         }
       } catch (err) {
         console.error('Error fetching services:', err);
+        setServiceList(DEFAULT_SERVICES);
       } finally {
         setLoading(false);
       }

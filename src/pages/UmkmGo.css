@@ -173,6 +173,9 @@
 
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
+  .bantuan-banner {
+    padding: 120px 0 60px;
+  }
   .bantuan-services__grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -187,6 +190,7 @@
   .assistance-inner {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 30px;
   }
 
   .bantuan-banner__content {
@@ -200,6 +204,11 @@
   .bantuan-banner__img {
     height: 300px;
   }
+  
+  .bantuan-banner__cta {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -207,12 +216,20 @@
     grid-template-columns: 1fr;
   }
   .bantuan-services__card {
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  .bantuan-services__left {
+    align-self: center;
+    margin-bottom: 10px;
   }
   .bantuan-services__card.card--centered {
     grid-column: auto;
     max-width: none;
+  }
+  .bantuan-services__btn {
+    margin: 15px auto 0;
   }
 }
