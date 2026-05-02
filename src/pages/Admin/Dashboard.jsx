@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
 import { useNavigate } from 'react-router-dom';
+import { 
+  FaImages, FaUsers, FaNewspaper, FaBalanceScale, 
+  FaTags, FaStar, FaHandshake, FaBook, 
+  FaFolderOpen, FaListAlt, FaSignOutAlt 
+} from 'react-icons/fa';
 import HeroManager from '../../components/Admin/HeroManager';
 import TeamManager from '../../components/Admin/TeamManager';
 import PricingManager from '../../components/Admin/PricingManager';
@@ -81,24 +86,24 @@ function Dashboard() {
         </div>
         
         <nav className="admin-nav">
-          <button onClick={() => setActiveTab('hero')} className={activeTab === 'hero' ? 'active' : ''}>Hero CMS</button>
-          <button onClick={() => setActiveTab('team')} className={activeTab === 'team' ? 'active' : ''}>Tim Mitra</button>
-          <button onClick={() => setActiveTab('articles')} className={activeTab === 'articles' ? 'active' : ''}>Articles</button>
-          <button onClick={() => setActiveTab('services')} className={activeTab === 'services' ? 'active' : ''}>Layanan Hukum</button>
-          <button onClick={() => setActiveTab('pricing')} className={activeTab === 'pricing' ? 'active' : ''}>Biaya Layanan</button>
-          <button onClick={() => setActiveTab('reviews')} className={activeTab === 'reviews' ? 'active' : ''}>Testimonials</button>
-          <button onClick={() => setActiveTab('partners')} className={activeTab === 'partners' ? 'active' : ''}>Mitra Logos</button>
-          <button onClick={() => setActiveTab('regulations')} className={activeTab === 'regulations' ? 'active' : ''}>Peraturan</button>
-          <button onClick={() => setActiveTab('documentation')} className={activeTab === 'documentation' ? 'active' : ''}>Dokumentasi</button>
-          <button onClick={() => setActiveTab('documentation-categories')} className={activeTab === 'documentation-categories' ? 'active' : ''}>Kategori Dokumen</button>
+          <button onClick={() => setActiveTab('hero')} className={activeTab === 'hero' ? 'active' : ''}><FaImages /> Hero CMS</button>
+          <button onClick={() => setActiveTab('team')} className={activeTab === 'team' ? 'active' : ''}><FaUsers /> Tim Mitra</button>
+          <button onClick={() => setActiveTab('articles')} className={activeTab === 'articles' ? 'active' : ''}><FaNewspaper /> Articles</button>
+          <button onClick={() => setActiveTab('services')} className={activeTab === 'services' ? 'active' : ''}><FaBalanceScale /> Layanan Hukum</button>
+          <button onClick={() => setActiveTab('pricing')} className={activeTab === 'pricing' ? 'active' : ''}><FaTags /> Biaya Layanan</button>
+          <button onClick={() => setActiveTab('reviews')} className={activeTab === 'reviews' ? 'active' : ''}><FaStar /> Testimonials</button>
+          <button onClick={() => setActiveTab('partners')} className={activeTab === 'partners' ? 'active' : ''}><FaHandshake /> Mitra Logos</button>
+          <button onClick={() => setActiveTab('regulations')} className={activeTab === 'regulations' ? 'active' : ''}><FaBook /> Peraturan</button>
+          <button onClick={() => setActiveTab('documentation')} className={activeTab === 'documentation' ? 'active' : ''}><FaFolderOpen /> Dokumentasi</button>
+          <button onClick={() => setActiveTab('documentation-categories')} className={activeTab === 'documentation-categories' ? 'active' : ''}><FaListAlt /> Kategori Dokumen</button>
         </nav>
         
-        <button className="admin-logout-btn" onClick={handleLogout}>Keluar</button>
+        <button className="admin-logout-btn" onClick={handleLogout}><FaSignOutAlt /> Keluar</button>
       </aside>
       
       <main className="admin-main">
         <header className="admin-main-header">
-          <h2>Management: {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</h2>
+          <h2>Management: {activeTab.charAt(0).toUpperCase() + activeTab.slice(1).replace('-', ' ')}</h2>
         </header>
         
         <div className="admin-content-area">
@@ -110,3 +115,4 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
