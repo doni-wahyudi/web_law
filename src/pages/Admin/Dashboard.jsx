@@ -21,6 +21,7 @@ import './Admin.css';
 function Dashboard() {
   const [session, setSession] = useState(null);
   const [activeTab, setActiveTab] = useState('hero');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,6 +43,11 @@ function Dashboard() {
 
     return () => subscription.unsubscribe();
   }, [navigate]);
+
+  // Close sidebar on tab change (mobile)
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [activeTab]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -78,8 +84,13 @@ function Dashboard() {
   if (!session) return null;
 
   return (
-    <div className="admin-dashboard">
-      <aside className="admin-sidebar">
+    <div className={`admin-dashboard ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+      <div 
+        className={`admin-backdrop ${isSidebarOpen ? 'active' : ''}`} 
+        onClick={() => setIsSidebarOpen(false)}
+      ></div>
+
+      <aside className={`admin-sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className="admin-sidebar-header">
           <h3>Admin Panel</h3>
           <p>{session.user.email}</p>
@@ -103,7 +114,17 @@ function Dashboard() {
       
       <main className="admin-main">
         <header className="admin-main-header">
-          <h2>Management: {activeTab.charAt(0).toUpperCase() + activeTab.slice(1).replace('-', ' ')}</h2>
+          <div className="admin-header-left">
+            <button className="admin-menu-toggle" onClick={() => setIsSidebarOpen(true)}>
+              <FaListAlt />
+            </button>
+            <h2>{activeTab.charAt(0).toUpperCase() + activeTab.slice(1).replace('-', ' ')}</h2>
+          </div>
+          <div className="admin-header-right">
+            <button className="admin-logout-icon" onClick={handleLogout} title="Logout">
+              <FaSignOutAlt />
+            </button>
+          </div>
         </header>
         
         <div className="admin-content-area">
