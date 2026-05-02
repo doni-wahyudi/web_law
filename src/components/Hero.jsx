@@ -3,6 +3,7 @@ import heroImg3 from '../assets/hero/hero_3.png';
 import heroImg4 from '../assets/hero/hero_4.png';
 import heroImg5 from '../assets/hero/hero_5.png';
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
@@ -121,9 +122,9 @@ function Hero() {
           <button onClick={() => setIsModalOpen(true)} className="hero__cta-primary">
             MULAI KONSULTASI <FaArrowRight className="hero__cta-icon" />
           </button>
-          <a href="/biaya-layanan" className="hero__cta-secondary">
+          <Link to="/biaya-layanan" className="hero__cta-secondary">
             LIHAT SKEMA BIAYA
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { FaLinkedinIn, FaWhatsapp, FaMapMarkerAlt, FaBalanceScale, FaBriefcase, FaBullseye, FaCheck } from 'react-icons/fa';
 import { teamMembers as staticMembers } from '../data/content';
 import { supabase } from '../lib/supabase';
@@ -72,7 +73,7 @@ function Team() {
             </p>
           </div>
 
-          <button className="team__btn-more">Lihat lainnya</button>
+          <Link to="/profile-advokat" className="team__btn-more">Lihat lainnya</Link>
         </div>
 
         <div className="team__right">
