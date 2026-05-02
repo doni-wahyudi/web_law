@@ -229,3 +229,29 @@
     font-size: 0.85rem;
   }
 }
+
+/* Header Overlay */
+.header__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.header__overlay--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 1024px) {
+  .header__nav {
+    z-index: 1001; /* Ensure nav is above everything else */
+  }
+}

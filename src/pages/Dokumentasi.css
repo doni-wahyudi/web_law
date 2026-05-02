@@ -108,6 +108,25 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .dokumentasi__filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 10px 5px;
+    margin-bottom: 25px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .dokumentasi__filters::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  .dokumentasi__filter {
+    flex-shrink: 0;
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
+
   .dokumentasi__grid {
     grid-template-columns: repeat(2, 1fr);
   }

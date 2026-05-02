@@ -52,7 +52,11 @@
 
 @media (max-width: 580px) {
   .partners__carousel {
-    padding: 0 30px;
+    padding: 0 40px;
+  }
+  .partners__logo-img {
+    max-width: 120px;
+    max-height: 50px;
   }
   .partners__carousel .swiper-button-next {
     right: 5px;

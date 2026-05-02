@@ -55,10 +55,10 @@ function Partners() {
               disableOnInteraction: false,
             }}
             breakpoints={{
-              0: { slidesPerView: 2 },
-              580: { slidesPerView: 3 },
-              768: { slidesPerView: 4 },
-              1024: { slidesPerView: 4 },
+              0: { slidesPerView: 2, spaceBetween: 20 },
+              480: { slidesPerView: 3, spaceBetween: 20 },
+              768: { slidesPerView: 4, spaceBetween: 30 },
+              1024: { slidesPerView: 5, spaceBetween: 40 },
             }}
           >
             {partnerList.map((partner, index) => (

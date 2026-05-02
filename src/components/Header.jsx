@@ -127,6 +127,13 @@ function Header() {
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
+
+      {/* Backdrop Overlay for Mobile */}
+      <div 
+        className={`header__overlay ${isOpen ? 'header__overlay--open' : ''}`} 
+        onClick={() => setIsOpen(false)}
+      ></div>
+
       <WhatsAppModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
