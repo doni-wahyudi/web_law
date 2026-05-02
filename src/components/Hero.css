@@ -3,7 +3,7 @@
   position: relative;
   overflow: hidden;
   height: 85vh;
-  min-height: 680px;
+  min-height: 850px; /* Increased to prevent cropping on laptop screens */
   display: flex;
   align-items: stretch;
 }
