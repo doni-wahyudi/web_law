@@ -34,10 +34,19 @@ function LayananKamiPage() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        // We might want a different table or filter for general services, 
-        // but for now we'll use the static data or a specific fetch if needed.
-        // If there's no specific table, we use static data.
-        setServiceList(layananKamiServices);
+        const { data, error } = await supabase
+          .from('law_services')
+          .select('*')
+          .eq('show_on_home', true)
+          .order('order_index', { ascending: true });
+        
+        if (error) throw error;
+        const filtered = data ? data.filter(s => s.show_on_home !== false) : [];
+        if (filtered.length > 0) {
+          setServiceList(filtered);
+        } else {
+          setServiceList(layananKamiServices);
+        }
       } catch (err) {
         console.error('Error loading services:', err);
         setServiceList(layananKamiServices);

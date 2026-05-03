@@ -49,8 +49,9 @@ function UmkmGoPage() {
           .order('order_index', { ascending: true });
         
         if (error) throw error;
-        if (data && data.length > 0) {
-          setServiceList(data.filter(s => s.show_on_bantuan !== false));
+        const filtered = data ? data.filter(s => s.show_on_bantuan !== false) : [];
+        if (filtered.length > 0) {
+          setServiceList(filtered);
         } else {
           setServiceList(DEFAULT_SERVICES); 
         }

@@ -138,25 +138,6 @@ function ServiceManager({ type = 'home' }) {
               <input type="number" value={currentService.order_index} onChange={e => setCurrentService({...currentService, order_index: parseInt(e.target.value)})} />
             </div>
 
-            <div className="admin-form-group" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontWeight: '500' }}>
-                <input 
-                  type="checkbox" 
-                  checked={currentService.show_on_home} 
-                  onChange={e => setCurrentService({...currentService, show_on_home: e.target.checked})} 
-                />
-                Tampilkan di Beranda
-              </label>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontWeight: '500' }}>
-                <input 
-                  type="checkbox" 
-                  checked={currentService.show_on_bantuan} 
-                  onChange={e => setCurrentService({...currentService, show_on_bantuan: e.target.checked})} 
-                />
-                Tampilkan di Bantuan Hukum
-              </label>
-            </div>
-
             <div className="admin-form-group" style={{ gridColumn: 'span 2' }}>
               <label>Deskripsi Layanan</label>
               <textarea value={currentService.description} onChange={e => setCurrentService({...currentService, description: e.target.value})} rows="3"></textarea>
@@ -176,7 +157,6 @@ function ServiceManager({ type = 'home' }) {
               <th>Order</th>
               <th>Icon</th>
               <th>Title</th>
-              <th>Visibility</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -192,12 +172,6 @@ function ServiceManager({ type = 'home' }) {
                     </div>
                   </td>
                   <td><strong>{service.title}</strong></td>
-                  <td>
-                    <div style={{ display: 'flex', gap: '5px' }}>
-                      {service.show_on_home && <span className="expertise-tag" style={{ background: '#e6fffa', color: '#2c7a7b' }}>Home</span>}
-                      {service.show_on_bantuan && <span className="expertise-tag" style={{ background: '#ebf8ff', color: '#2b6cb0' }}>Bantuan</span>}
-                    </div>
-                  </td>
                   <td>
                     <button className="admin-action-edit" onClick={() => handleEdit(service)}>Edit</button>
                     <button className="admin-action-delete" onClick={() => handleDelete(service.id)}>Hapus</button>
