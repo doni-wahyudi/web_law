@@ -38,6 +38,7 @@ export const navLinks = [
     label: 'Layanan Advokat', 
     path: '#',
     subLinks: [
+      { label: 'Layanan Kami', path: '/layanan-kami' },
       { label: 'Bantuan Hukum', path: '/umkm-go' },
       { label: 'Peraturan Perundang-undangan', path: '/peraturan-hukum' },
       { label: 'Dokumentasi kegiatan hukum', path: '/dokumentasi' },
@@ -213,7 +214,7 @@ Selain berfokus pada perkara litigasi di pengadilan, Iswahyudi juga aktif dalam 
 ];
 
 
-export const services = [
+export const layananKamiServices = [
   {
     icon: 'shield',
     title: 'Pidana Umum',
@@ -254,6 +255,11 @@ export const services = [
     title: 'Perceraian & Keluarga',
     description: 'Proses perceraian, pembagian harta gono-gini, serta hak asuh anak secara humanis.',
   },
+  {
+    icon: 'FaFolderPlus',
+    title: 'Bantuan Hukum lainnya',
+    description: 'Layanan bantuan hukum lainnya sesuai dengan kebutuhan spesifik Anda.'
+  }
 ];
 
 export const whyUsItems = [

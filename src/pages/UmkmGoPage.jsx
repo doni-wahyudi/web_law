@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
-import { services as staticServices } from '../data/content';
+import { layananKamiServices } from '../data/content';
 import { Helmet } from 'react-helmet-async';
 import { supabase } from '../lib/supabase';
 import WhatsAppModal from '../components/WhatsAppModal';
@@ -32,14 +32,12 @@ function UmkmGoPage() {
   const [loading, setLoading] = useState(true);
 
   const DEFAULT_SERVICES = [
-    ...staticServices,
     { title: 'Pembuatan Surat Perjanjian', description: 'Penyusunan draf surat perjanjian profesional untuk berbagai kebutuhan hukum Anda.', icon: 'file-text' },
     { title: 'Pembentukan PT UMKM', description: 'Layanan pengurusan pendirian badan hukum PT khusus untuk pelaku UMKM.', icon: 'building' },
     { title: 'Pembuatan Surat Kuasa', description: 'Penyusunan surat kuasa khusus untuk berbagai keperluan pendampingan hukum.', icon: 'file-text' },
     { title: 'Analisis Kasus Hukum', description: 'Analisis mendalam terhadap permasalahan hukum Anda untuk menentukan strategi terbaik.', icon: 'shield' },
     { title: 'Pembuatan Legal Opinion', description: 'Pemberian pendapat hukum tertulis secara komprehensif berdasarkan peraturan yang berlaku.', icon: 'scroll' },
-    { title: 'Bantuan Hukum Probono', description: 'Layanan bantuan hukum cuma-cuma bagi masyarakat yang kurang mampu.', icon: 'users' },
-    { title: 'Bantuan Hukum lainnya', description: 'Layanan bantuan hukum lainnya sesuai dengan kebutuhan spesifik Anda.', icon: 'FaFolderPlus' }
+    { title: 'Bantuan Hukum Probono', description: 'Layanan bantuan hukum cuma-cuma bagi masyarakat yang kurang mampu.', icon: 'users' }
   ];
 
   useEffect(() => {
@@ -128,7 +126,7 @@ function UmkmGoPage() {
                 return (
                   <div
                     key={service.id || index}
-                    className={`bantuan-services__card ${service.is_centered ? 'card--centered' : ''}`}
+                    className={`bantuan-services__card ${service.is_centered ? 'card--centered' : ''} ${service.is_wide ? 'card--wide' : ''}`}
                   >
                     <div className="bantuan-services__left">
                       {IconComponent}
@@ -148,6 +146,40 @@ function UmkmGoPage() {
                 );
               })
             )}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <button
+              onClick={() => {
+                setSelectedKeperluan('Bantuan Hukum lainnya');
+                setIsModalOpen(true);
+              }}
+              style={{
+                display: 'inline-block',
+                background: 'var(--color-primary)',
+                color: 'var(--color-white)',
+                padding: '16px 40px',
+                borderRadius: '50px',
+                fontWeight: '700',
+                fontSize: '1.1rem',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 8px 25px rgba(0, 109, 78, 0.3)',
+                transition: 'all var(--transition-normal)'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'var(--color-accent)';
+                e.target.style.transform = 'translateY(-3px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'var(--color-primary)';
+                e.target.style.transform = 'translateY(0)';
+              }}
+            >
+              Bantuan Hukum Lainnya
+            </button>
+            <p style={{ marginTop: '15px', color: '#666', fontSize: '0.95rem' }}>
+              Tidak menemukan layanan yang sesuai? Konsultasikan kebutuhan spesifik Anda dengan kami.
+            </p>
           </div>
         </div>
       </section>

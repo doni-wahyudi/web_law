@@ -12,6 +12,7 @@ const BlogPage = lazy(() => import('./pages/BlogPage'));
 const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
 const DokumentasiPage = lazy(() => import('./pages/DokumentasiPage'));
 const UmkmGoPage = lazy(() => import('./pages/UmkmGoPage'));
+const LayananKamiPage = lazy(() => import('./pages/LayananKamiPage'));
 const PeraturanPage = lazy(() => import('./pages/PeraturanPage'));
 const ProfileDetailPage = lazy(() => import('./pages/ProfileDetailPage'));
 const VisiMisiPage = lazy(() => import('./pages/VisiMisiPage'));
@@ -69,6 +70,7 @@ function App() {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogDetailPage />} />
             <Route path="/tips-advokat" element={<BlogPage />} />
+            <Route path="/layanan-kami" element={<LayananKamiPage />} />
             <Route path="/dokumentasi" element={<DokumentasiPage />} />
             <Route path="/umkm-go" element={<UmkmGoPage />} />
             <Route path="/layanan-advokat" element={<UmkmGoPage />} />
