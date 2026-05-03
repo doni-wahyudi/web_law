@@ -1,24 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
+import * as FaIcons from 'react-icons/fa';
 
-function ServiceManager() {
+const COMMON_ICONS = [
+  'FaBalanceScale', 'FaGavel', 'FaFileContract', 'FaBuilding', 'FaStore', 
+  'FaBriefcase', 'FaShieldAlt', 'FaUsers', 'FaMapMarkedAlt', 'FaScroll', 
+  'FaHeartBroken', 'FaIdCard', 'FaSearchPlus', 'FaHandsHelping', 'FaFolderPlus',
+  'FaUserShield', 'FaRegHandshake', 'FaGlobe', 'FaChartLine', 'FaLaptopCode'
+];
+
+function ServiceManager({ type = 'home' }) {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [currentService, setCurrentService] = useState({
-    title: '', description: '', icon_name: 'FaFileContract', order_index: 0
+    title: '', description: '', icon_name: 'FaFileContract', 
+    order_index: 0, 
+    show_on_home: type === 'home', 
+    show_on_bantuan: type === 'bantuan'
   });
 
   useEffect(() => {
     fetchServices();
-  }, []);
+  }, [type]);
 
   const fetchServices = async () => {
     setLoading(true);
-    const { data, error } = await supabase
+    let query = supabase
       .from('law_services')
       .select('*')
       .order('order_index', { ascending: true });
+    
+    // Filter by type if specified
+    if (type === 'home') {
+      query = query.eq('show_on_home', true);
+    } else if (type === 'bantuan') {
+      query = query.eq('show_on_bantuan', true);
+    }
+
+    const { data, error } = await query;
     
     if (error) console.error('Error fetching services:', error);
     else setServices(data);
@@ -40,8 +60,26 @@ function ServiceManager() {
       if (error) alert(error.message);
     }
     setIsEditing(false);
-    setCurrentService({ title: '', description: '', icon_name: 'FaFileContract', order_index: 0 });
+    resetForm();
     fetchServices();
+  };
+
+  const resetForm = () => {
+    setCurrentService({ 
+      title: '', description: '', icon_name: 'FaFileContract', 
+      order_index: 0, 
+      show_on_home: type === 'home', 
+      show_on_bantuan: type === 'bantuan' 
+    });
+  };
+
+  const handleEdit = (service) => {
+    setCurrentService({
+      ...service,
+      show_on_home: service.show_on_home ?? true,
+      show_on_bantuan: service.show_on_bantuan ?? true
+    });
+    setIsEditing(true);
   };
 
   const handleDelete = async (id) => {
@@ -57,29 +95,71 @@ function ServiceManager() {
   return (
     <div className="admin-module">
       <div className="admin-module-header">
-        <h3>Manajemen Layanan Hukum</h3>
-        <button className="admin-add-btn" onClick={() => { setIsEditing(true); setCurrentService({ title: '', description: '', icon_name: 'FaFileContract', order_index: 0 }); }}>+ Tambah Layanan</button>
+        <h3>{type === 'home' ? 'Manajemen Layanan Kami' : 'Manajemen Bantuan Hukum'}</h3>
+        <button className="admin-add-btn" onClick={() => { setIsEditing(true); resetForm(); }}>+ Tambah Layanan</button>
       </div>
 
       {isEditing && (
         <form className="admin-edit-form" onSubmit={handleSubmit}>
           <h4>{currentService.id ? 'Edit Layanan' : 'Tambah Layanan Baru'}</h4>
           <div className="admin-form-grid">
-            <div className="admin-form-group">
+            <div className="admin-form-group" style={{ gridColumn: 'span 2' }}>
               <label>Nama Layanan</label>
               <input value={currentService.title} onChange={e => setCurrentService({...currentService, title: e.target.value})} required />
             </div>
-            <div className="admin-form-group">
-              <label>Icon Class (React Icons)</label>
-              <input value={currentService.icon_name} onChange={e => setCurrentService({...currentService, icon_name: e.target.value})} placeholder="e.g. FaFileContract, FaStore" />
+            
+            <div className="admin-form-group" style={{ gridColumn: 'span 2' }}>
+              <label>Pilih Icon</label>
+              <div className="admin-icon-grid">
+                {COMMON_ICONS.map(iconName => {
+                  const Icon = FaIcons[iconName];
+                  return (
+                    <div 
+                      key={iconName} 
+                      className={`admin-icon-item ${currentService.icon_name === iconName ? 'selected' : ''}`}
+                      onClick={() => setCurrentService({...currentService, icon_name: iconName})}
+                      title={iconName}
+                    >
+                      <Icon />
+                    </div>
+                  );
+                })}
+              </div>
+              <input 
+                style={{ marginTop: '10px' }}
+                value={currentService.icon_name} 
+                onChange={e => setCurrentService({...currentService, icon_name: e.target.value})} 
+                placeholder="Atau ketik nama React Icon (e.g. FaBalanceScale)" 
+              />
             </div>
+
             <div className="admin-form-group">
-              <label>Order Index</label>
+              <label>Order Index (Urutan)</label>
               <input type="number" value={currentService.order_index} onChange={e => setCurrentService({...currentService, order_index: parseInt(e.target.value)})} />
             </div>
+
+            <div className="admin-form-group" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontWeight: '500' }}>
+                <input 
+                  type="checkbox" 
+                  checked={currentService.show_on_home} 
+                  onChange={e => setCurrentService({...currentService, show_on_home: e.target.checked})} 
+                />
+                Tampilkan di Beranda
+              </label>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontWeight: '500' }}>
+                <input 
+                  type="checkbox" 
+                  checked={currentService.show_on_bantuan} 
+                  onChange={e => setCurrentService({...currentService, show_on_bantuan: e.target.checked})} 
+                />
+                Tampilkan di Bantuan Hukum
+              </label>
+            </div>
+
             <div className="admin-form-group" style={{ gridColumn: 'span 2' }}>
-              <label>Deskripsi Singkat</label>
-              <textarea value={currentService.description} onChange={e => setCurrentService({...currentService, description: e.target.value})} rows="2"></textarea>
+              <label>Deskripsi Layanan</label>
+              <textarea value={currentService.description} onChange={e => setCurrentService({...currentService, description: e.target.value})} rows="3"></textarea>
             </div>
           </div>
           <div className="admin-form-actions">
@@ -96,23 +176,35 @@ function ServiceManager() {
               <th>Order</th>
               <th>Icon</th>
               <th>Title</th>
-              <th>Description</th>
+              <th>Visibility</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {services.map(service => (
-              <tr key={service.id}>
-                <td>{service.order_index}</td>
-                <td><code style={{ background: '#f0f4f8', padding: '4px 8px', borderRadius: '4px' }}>{service.icon_name}</code></td>
-                <td><strong>{service.title}</strong></td>
-                <td>{service.description}</td>
-                <td>
-                  <button className="admin-action-edit" onClick={() => { setCurrentService(service); setIsEditing(true); }}>Edit</button>
-                  <button className="admin-action-delete" onClick={() => handleDelete(service.id)}>Hapus</button>
-                </td>
-              </tr>
-            ))}
+            {services.map(service => {
+              const Icon = FaIcons[service.icon_name] || FaIcons.FaBriefcase;
+              return (
+                <tr key={service.id}>
+                  <td>{service.order_index}</td>
+                  <td>
+                    <div style={{ fontSize: '1.2rem', color: 'var(--color-primary)' }}>
+                      <Icon />
+                    </div>
+                  </td>
+                  <td><strong>{service.title}</strong></td>
+                  <td>
+                    <div style={{ display: 'flex', gap: '5px' }}>
+                      {service.show_on_home && <span className="expertise-tag" style={{ background: '#e6fffa', color: '#2c7a7b' }}>Home</span>}
+                      {service.show_on_bantuan && <span className="expertise-tag" style={{ background: '#ebf8ff', color: '#2b6cb0' }}>Bantuan</span>}
+                    </div>
+                  </td>
+                  <td>
+                    <button className="admin-action-edit" onClick={() => handleEdit(service)}>Edit</button>
+                    <button className="admin-action-delete" onClick={() => handleDelete(service.id)}>Hapus</button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

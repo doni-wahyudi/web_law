@@ -41,7 +41,7 @@ function Services() {
         
         if (error) throw error;
         if (data && data.length > 0) {
-          setServiceList(data);
+          setServiceList(data.filter(s => s.show_on_home !== false));
         } else {
           setServiceList(staticServices);
         }

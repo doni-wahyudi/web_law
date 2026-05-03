@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { 
   FaImages, FaUsers, FaNewspaper, FaBalanceScale, 
   FaTags, FaStar, FaHandshake, FaBook, 
-  FaFolderOpen, FaListAlt, FaSignOutAlt 
+  FaFolderOpen, FaListAlt, FaSignOutAlt, FaHandsHelping 
 } from 'react-icons/fa';
 import HeroManager from '../../components/Admin/HeroManager';
 import TeamManager from '../../components/Admin/TeamManager';
@@ -62,8 +62,10 @@ function Dashboard() {
         return <TeamManager />;
       case 'articles':
         return <ArticleManager />;
-      case 'services':
-        return <ServiceManager />;
+      case 'services-home':
+        return <ServiceManager type="home" />;
+      case 'services-bantuan':
+        return <ServiceManager type="bantuan" />;
       case 'pricing':
         return <PricingManager />;
       case 'reviews':
@@ -100,7 +102,8 @@ function Dashboard() {
           <button onClick={() => setActiveTab('hero')} className={activeTab === 'hero' ? 'active' : ''}><FaImages /> Hero CMS</button>
           <button onClick={() => setActiveTab('team')} className={activeTab === 'team' ? 'active' : ''}><FaUsers /> Tim Mitra</button>
           <button onClick={() => setActiveTab('articles')} className={activeTab === 'articles' ? 'active' : ''}><FaNewspaper /> Articles</button>
-          <button onClick={() => setActiveTab('services')} className={activeTab === 'services' ? 'active' : ''}><FaBalanceScale /> Layanan Hukum</button>
+          <button onClick={() => setActiveTab('services-home')} className={activeTab === 'services-home' ? 'active' : ''}><FaBalanceScale /> Layanan Kami</button>
+          <button onClick={() => setActiveTab('services-bantuan')} className={activeTab === 'services-bantuan' ? 'active' : ''}><FaHandsHelping /> Bantuan Hukum</button>
           <button onClick={() => setActiveTab('pricing')} className={activeTab === 'pricing' ? 'active' : ''}><FaTags /> Biaya Layanan</button>
           <button onClick={() => setActiveTab('reviews')} className={activeTab === 'reviews' ? 'active' : ''}><FaStar /> Testimonials</button>
           <button onClick={() => setActiveTab('partners')} className={activeTab === 'partners' ? 'active' : ''}><FaHandshake /> Mitra Logos</button>
