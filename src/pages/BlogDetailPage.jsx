@@ -57,18 +57,45 @@ function BlogDetailPage() {
     );
   }
 
+  const formatContent = (content) => {
+    if (!content) return '<p>Konten artikel sedang dalam persiapan.</p>';
+    
+    // If it already looks like HTML, return as is
+    if (content.trim().startsWith('<') && content.trim().endsWith('>')) {
+      return content;
+    }
+
+    // Otherwise, treat as Markdown/Plaintext
+    let formatted = content
+      .split(/\n\s*\n/) // Split by double newlines into paragraphs
+      .map(para => {
+        const lineBreaks = para.trim().replace(/\n/g, '<br />');
+        return `<p>${lineBreaks}</p>`;
+      })
+      .join('');
+
+    // Handle Bold: **text**
+    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Handle Italic: *text*
+    formatted = formatted.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+    return formatted;
+  };
+
   return (
     <>
       <Helmet>
         <title>{`${post.title} | TanyaAdvokat.id`}</title>
         <meta name="description" content={post.excerpt} />
+        {post.keywords && <meta name="keywords" content={post.keywords} />}
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         {post.image_url && <meta property="og:image" content={post.image_url} />}
         <meta property="og:type" content="article" />
       </Helmet>
       <section className="blog-detail-header">
-        <div className="container">
+        <div className="container blog-detail__container">
           <Link to="/blog" className="blog-detail__back-link">
             <FaArrowLeft /> Kembali ke Daftar Artikel
           </Link>
@@ -96,8 +123,19 @@ function BlogDetailPage() {
           
           <div 
             className="blog-detail__body" 
-            dangerouslySetInnerHTML={{ __html: post.content || '<p>Konten artikel sedang dalam persiapan.</p>' }} 
+            dangerouslySetInnerHTML={{ __html: formatContent(post.content) }} 
           />
+
+          {post.keywords && (
+            <div className="blog-detail__keywords-section">
+              <span className="blog-detail__keywords-label">Topik terkait:</span>
+              <div className="blog-detail__keywords-list">
+                {post.keywords.split(',').map((kw, i) => (
+                  <span key={i} className="blog-detail__keyword-tag">#{kw.trim()}</span>
+                ))}
+              </div>
+            </div>
+          )}
           
           <div className="blog-detail__footer">
             <p className="blog-detail__disclaimer">

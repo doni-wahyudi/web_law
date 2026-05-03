@@ -83,11 +83,11 @@ function ProfileAdvokatPage() {
                   <div className="profiles__content">
                     <h3 className="profiles__name">{profile.name}</h3>
                     <span className="profiles__role-badge">{profile.role}</span>
-                    <p className="profiles__bio">{profile.about || profile.bio}</p>
+                    <p className="profiles__bio">{profile.bio_summary || profile.about || profile.bio}</p>
                     <div className="profiles__details">
                       <div className="profiles__detail">
                         <span className="profiles__detail-label">Spesialisasi</span>
-                        <span className="profiles__detail-value">{profile.expertise?.join(', ') || profile.role}</span>
+                        <span className="profiles__detail-value">{profile.expertise?.slice(0, 5).join(', ') || profile.role}</span>
                       </div>
                       <div className="profiles__detail">
                         <span className="profiles__detail-label">Pendidikan</span>

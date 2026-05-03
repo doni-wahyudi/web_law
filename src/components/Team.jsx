@@ -141,7 +141,7 @@ function Team() {
                         </div>
                         <div className="team__meta-item">
                           <FaBalanceScale className="team__meta-icon" />
-                          <span>{member.organization}</span>
+                          <span>{member.perhimpunan || member.organization || 'Peradi'}</span>
                         </div>
                         <div className="team__meta-item">
                           <FaBriefcase className="team__meta-icon" />
@@ -155,7 +155,7 @@ function Team() {
                           <span>Bidang Keahlian:</span>
                         </div>
                         <ul className="team__expertise-list">
-                          {member.expertise?.slice(0, 3).map((item, idx) => (
+                          {member.expertise?.slice(0, 5).map((item, idx) => (
                             <li key={idx} className="team__expertise-item">
                               <FaCheck className="team__check-icon" />
                               <span>{item}</span>

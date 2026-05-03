@@ -7,9 +7,9 @@ function TeamManager() {
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [currentMember, setCurrentMember] = useState({
-    name: '', role: '', image_url: '', about: '', experience: '',
-    location: 'Jakarta', organization: 'Peradi', expertise: '', education: '',
-    socials: { linkedin: '#', instagram: '#' }, order_index: 0
+    name: '', role: '', image_url: '', bio_summary: '', bio_detailed: '', experience: '',
+    location: 'Jakarta', organization: 'TanyaAdvokat.id', perhimpunan: 'Peradi', 
+    expertise: '', education: '', socials: { linkedin: '#', instagram: '#' }, order_index: 0
   });
 
   useEffect(() => {
@@ -60,16 +60,19 @@ function TeamManager() {
 
   const resetForm = () => {
     setCurrentMember({
-      name: '', role: '', image_url: '', about: '', experience: '',
-      location: 'Jakarta', organization: 'Peradi', expertise: '', education: '',
-      socials: { linkedin: '#', instagram: '#' }, order_index: 0
+      name: '', role: '', image_url: '', bio_summary: '', bio_detailed: '', experience: '',
+      location: 'Jakarta', organization: 'TanyaAdvokat.id', perhimpunan: 'Peradi', 
+      expertise: '', education: '', socials: { linkedin: '#', instagram: '#' }, order_index: 0
     });
   };
 
   const handleEdit = (member) => {
     setCurrentMember({
       ...member,
-      expertise: member.expertise ? member.expertise.join(', ') : ''
+      expertise: member.expertise ? member.expertise.join(', ') : '',
+      // Support old 'about' field if migrating
+      bio_summary: member.bio_summary || member.about || '',
+      bio_detailed: member.bio_detailed || member.about || ''
     });
     setIsEditing(true);
   };
@@ -126,16 +129,39 @@ function TeamManager() {
               <input value={currentMember.location} onChange={e => setCurrentMember({...currentMember, location: e.target.value})} />
             </div>
             <div className="admin-form-group">
+              <label>Perhimpunan (e.g. Peradi)</label>
+              <input value={currentMember.perhimpunan} onChange={e => setCurrentMember({...currentMember, perhimpunan: e.target.value})} />
+            </div>
+            <div className="admin-form-group">
+              <label>Kantor / Organisasi</label>
+              <input value={currentMember.organization} onChange={e => setCurrentMember({...currentMember, organization: e.target.value})} />
+            </div>
+            <div className="admin-form-group">
               <label>Pendidikan</label>
               <input value={currentMember.education} onChange={e => setCurrentMember({...currentMember, education: e.target.value})} />
+            </div>
+            <div className="admin-form-group">
+              <label>LinkedIn URL</label>
+              <input 
+                value={currentMember.socials?.linkedin || ''} 
+                onChange={e => setCurrentMember({
+                  ...currentMember, 
+                  socials: { ...currentMember.socials, linkedin: e.target.value }
+                })} 
+                placeholder="https://linkedin.com/in/..."
+              />
             </div>
             <div className="admin-form-group" style={{ gridColumn: 'span 2' }}>
               <label>Spesialisasi (Pisahkan dengan koma)</label>
               <input value={currentMember.expertise} onChange={e => setCurrentMember({...currentMember, expertise: e.target.value})} placeholder="Pidana, Perdata, Bisnis..." />
             </div>
             <div className="admin-form-group" style={{ gridColumn: 'span 2' }}>
-              <label>Tentang / Bio Singkat</label>
-              <textarea value={currentMember.about} onChange={e => setCurrentMember({...currentMember, about: e.target.value})} rows="3"></textarea>
+              <label>Bio Singkat (Muncul di Card/List)</label>
+              <textarea value={currentMember.bio_summary} onChange={e => setCurrentMember({...currentMember, bio_summary: e.target.value})} rows="2" placeholder="Bio singkat untuk tampilan kartu..."></textarea>
+            </div>
+            <div className="admin-form-group" style={{ gridColumn: 'span 2' }}>
+              <label>Profil Lengkap (Muncul di Halaman Detail)</label>
+              <textarea value={currentMember.bio_detailed} onChange={e => setCurrentMember({...currentMember, bio_detailed: e.target.value})} rows="6" placeholder="Deskripsi lengkap mengenai latar belakang dan pengalaman..."></textarea>
             </div>
           </div>
           <div className="admin-form-actions">

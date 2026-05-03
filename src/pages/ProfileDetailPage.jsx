@@ -107,7 +107,7 @@ function ProfileDetailPage() {
                 <FaMapMarkerAlt /> <span>{member.location}</span>
               </div>
               <div className="quick-info-item">
-                <FaBalanceScale /> <span>{member.organization || 'Peradi'}</span>
+                <FaBalanceScale /> <span>{member.perhimpunan || member.organization || 'Peradi'}</span>
               </div>
               <div className="quick-info-item">
                 <FaBriefcase /> <span>{member.experience}</span>
@@ -119,12 +119,16 @@ function ProfileDetailPage() {
 
             <div className="profile-detail__section">
               <h3 className="section-title-small">Tentang Konsultasi Hukum</h3>
-              {member.detailed_bio && member.detailed_bio.length > 0 ? (
+              {member.bio_detailed ? (
+                member.bio_detailed.split('\n').map((para, index) => (
+                  para.trim() && <p key={index} className="profile-detail__text">{para}</p>
+                ))
+              ) : member.detailed_bio && member.detailed_bio.length > 0 ? (
                 member.detailed_bio.map((para, index) => (
                   <p key={index} className="profile-detail__text">{para}</p>
                 ))
               ) : (
-                <p className="profile-detail__text">{member.about}</p>
+                <p className="profile-detail__text">{member.bio_summary || member.about}</p>
               )}
             </div>
 

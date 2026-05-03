@@ -7,7 +7,9 @@ function ArticleManager() {
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [currentArticle, setCurrentArticle] = useState({
-    title: '', slug: '', excerpt: '', content: '', image_url: '', category: 'Tips Hukum', author: 'Admin'
+    title: '', slug: '', excerpt: '', content: '', image_url: '', 
+    category: 'Tips Hukum', author: 'Admin', keywords: '',
+    published_at: new Date().toISOString().split('T')[0]
   });
 
   useEffect(() => {
@@ -34,7 +36,8 @@ function ArticleManager() {
     e.preventDefault();
     const articleToSave = {
       ...currentArticle,
-      slug: currentArticle.slug || generateSlug(currentArticle.title)
+      slug: currentArticle.slug || generateSlug(currentArticle.title),
+      published_at: new Date(currentArticle.published_at).toISOString()
     };
 
     if (currentArticle.id) {
@@ -50,8 +53,25 @@ function ArticleManager() {
       if (error) alert(error.message);
     }
     setIsEditing(false);
-    setCurrentArticle({ title: '', slug: '', excerpt: '', content: '', image_url: '', category: 'Tips Hukum', author: 'Admin' });
+    resetForm();
     fetchArticles();
+  };
+
+  const resetForm = () => {
+    setCurrentArticle({ 
+      title: '', slug: '', excerpt: '', content: '', image_url: '', 
+      category: 'Tips Hukum', author: 'Admin', keywords: '',
+      published_at: new Date().toISOString().split('T')[0] 
+    });
+  };
+
+  const handleEdit = (article) => {
+    setCurrentArticle({
+      ...article,
+      published_at: article.published_at ? new Date(article.published_at).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+      keywords: article.keywords || ''
+    });
+    setIsEditing(true);
   };
 
   const handleDelete = async (id) => {
@@ -68,7 +88,7 @@ function ArticleManager() {
     <div className="admin-module">
       <div className="admin-module-header">
         <h3>Manajemen Artikel & Tips</h3>
-        <button className="admin-add-btn" onClick={() => { setIsEditing(true); setCurrentArticle({ title: '', slug: '', excerpt: '', content: '', image_url: '', category: 'Tips Hukum', author: 'Admin' }); }}>+ Tambah Artikel</button>
+        <button className="admin-add-btn" onClick={() => { setIsEditing(true); resetForm(); }}>+ Tambah Artikel</button>
       </div>
 
       {isEditing && (
@@ -93,16 +113,32 @@ function ArticleManager() {
             <div className="admin-form-grid" style={{ padding: 0 }}>
               <div className="admin-form-group">
                 <label>Kategori</label>
-                <select value={currentArticle.category} onChange={e => setCurrentArticle({...currentArticle, category: e.target.value})}>
-                  <option value="Tips Hukum">Tips Hukum</option>
-                  <option value="Berita">Berita</option>
-                  <option value="Update Peraturan">Update Peraturan</option>
-                </select>
+                <input 
+                  value={currentArticle.category} 
+                  onChange={e => setCurrentArticle({...currentArticle, category: e.target.value})} 
+                  placeholder="e.g. Tips Hukum, Berita, UMKM..."
+                />
+              </div>
+              <div className="admin-form-group">
+                <label>Tanggal Terbit</label>
+                <input 
+                  type="date" 
+                  value={currentArticle.published_at} 
+                  onChange={e => setCurrentArticle({...currentArticle, published_at: e.target.value})} 
+                />
               </div>
               <div className="admin-form-group">
                 <label>Penulis</label>
                 <input value={currentArticle.author} onChange={e => setCurrentArticle({...currentArticle, author: e.target.value})} />
               </div>
+            </div>
+            <div className="admin-form-group">
+              <label>SEO Keywords (Pisahkan dengan koma)</label>
+              <input 
+                value={currentArticle.keywords} 
+                onChange={e => setCurrentArticle({...currentArticle, keywords: e.target.value})} 
+                placeholder="hukum, perceraian, advokat, jakarta..."
+              />
             </div>
             <div className="admin-form-group">
               <label>Thumbnail Image</label>
@@ -155,7 +191,7 @@ function ArticleManager() {
                 <td>{article.author}</td>
                 <td>{new Date(article.published_at).toLocaleDateString()}</td>
                 <td>
-                  <button className="admin-action-edit" onClick={() => { setCurrentArticle(article); setIsEditing(true); }}>Edit</button>
+                  <button className="admin-action-edit" onClick={() => handleEdit(article)}>Edit</button>
                   <button className="admin-action-delete" onClick={() => handleDelete(article.id)}>Hapus</button>
                 </td>
               </tr>

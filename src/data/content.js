@@ -100,7 +100,8 @@ export const teamMembers = [
       whatsapp: 'https://wa.me/6281368936945?text=Halo%20Agung%20Pratama%2C%20S.H.%2C%20saya%20ingin%20berkonsultasi%20mengenai%20masalah%20hukum.',
     },
     location: 'Jakarta',
-    organization: 'Peradi',
+    organization: 'TanyaAdvokat.id',
+    perhimpunan: 'Peradi',
     education: 'S1 Ilmu Hukum, Universitas Sriwijaya',
     experience: '> 7 Tahun',
     expertise: [
@@ -114,11 +115,10 @@ export const teamMembers = [
       'Pembuatan Draft Perjanjian',
       'Perdata dan Pidana'
     ],
-    about: 'Sejak tahun 2020, Agung Pratama telah membantu ratusan klien melalui layanan konsultasi hukum yang terpercaya, baik secara langsung maupun melalui platform hukum terkemuka. Dengan pengalaman lebih dari 7 tahun sebagai Advokat, ia hadir dengan analisis tajam serta strategi hukum yang aplikatif.',
-    detailedBio: [
-      'Sejak tahun 2020, Agung Pratama telah membantu ratusan klien melalui layanan konsultasi hukum yang terpercaya, baik secara langsung maupun melalui platform hukum terkemuka seperti Perqara dan Hukumku. Dengan pengalaman lebih dari 7 tahun sebagai Advokat & Konsultan Hukum yang tergabung dalam Perhimpunan Advokat Indonesia (Peradi), Agung dikenal memiliki pendekatan yang solutif, tegas, dan tetap mengedepankan kepentingan terbaik dari klien.',
-      'Konsultasi yang diberikan mencakup berbagai permasalahan hukum, mulai dari hutang-piutang, penipuan, penggelapan, kasus ketenagakerjaan, perceraian, perkara ITE, laporan polisi, sengketa pertanahan, hingga penyusunan draft perjanjian. Baik ranah perdata maupun pidana, Agung selalu hadir dengan analisis tajam serta strategi hukum yang aplikatif.'
-    ]
+    bio_summary: 'Sejak tahun 2020, Agung Pratama telah membantu ratusan klien melalui layanan konsultasi hukum yang terpercaya, baik secara langsung maupun melalui platform hukum terkemuka.',
+    bio_detailed: `Sejak tahun 2020, Agung Pratama telah membantu ratusan klien melalui layanan konsultasi hukum yang terpercaya, baik secara langsung maupun melalui platform hukum terkemuka seperti Perqara dan Hukumku. Dengan pengalaman lebih dari 7 tahun sebagai Advokat & Konsultan Hukum yang tergabung dalam Perhimpunan Advokat Indonesia (Peradi), Agung dikenal memiliki pendekatan yang solutif, tegas, dan tetap mengedepankan kepentingan terbaik dari klien.
+
+Konsultasi yang diberikan mencakup berbagai permasalahan hukum, mulai dari hutang-piutang, penipuan, penggelapan, kasus ketenagakerjaan, perceraian, perkara ITE, laporan polisi, sengketa pertanahan, hingga penyusunan draft perjanjian. Baik ranah perdata maupun pidana, Agung selalu hadir dengan analisis tajam serta strategi hukum yang aplikatif.`
   },
   {
     id: 2,
@@ -131,7 +131,8 @@ export const teamMembers = [
       whatsapp: 'https://wa.me/6281368936945?text=Halo%20Nico%20Thomas%2C%20S.H.%2C%20M.H.%2C%20saya%20ingin%20berkonsultasi%20mengenai%20masalah%20hukum.',
     },
     location: 'Palembang & Lampung',
-    organization: 'Peradi',
+    organization: 'TanyaAdvokat.id',
+    perhimpunan: 'Peradi',
     education: 'S1 & S2 Ilmu Hukum, Universitas Sriwijaya',
     experience: '> 8 Tahun',
     expertise: [
@@ -146,11 +147,10 @@ export const teamMembers = [
       'Legal Drafting',
       'Pendirian Badan Hukum (PT/CV)'
     ],
-    about: 'Dengan pengalaman lebih dari 8 tahun sebagai Advokat, Nico Thomas dipercaya menyelesaikan berbagai persoalan hukum, baik litigasi maupun non-litigasi. Melalui konsultasi hukum, ia menawarkan analisis yang tajam, humanis, dan transparan.',
-    detailedBio: [
-      'Dengan pengalaman lebih dari 8 tahun sebagai Advokat & Konsultan Hukum, Nico Thomas, S.H. telah dipercaya banyak klien di wilayah Palembang dan Lampung untuk menyelesaikan berbagai persoalan hukum, baik litigasi maupun non-litigasi. Selain aktif dalam perkara individu, Nico juga berpengalaman menjalin kerja sama dengan berbagai perusahaan, corporate, dan perbankan, khususnya dalam urusan ketenagakerjaan (PHI), sengketa waris, perceraian, pertanahan, legal drafting, hingga pengurusan pendirian badan hukum (PT/CV).',
-      'Melalui konsultasi hukum, Nico tidak hanya menawarkan analisis yang tajam and strategi yang tepat, tetapi juga menghadirkan pendekatan yang humanis dan transparan. Setiap klien akan dibimbing untuk memahami langkah hukum yang diambil, sehingga keputusan yang dibuat benar-benar berdasar dan terarah.'
-    ]
+    bio_summary: 'Dengan pengalaman lebih dari 8 tahun sebagai Advokat, Nico Thomas dipercaya menyelesaikan berbagai persoalan hukum, baik litigasi maupun non-litigasi.',
+    bio_detailed: `Dengan pengalaman lebih dari 8 tahun sebagai Advokat & Konsultan Hukum, Nico Thomas, S.H. telah dipercaya banyak klien di wilayah Palembang dan Lampung untuk menyelesaikan berbagai persoalan hukum, baik litigasi maupun non-litigasi. Selain aktif dalam perkara individu, Nico juga berpengalaman menjalin kerja sama dengan berbagai perusahaan, corporate, dan perbankan, khususnya dalam urusan ketenagakerjaan (PHI), sengketa waris, perceraian, pertanahan, legal drafting, hingga pengurusan pendirian badan hukum (PT/CV).
+
+Melalui konsultasi hukum, Nico tidak hanya menawarkan analisis yang tajam and strategi yang tepat, tetapi juga menghadirkan pendekatan yang humanis dan transparan. Setiap klien akan dibimbing untuk memahami langkah hukum yang diambil, sehingga keputusan yang dibuat benar-benar berdasar dan terarah.`
   },
   {
     id: 3,
@@ -163,7 +163,8 @@ export const teamMembers = [
       whatsapp: 'https://wa.me/6281368936945?text=Halo%20Rizky%20Dwi%20Utami%2C%20S.H.%2C%20M.H.%2C%20C.Med.%2C%20saya%20ingin%20berkonsultasi%20mengenai%20masalah%20hukum.',
     },
     location: 'Bogor',
-    organization: 'Peradi',
+    organization: 'TanyaAdvokat.id',
+    perhimpunan: 'Peradi',
     education: 'S1 & S2 Ilmu Hukum, Universitas Sriwijaya',
     experience: '> 3 Tahun',
     expertise: [
@@ -175,10 +176,8 @@ export const teamMembers = [
       'Kontra Kerja',
       'Peraturan Perusahaan'
     ],
-    about: 'Dengan pengalaman lebih dari 3 tahun, Rizky Dwi Utami hadir sebagai konsultan hukum yang berfokus pada bidang perancangan dokumen hukum. Ia dikenal detail, teliti, dan mampu menyederhanakan masalah hukum yang kompleks demi perlindungan bisnis Anda.',
-    detailedBio: [
-      'Dengan pengalaman lebih dari 3 tahun, Rizky Dwi Utami hadir sebagai konsultan hukum yang berfokus pada bidang perancangan dokumen hukum dan pendampingan strategis. Sebagai konsultan muda yang progresif, Rizky dikenal detail, teliti, dan mampu menyederhanakan masalah hukum yang kompleks menjadi langkah-langkah yang jelas, terstruktur, dan mudah dipahami. Dengan demikian, setiap klien akan mendapatkan kepastian arah dan perlindungan hukum yang tepat sejak tahap perencanaan.'
-    ]
+    bio_summary: 'Dengan pengalaman lebih dari 3 tahun, Rizky Dwi Utami hadir sebagai konsultan hukum yang berfokus pada bidang perancangan dokumen hukum.',
+    bio_detailed: `Dengan pengalaman lebih dari 3 tahun, Rizky Dwi Utami hadir sebagai konsultan hukum yang berfokus pada bidang perancangan dokumen hukum dan pendampingan strategis. Sebagai konsultan muda yang progresif, Rizky dikenal detail, teliti, dan mampu menyederhanakan masalah hukum yang kompleks menjadi langkah-langkah yang jelas, terstruktur, dan mudah dipahami. Dengan demikian, setiap klien akan mendapatkan kepastian arah dan perlindungan hukum yang tepat sejak tahap perencanaan.`
   },
   {
     id: 4,
@@ -191,7 +190,8 @@ export const teamMembers = [
       whatsapp: 'https://wa.me/6281368936945?text=Halo%20ISWAHYUDI%20RZ%2C%20S.Sy.%2C%20M.H.%2C%20saya%20ingin%20berkonsultasi%20mengenai%20masalah%20hukum.',
     },
     location: 'Bekasi & Jakarta',
-    organization: 'Peradi',
+    organization: 'TanyaAdvokat.id',
+    perhimpunan: 'Peradi',
     education: 'S1 Syariah & S2 Ilmu Hukum, UIN Raden Fatah',
     experience: '> 8 Tahun',
     expertise: [
@@ -205,11 +205,10 @@ export const teamMembers = [
       'Pidana',
       'Perdata'
     ],
-    about: 'Iswahyudi memiliki keahlian luas dalam berbagai bidang hukum, mulai dari sengketa pertanahan, waris Islam, ekonomi syariah, hingga urusan hukum perusahaan. Beliau mampu memberikan solusi hukum yang menyeluruh dan strategis.',
-    detailedBio: [
-      'Iswahyudi memiliki keahlian luas dalam berbagai bidang hukum, mulai dari pertanahan (agraria), hukum waris Islam (faraid) maupun perdata, ekonomi syariah, hukum keluarga, perceraian, hingga perkara pidana dan perdata. Tidak hanya itu, beliau juga berpengalaman dalam menangani urusan hukum perusahaan (corporate), memberikan pendampingan yang menyeluruh baik untuk individu maupun badan usaha.',
-      'Selain berfokus pada perkara litigasi di pengadilan, Iswahyudi juga aktif dalam non-litigasi sebagai konsultan ahli di berbagai bidang. Pengalamannya meliputi kerja sama dengan notaris/PPAT/NPAK, perusahaan (PT/PMA/CV), yayasan, lembaga zakat, koperasi, finance/perbankan, hingga firma hukum. Dengan rekam jejak tersebut, Iswahyudi mampu memberikan solusi hukum yang komprehensif dan sesuai kebutuhan setiap klien.'
-    ]
+    bio_summary: 'Iswahyudi memiliki keahlian luas dalam berbagai bidang hukum, mulai dari sengketa pertanahan, waris Islam, ekonomi syariah, hingga urusan hukum perusahaan.',
+    bio_detailed: `Iswahyudi memiliki keahlian luas dalam berbagai bidang hukum, mulai dari pertanahan (agraria), hukum waris Islam (faraid) maupun perdata, ekonomi syariah, hukum keluarga, perceraian, hingga perkara pidana dan perdata. Tidak hanya itu, beliau juga berpengalaman dalam menangani urusan hukum perusahaan (corporate), memberikan pendampingan yang menyeluruh baik untuk individu maupun badan usaha.
+
+Selain berfokus pada perkara litigasi di pengadilan, Iswahyudi juga aktif dalam non-litigasi sebagai konsultan ahli di berbagai bidang. Pengalamannya meliputi kerja sama dengan notaris/PPAT/NPAK, perusahaan (PT/PMA/CV), yayasan, lembaga zakat, koperasi, finance/perbankan, hingga firma hukum. Dengan rekam jejak tersebut, Iswahyudi mampu memberikan solusi hukum yang komprehensif dan sesuai kebutuhan setiap klien.`
   }
 ];
 
