@@ -119,7 +119,11 @@ function ReviewManager() {
               <tr key={review.id}>
                 <td>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <img src={review.image_url || 'https://via.placeholder.com/40'} alt="" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
+                    <img 
+                      src={review.image_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(review.name)}&background=random&color=fff`} 
+                      alt="" 
+                      style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} 
+                    />
                     <div>
                       <strong>{review.name}</strong><br/>
                       <small>{review.role}</small>
