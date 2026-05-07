@@ -1,26 +1,29 @@
+/* Section Version (Remains consistent with site) */
 .welcome {
-  padding: 30px 0;
-  background-color: var(--color-white);
+  padding: 80px 0;
+  background-color: #f8fafc;
   position: relative;
   z-index: 10;
 }
 
 .welcome__card {
   background: white;
-  padding: 20px;
-  border-radius: var(--radius-xl);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  padding: 60px 40px;
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
   text-align: center;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
-  border: 1px solid rgba(0, 109, 78, 0.05);
+  border: 1px solid rgba(0, 109, 78, 0.08);
 }
 
 .welcome__title {
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 800;
   color: var(--color-primary);
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 .welcome__brand {
@@ -28,56 +31,195 @@
 }
 
 .welcome__line {
-  width: 90%;
+  width: 60px;
   height: 4px;
-  background: #006d4e;
-  margin: 0 auto 25px;
-  border-radius: 2px;
+  background: var(--color-accent);
+  margin: 0 auto 30px;
+  border-radius: 10px;
 }
 
 .welcome__text {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.8;
   color: var(--color-text);
-  margin-bottom: 15px;
-}
-
-.welcome__text:last-child {
-  margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-  .welcome {
-    margin-top: 15px;
-    padding: 100px 0 60px;
-  }
-
-  .welcome__card {
-    padding: 30px 20px;
-  }
-
-  .welcome__title {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .welcome__card {
-    padding: 25px 15px;
-    border-radius: var(--radius-lg);
-  }
-
-  .welcome__title {
-    font-size: 1.5rem;
-  }
-
-  .welcome__text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
+  margin-bottom: 20px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .welcome__text strong {
-  color: #1a1a1a;
-  font-weight: 800;
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+/* Modal Version - REIMAGINED */
+.welcome-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: modalFadeIn 0.4s ease-out;
+  padding: 20px;
+}
+
+.welcome-modal-container {
+  background: white;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 24px;
+  position: relative;
+  box-shadow: 0 40px 100px -12px rgba(0, 0, 0, 0.5);
+  animation: modalSlideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.welcome-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.welcome-modal-close:hover {
+  background: var(--color-accent);
+  color: white;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.welcome-modal-banner {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-modal-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 10s linear;
+}
+
+.welcome-modal-container:hover .welcome-modal-banner img {
+  transform: scale(1.1);
+}
+
+.welcome-modal-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 0%, white 100%);
+}
+
+.welcome-modal-content {
+  padding: 0 40px 45px;
+  margin-top: -20px;
+  position: relative;
+  z-index: 5;
+}
+
+.welcome-modal-tag {
+  display: inline-block;
+  background: rgba(0, 109, 78, 0.08);
+  color: var(--color-primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.welcome-modal-header {
+  text-align: center;
+}
+
+.welcome-modal-header .welcome__title {
+  font-size: 1.85rem;
+  margin-bottom: 10px;
+  color: var(--color-dark);
+}
+
+.welcome-modal-header .welcome__line {
+  width: 40px;
+  margin-bottom: 25px;
+}
+
+.welcome-modal-body .welcome__text {
+  font-size: 1.05rem;
+  color: #4b5563;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.welcome-modal-footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.welcome-modal-btn {
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px -5px rgba(230, 126, 34, 0.4);
+}
+
+.welcome-modal-btn:hover {
+  background: #d35400;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -5px rgba(230, 126, 34, 0.5);
+}
+
+.welcome-modal-btn:active {
+  transform: translateY(-1px);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from { transform: translateY(60px) scale(0.9); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .welcome-modal-content {
+    padding: 0 25px 35px;
+  }
+  
+  .welcome-modal-header .welcome__title {
+    font-size: 1.5rem;
+  }
 }

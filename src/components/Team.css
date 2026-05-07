@@ -306,3 +306,79 @@
     font-size: 1.8rem;
   }
 }
+
+/* Mitra Lainnya Card */
+.team__card-more {
+  display: flex;
+  height: 340px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 30px;
+  color: var(--color-white);
+  margin-top: 0;
+}
+
+.team__card-more:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.team__card-more-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.team__card-more-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.team__card-more:hover .team__card-more-icon {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.team__card-more h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.team__card-more p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+  max-width: 200px;
+}
+
+.team__card-more-arrow {
+  margin-top: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.team__card-more:hover .team__card-more-arrow {
+  background: var(--color-white);
+  color: var(--color-accent);
+  transform: translateX(5px);
+}

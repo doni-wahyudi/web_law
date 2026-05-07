@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
 import Welcome from '../components/Welcome';
+import WelcomeModal from '../components/WelcomeModal';
 import Team from '../components/Team';
 import Services from '../components/Services';
 import WhyUs from '../components/WhyUs';
@@ -38,6 +39,7 @@ function HomePage() {
         </script>
       </Helmet>
       <Hero />
+      <WelcomeModal />
       <Welcome />
       <Team />
       <Services />

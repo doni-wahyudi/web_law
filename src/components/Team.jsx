@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaLinkedinIn, FaWhatsapp, FaMapMarkerAlt, FaBalanceScale, FaBriefcase, FaBullseye, FaCheck } from 'react-icons/fa';
+import { FaLinkedinIn, FaWhatsapp, FaMapMarkerAlt, FaBalanceScale, FaBriefcase, FaBullseye, FaCheck, FaArrowRight, FaUsers } from 'react-icons/fa';
 import { teamMembers as staticMembers } from '../data/content';
 import { supabase } from '../lib/supabase';
 import WhatsAppModal from './WhatsAppModal';
@@ -73,7 +73,7 @@ function Team() {
             </p>
           </div>
 
-          <Link to="/profile-advokat" className="team__btn-more">Lihat lainnya</Link>
+          <Link to="/profile-advokat" className="team__btn-more">Mitra lainnya</Link>
         </div>
 
         <div className="team__right">
@@ -98,6 +98,7 @@ function Team() {
           >
             {members.map((member, index) => (
               <SwiperSlide key={member.id || index}>
+                {/* ... existing card code ... */}
                 <div
                   className="team__card"
                   onMouseEnter={pauseSlider}
@@ -168,6 +169,21 @@ function Team() {
                 </div>
               </SwiperSlide>
             ))}
+
+            <SwiperSlide>
+              <Link to="/profile-advokat" className="team__card-more">
+                <div className="team__card-more-content">
+                  <div className="team__card-more-icon">
+                    <FaUsers />
+                  </div>
+                  <h3>Lihat Mitra Lainnya</h3>
+                  <p>Temukan profil advokat profesional kami lainnya</p>
+                  <div className="team__card-more-arrow">
+                    <FaArrowRight />
+                  </div>
+                </div>
+              </Link>
+            </SwiperSlide>
           </Swiper>
         </div>
       </div>
