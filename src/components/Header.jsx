@@ -83,15 +83,22 @@ function Header() {
                     {link.subLinks && link.subLinks.map((sub) => (
                       <Link key={sub.path} to={sub.path} className="header__submenu-link">{sub.label}</Link>
                     ))}
-                    {link.dynamicSub === 'teamMembers' && teamMembers.map((member, i) => (
-                      <Link 
-                        key={i} 
-                        to={`/advokat/${member.id}`} 
-                        className="header__submenu-link"
-                      >
-                        {member.name}
-                      </Link>
-                    ))}
+                    {link.dynamicSub === 'teamMembers' && (
+                      <>
+                        {teamMembers.map((member, i) => (
+                          <Link 
+                            key={i} 
+                            to={`/advokat/${member.id}`} 
+                            className="header__submenu-link"
+                          >
+                            {member.name}
+                          </Link>
+                        ))}
+                        <Link to="/profile-advokat" className="header__submenu-link header__submenu-link--highlight">
+                          Mitra Lainnya
+                        </Link>
+                      </>
+                    )}
                     {link.dynamicSub === 'pricingPlans' && pricingPlans.map((plan, i) => (
                       <a 
                         key={i} 
