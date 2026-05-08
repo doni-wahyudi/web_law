@@ -11,9 +11,9 @@ export const siteConfig = {
   phone: '+62 813 6893 6945',
   address: 'Bogor - Indonesia',
   socials: {
-    instagram: 'https://instagram.com/tanyaadvokat.id',
-    tiktok: 'https://tiktok.com/@tanyaadvokat',
-    facebook: 'https://facebook.com/tanyaadvokat',
+    instagram: 'https://www.instagram.com/tanyaadvokatid?igsh=OXc1NmhkZWJycjE3&utm_source=qr',
+    tiktok: 'https://www.tiktok.com/@tanyaadvokat.id?_r=1&_t=ZS-96BvRYbfGiY',
+    facebook: 'https://web.facebook.com/profile.php?id=61579794276869',
   },
 };
 

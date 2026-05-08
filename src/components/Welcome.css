@@ -1,6 +1,6 @@
 /* Section Version (Remains consistent with site) */
 .welcome {
-  padding: 80px 0;
+  padding: 20px 0;
   background-color: #f8fafc;
   position: relative;
   z-index: 10;
@@ -8,7 +8,7 @@
 
 .welcome__card {
   background: white;
-  padding: 60px 40px;
+  padding: 30px 40px;
   border-radius: var(--radius-2xl);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
   text-align: center;
@@ -31,9 +31,9 @@
 }
 
 .welcome__line {
-  width: 60px;
+  width: 90%;
   height: 4px;
-  background: var(--color-accent);
+  background: rgba(0, 77, 55, 0.7);
   margin: 0 auto 30px;
   border-radius: 10px;
 }
@@ -98,7 +98,7 @@
   color: var(--color-primary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 20;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .welcome-modal-close:hover {
@@ -205,20 +205,32 @@
 }
 
 @keyframes modalFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes modalSlideUp {
-  from { transform: translateY(60px) scale(0.9); opacity: 0; }
-  to { transform: translateY(0) scale(1); opacity: 1; }
+  from {
+    transform: translateY(60px) scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 640px) {
   .welcome-modal-content {
     padding: 0 25px 35px;
   }
-  
+
   .welcome-modal-header .welcome__title {
     font-size: 1.5rem;
   }
