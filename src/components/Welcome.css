@@ -226,6 +226,31 @@
   }
 }
 
+@media (max-width: 768px) {
+  .welcome {
+    padding: 40px 0;
+  }
+
+  .welcome__card {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  .welcome__title {
+    font-size: 1.85rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .welcome__brand {
+    display: inline-block;
+  }
+
+  .welcome__text {
+    font-size: 1.05rem;
+  }
+}
+
 @media (max-width: 640px) {
   .welcome-modal-content {
     padding: 0 25px 35px;
@@ -233,5 +258,22 @@
 
   .welcome-modal-header .welcome__title {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome__title {
+    font-size: 1.6rem;
+  }
+  
+  .welcome__line {
+    width: 60px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .welcome__title {
+    font-size: 1.4rem;
   }
 }

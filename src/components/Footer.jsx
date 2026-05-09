@@ -57,11 +57,17 @@ function Footer() {
         <div className="footer__col">
           <h4 className="footer__heading">Navigasi</h4>
           <ul className="footer__nav-list">
-            {navLinks.map((link) => (
-              <li key={link.path}>
-                <Link to={link.path}>{link.label}</Link>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              let footerPath = link.path;
+              if (link.label === 'Tentang Advokat') footerPath = '/visi-misi';
+              if (link.label === 'Layanan Advokat') footerPath = '/layanan-kami';
+
+              return (
+                <li key={link.label}>
+                  <Link to={footerPath}>{link.label}</Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
